@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
+		708B564A1763C76500A4F534 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 708B56481763C76500A4F534 /* InfoPlist.strings */; };
+		708B564E1763C76500A4F534 /* BNFParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B564D1763C76500A4F534 /* BNFParser.m */; };
+		708B56561763C76500A4F534 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B56551763C76500A4F534 /* SenTestingKit.framework */; };
+		708B56571763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
+		708B565A1763C76500A4F534 /* BNFParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563C1763C76500A4F534 /* BNFParser.framework */; };
+		708B56601763C76500A4F534 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 708B565E1763C76500A4F534 /* InfoPlist.strings */; };
+		708B56631763C76500A4F534 /* BNFParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 708B56621763C76500A4F534 /* BNFParserTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		708B56581763C76500A4F534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 708B56331763C76500A4F534 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 708B563B1763C76500A4F534;
+			remoteInfo = BNFParser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		708B563C1763C76500A4F534 /* BNFParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNFParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		708B563F1763C76500A4F534 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		708B56421763C76500A4F534 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		708B56431763C76500A4F534 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		708B56441763C76500A4F534 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		708B56471763C76500A4F534 /* BNFParser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BNFParser-Info.plist"; sourceTree = "<group>"; };
+		708B56491763C76500A4F534 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		708B564B1763C76500A4F534 /* BNFParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNFParser-Prefix.pch"; sourceTree = "<group>"; };
+		708B564C1763C76500A4F534 /* BNFParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNFParser.h; sourceTree = "<group>"; };
+		708B564D1763C76500A4F534 /* BNFParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNFParser.m; sourceTree = "<group>"; };
+		708B56541763C76500A4F534 /* BNFParserTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNFParserTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		708B56551763C76500A4F534 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		708B565D1763C76500A4F534 /* BNFParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BNFParserTests-Info.plist"; sourceTree = "<group>"; };
+		708B565F1763C76500A4F534 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		708B56611763C76500A4F534 /* BNFParserTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNFParserTests.h; sourceTree = "<group>"; };
+		708B56621763C76500A4F534 /* BNFParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNFParserTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		708B56381763C76500A4F534 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708B56501763C76500A4F534 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B56561763C76500A4F534 /* SenTestingKit.framework in Frameworks */,
+				708B56571763C76500A4F534 /* Cocoa.framework in Frameworks */,
+				708B565A1763C76500A4F534 /* BNFParser.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		708B56321763C76500A4F534 = {
+			isa = PBXGroup;
+			children = (
+				708B56451763C76500A4F534 /* BNFParser */,
+				708B565B1763C76500A4F534 /* BNFParserTests */,
+				708B563E1763C76500A4F534 /* Frameworks */,
+				708B563D1763C76500A4F534 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		708B563D1763C76500A4F534 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				708B563C1763C76500A4F534 /* BNFParser.framework */,
+				708B56541763C76500A4F534 /* BNFParserTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		708B563E1763C76500A4F534 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				708B563F1763C76500A4F534 /* Cocoa.framework */,
+				708B56551763C76500A4F534 /* SenTestingKit.framework */,
+				708B56411763C76500A4F534 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		708B56411763C76500A4F534 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				708B56421763C76500A4F534 /* AppKit.framework */,
+				708B56431763C76500A4F534 /* CoreData.framework */,
+				708B56441763C76500A4F534 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		708B56451763C76500A4F534 /* BNFParser */ = {
+			isa = PBXGroup;
+			children = (
+				708B564C1763C76500A4F534 /* BNFParser.h */,
+				708B564D1763C76500A4F534 /* BNFParser.m */,
+				708B56461763C76500A4F534 /* Supporting Files */,
+			);
+			path = BNFParser;
+			sourceTree = "<group>";
+		};
+		708B56461763C76500A4F534 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				708B56471763C76500A4F534 /* BNFParser-Info.plist */,
+				708B56481763C76500A4F534 /* InfoPlist.strings */,
+				708B564B1763C76500A4F534 /* BNFParser-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		708B565B1763C76500A4F534 /* BNFParserTests */ = {
+			isa = PBXGroup;
+			children = (
+				708B56611763C76500A4F534 /* BNFParserTests.h */,
+				708B56621763C76500A4F534 /* BNFParserTests.m */,
+				708B565C1763C76500A4F534 /* Supporting Files */,
+			);
+			path = BNFParserTests;
+			sourceTree = "<group>";
+		};
+		708B565C1763C76500A4F534 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				708B565D1763C76500A4F534 /* BNFParserTests-Info.plist */,
+				708B565E1763C76500A4F534 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		708B56391763C76500A4F534 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		708B563B1763C76500A4F534 /* BNFParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 708B56661763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParser" */;
+			buildPhases = (
+				708B56371763C76500A4F534 /* Sources */,
+				708B56381763C76500A4F534 /* Frameworks */,
+				708B56391763C76500A4F534 /* Headers */,
+				708B563A1763C76500A4F534 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BNFParser;
+			productName = BNFParser;
+			productReference = 708B563C1763C76500A4F534 /* BNFParser.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		708B56531763C76500A4F534 /* BNFParserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 708B56691763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParserTests" */;
+			buildPhases = (
+				708B564F1763C76500A4F534 /* Sources */,
+				708B56501763C76500A4F534 /* Frameworks */,
+				708B56511763C76500A4F534 /* Resources */,
+				708B56521763C76500A4F534 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				708B56591763C76500A4F534 /* PBXTargetDependency */,
+			);
+			name = BNFParserTests;
+			productName = BNFParserTests;
+			productReference = 708B56541763C76500A4F534 /* BNFParserTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		708B56331763C76500A4F534 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Mike Friesen";
+			};
+			buildConfigurationList = 708B56361763C76500A4F534 /* Build configuration list for PBXProject "BNFParser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 708B56321763C76500A4F534;
+			productRefGroup = 708B563D1763C76500A4F534 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				708B563B1763C76500A4F534 /* BNFParser */,
+				708B56531763C76500A4F534 /* BNFParserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		708B563A1763C76500A4F534 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B564A1763C76500A4F534 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708B56511763C76500A4F534 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B56601763C76500A4F534 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		708B56521763C76500A4F534 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		708B56371763C76500A4F534 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B564E1763C76500A4F534 /* BNFParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708B564F1763C76500A4F534 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B56631763C76500A4F534 /* BNFParserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		708B56591763C76500A4F534 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 708B563B1763C76500A4F534 /* BNFParser */;
+			targetProxy = 708B56581763C76500A4F534 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		708B56481763C76500A4F534 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				708B56491763C76500A4F534 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		708B565E1763C76500A4F534 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				708B565F1763C76500A4F534 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		708B56641763C76500A4F534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		708B56651763C76500A4F534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		708B56671763C76500A4F534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParser/BNFParser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		708B56681763C76500A4F534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParser/BNFParser-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		708B566A1763C76500A4F534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParserTests/BNFParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		708B566B1763C76500A4F534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParserTests/BNFParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		708B56361763C76500A4F534 /* Build configuration list for PBXProject "BNFParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708B56641763C76500A4F534 /* Debug */,
+				708B56651763C76500A4F534 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		708B56661763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708B56671763C76500A4F534 /* Debug */,
+				708B56681763C76500A4F534 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		708B56691763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708B566A1763C76500A4F534 /* Debug */,
+				708B566B1763C76500A4F534 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 708B56331763C76500A4F534 /* Project object */;
+}

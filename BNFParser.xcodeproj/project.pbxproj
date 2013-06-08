@@ -1,0 +1,712 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		700BE2101763CD79004E12B2 /* simple.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20B1763CD79004E12B2 /* simple.json */; };
+		700BE2111763CD79004E12B2 /* simple_nested.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20C1763CD79004E12B2 /* simple_nested.json */; };
+		700BE2121763CD79004E12B2 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20D1763CD79004E12B2 /* simple_array.json */; };
+		700BE2131763CD79004E12B2 /* array_nested.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20E1763CD79004E12B2 /* array_nested.json */; };
+		700BE2141763CD79004E12B2 /* bad.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20F1763CD79004E12B2 /* bad.json */; };
+		700BE2161763CDC0004E12B2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 700BE2151763CDC0004E12B2 /* README.md */; };
+		707307741763CAFE00CD1205 /* libParseKit2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 707307731763CAFE00CD1205 /* libParseKit2.a */; };
+		707307751763CAFE00CD1205 /* libParseKit2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 707307731763CAFE00CD1205 /* libParseKit2.a */; };
+		708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
+		708B564A1763C76500A4F534 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 708B56481763C76500A4F534 /* InfoPlist.strings */; };
+		708B56561763C76500A4F534 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B56551763C76500A4F534 /* SenTestingKit.framework */; };
+		708B56571763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
+		708B565A1763C76500A4F534 /* BNFParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563C1763C76500A4F534 /* BNFParser.framework */; };
+		708B56601763C76500A4F534 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 708B565E1763C76500A4F534 /* InfoPlist.strings */; };
+		70E4BDF51763C84700AEAD11 /* BNFComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDE31763C84700AEAD11 /* BNFComponent.h */; };
+		70E4BDF61763C84700AEAD11 /* BNFComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDE41763C84700AEAD11 /* BNFComponent.m */; };
+		70E4BDF71763C84700AEAD11 /* BNFParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDE51763C84700AEAD11 /* BNFParser.h */; };
+		70E4BDF81763C84700AEAD11 /* BNFParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDE61763C84700AEAD11 /* BNFParser.m */; };
+		70E4BDF91763C84700AEAD11 /* BNFParserFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDE71763C84700AEAD11 /* BNFParserFactory.h */; };
+		70E4BDFA1763C84700AEAD11 /* BNFParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDE81763C84700AEAD11 /* BNFParserFactory.m */; };
+		70E4BDFB1763C84700AEAD11 /* BNFParserStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDE91763C84700AEAD11 /* BNFParserStatus.h */; };
+		70E4BDFC1763C84700AEAD11 /* BNFParserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDEA1763C84700AEAD11 /* BNFParserStatus.m */; };
+		70E4BDFD1763C84700AEAD11 /* BNFPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDEB1763C84700AEAD11 /* BNFPath.h */; };
+		70E4BDFE1763C84700AEAD11 /* BNFPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDEC1763C84700AEAD11 /* BNFPath.m */; };
+		70E4BDFF1763C84700AEAD11 /* BNFState.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDED1763C84700AEAD11 /* BNFState.h */; };
+		70E4BE001763C84700AEAD11 /* BNFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDEE1763C84700AEAD11 /* BNFState.m */; };
+		70E4BE011763C84700AEAD11 /* BNFStateEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDEF1763C84700AEAD11 /* BNFStateEmpty.h */; };
+		70E4BE021763C84700AEAD11 /* BNFStateEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDF01763C84700AEAD11 /* BNFStateEmpty.m */; };
+		70E4BE031763C84700AEAD11 /* BNFStateNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDF11763C84700AEAD11 /* BNFStateNumber.h */; };
+		70E4BE041763C84700AEAD11 /* BNFStateNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDF21763C84700AEAD11 /* BNFStateNumber.m */; };
+		70E4BE051763C84700AEAD11 /* BNFStateQuotedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDF31763C84700AEAD11 /* BNFStateQuotedString.h */; };
+		70E4BE061763C84700AEAD11 /* BNFStateQuotedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDF41763C84700AEAD11 /* BNFStateQuotedString.m */; };
+		70E4BE081763C84F00AEAD11 /* json.bnf in Resources */ = {isa = PBXBuildFile; fileRef = 70E4BE071763C84F00AEAD11 /* json.bnf */; };
+		70E4BE101763C86200AEAD11 /* BNFTokenizerFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE0A1763C86200AEAD11 /* BNFTokenizerFactory.h */; };
+		70E4BE111763C86200AEAD11 /* BNFTokenizerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE0B1763C86200AEAD11 /* BNFTokenizerFactory.m */; };
+		70E4BE121763C86200AEAD11 /* BNFTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE0C1763C86200AEAD11 /* BNFTokenizer.h */; };
+		70E4BE131763C86200AEAD11 /* BNFTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE0D1763C86200AEAD11 /* BNFTokenizer.m */; };
+		70E4BE141763C86200AEAD11 /* BNFToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE0E1763C86200AEAD11 /* BNFToken.h */; };
+		70E4BE151763C86200AEAD11 /* BNFToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE0F1763C86200AEAD11 /* BNFToken.m */; };
+		70E4BE1D1763C87200AEAD11 /* BNFTreeFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE171763C87200AEAD11 /* BNFTreeFactory.h */; };
+		70E4BE1E1763C87200AEAD11 /* BNFTreeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE181763C87200AEAD11 /* BNFTreeFactory.m */; };
+		70E4BE1F1763C87200AEAD11 /* BNFTreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE191763C87200AEAD11 /* BNFTreeNode.h */; };
+		70E4BE201763C87200AEAD11 /* BNFTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE1A1763C87200AEAD11 /* BNFTreeNode.m */; };
+		70E4BE211763C87200AEAD11 /* BNFTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE1B1763C87200AEAD11 /* BNFTree.h */; };
+		70E4BE221763C87200AEAD11 /* BNFTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE1C1763C87200AEAD11 /* BNFTree.m */; };
+		70E4BE261763C88100AEAD11 /* Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE241763C88100AEAD11 /* Stack.h */; };
+		70E4BE271763C88100AEAD11 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE251763C88100AEAD11 /* Stack.m */; };
+		70E4BE2E1763C8C000AEAD11 /* BNFParserFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE291763C8C000AEAD11 /* BNFParserFactoryTests.m */; };
+		70E4BE2F1763C8C000AEAD11 /* BNFParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE2B1763C8C000AEAD11 /* BNFParserTests.m */; };
+		70E4BE301763C8C000AEAD11 /* BNFTreeFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */; };
+		70E4BE311763C90F00AEAD11 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CA945E981C4822B65EBDEE /* libPods.a */; };
+		8A8C319571144272925ADDCA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CA945E981C4822B65EBDEE /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		708B56581763C76500A4F534 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 708B56331763C76500A4F534 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 708B563B1763C76500A4F534;
+			remoteInfo = BNFParser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		67CA945E981C4822B65EBDEE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		700BE20B1763CD79004E12B2 /* simple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple.json; sourceTree = "<group>"; };
+		700BE20C1763CD79004E12B2 /* simple_nested.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_nested.json; sourceTree = "<group>"; };
+		700BE20D1763CD79004E12B2 /* simple_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_array.json; sourceTree = "<group>"; };
+		700BE20E1763CD79004E12B2 /* array_nested.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = array_nested.json; sourceTree = "<group>"; };
+		700BE20F1763CD79004E12B2 /* bad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad.json; sourceTree = "<group>"; };
+		700BE2151763CDC0004E12B2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		707307731763CAFE00CD1205 /* libParseKit2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libParseKit2.a; sourceTree = "<group>"; };
+		708B563C1763C76500A4F534 /* BNFParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNFParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		708B563F1763C76500A4F534 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		708B56421763C76500A4F534 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		708B56431763C76500A4F534 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		708B56441763C76500A4F534 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		708B56471763C76500A4F534 /* BNFParser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BNFParser-Info.plist"; sourceTree = "<group>"; };
+		708B56491763C76500A4F534 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		708B564B1763C76500A4F534 /* BNFParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BNFParser-Prefix.pch"; sourceTree = "<group>"; };
+		708B56541763C76500A4F534 /* BNFParserTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BNFParserTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		708B56551763C76500A4F534 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		708B565D1763C76500A4F534 /* BNFParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BNFParserTests-Info.plist"; sourceTree = "<group>"; };
+		708B565F1763C76500A4F534 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		70E4BDE31763C84700AEAD11 /* BNFComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFComponent.h; sourceTree = "<group>"; };
+		70E4BDE41763C84700AEAD11 /* BNFComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFComponent.m; sourceTree = "<group>"; };
+		70E4BDE51763C84700AEAD11 /* BNFParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParser.h; sourceTree = "<group>"; };
+		70E4BDE61763C84700AEAD11 /* BNFParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParser.m; sourceTree = "<group>"; };
+		70E4BDE71763C84700AEAD11 /* BNFParserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserFactory.h; sourceTree = "<group>"; };
+		70E4BDE81763C84700AEAD11 /* BNFParserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserFactory.m; sourceTree = "<group>"; };
+		70E4BDE91763C84700AEAD11 /* BNFParserStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserStatus.h; sourceTree = "<group>"; };
+		70E4BDEA1763C84700AEAD11 /* BNFParserStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserStatus.m; sourceTree = "<group>"; };
+		70E4BDEB1763C84700AEAD11 /* BNFPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFPath.h; sourceTree = "<group>"; };
+		70E4BDEC1763C84700AEAD11 /* BNFPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFPath.m; sourceTree = "<group>"; };
+		70E4BDED1763C84700AEAD11 /* BNFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFState.h; sourceTree = "<group>"; };
+		70E4BDEE1763C84700AEAD11 /* BNFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFState.m; sourceTree = "<group>"; };
+		70E4BDEF1763C84700AEAD11 /* BNFStateEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateEmpty.h; sourceTree = "<group>"; };
+		70E4BDF01763C84700AEAD11 /* BNFStateEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateEmpty.m; sourceTree = "<group>"; };
+		70E4BDF11763C84700AEAD11 /* BNFStateNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateNumber.h; sourceTree = "<group>"; };
+		70E4BDF21763C84700AEAD11 /* BNFStateNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateNumber.m; sourceTree = "<group>"; };
+		70E4BDF31763C84700AEAD11 /* BNFStateQuotedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateQuotedString.h; sourceTree = "<group>"; };
+		70E4BDF41763C84700AEAD11 /* BNFStateQuotedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateQuotedString.m; sourceTree = "<group>"; };
+		70E4BE071763C84F00AEAD11 /* json.bnf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.bnf; sourceTree = "<group>"; };
+		70E4BE0A1763C86200AEAD11 /* BNFTokenizerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTokenizerFactory.h; sourceTree = "<group>"; };
+		70E4BE0B1763C86200AEAD11 /* BNFTokenizerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTokenizerFactory.m; sourceTree = "<group>"; };
+		70E4BE0C1763C86200AEAD11 /* BNFTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTokenizer.h; sourceTree = "<group>"; };
+		70E4BE0D1763C86200AEAD11 /* BNFTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTokenizer.m; sourceTree = "<group>"; };
+		70E4BE0E1763C86200AEAD11 /* BNFToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFToken.h; sourceTree = "<group>"; };
+		70E4BE0F1763C86200AEAD11 /* BNFToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFToken.m; sourceTree = "<group>"; };
+		70E4BE171763C87200AEAD11 /* BNFTreeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTreeFactory.h; sourceTree = "<group>"; };
+		70E4BE181763C87200AEAD11 /* BNFTreeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTreeFactory.m; sourceTree = "<group>"; };
+		70E4BE191763C87200AEAD11 /* BNFTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTreeNode.h; sourceTree = "<group>"; };
+		70E4BE1A1763C87200AEAD11 /* BNFTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTreeNode.m; sourceTree = "<group>"; };
+		70E4BE1B1763C87200AEAD11 /* BNFTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTree.h; sourceTree = "<group>"; };
+		70E4BE1C1763C87200AEAD11 /* BNFTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTree.m; sourceTree = "<group>"; };
+		70E4BE241763C88100AEAD11 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		70E4BE251763C88100AEAD11 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		70E4BE281763C8C000AEAD11 /* BNFParserFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserFactoryTests.h; sourceTree = "<group>"; };
+		70E4BE291763C8C000AEAD11 /* BNFParserFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserFactoryTests.m; sourceTree = "<group>"; };
+		70E4BE2A1763C8C000AEAD11 /* BNFParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserTests.h; sourceTree = "<group>"; };
+		70E4BE2B1763C8C000AEAD11 /* BNFParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserTests.m; sourceTree = "<group>"; };
+		70E4BE2C1763C8C000AEAD11 /* BNFTreeFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTreeFactoryTests.h; sourceTree = "<group>"; };
+		70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTreeFactoryTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		708B56381763C76500A4F534 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */,
+				8A8C319571144272925ADDCA /* libPods.a in Frameworks */,
+				707307741763CAFE00CD1205 /* libParseKit2.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708B56501763C76500A4F534 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70E4BE311763C90F00AEAD11 /* libPods.a in Frameworks */,
+				708B56561763C76500A4F534 /* SenTestingKit.framework in Frameworks */,
+				708B56571763C76500A4F534 /* Cocoa.framework in Frameworks */,
+				708B565A1763C76500A4F534 /* BNFParser.framework in Frameworks */,
+				707307751763CAFE00CD1205 /* libParseKit2.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		708B56321763C76500A4F534 = {
+			isa = PBXGroup;
+			children = (
+				708B56451763C76500A4F534 /* BNFParser */,
+				708B565B1763C76500A4F534 /* BNFParserTests */,
+				708B563E1763C76500A4F534 /* Frameworks */,
+				708B563D1763C76500A4F534 /* Products */,
+				1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		708B563D1763C76500A4F534 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				708B563C1763C76500A4F534 /* BNFParser.framework */,
+				708B56541763C76500A4F534 /* BNFParserTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		708B563E1763C76500A4F534 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				708B563F1763C76500A4F534 /* Cocoa.framework */,
+				708B56551763C76500A4F534 /* SenTestingKit.framework */,
+				708B56411763C76500A4F534 /* Other Frameworks */,
+				67CA945E981C4822B65EBDEE /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		708B56411763C76500A4F534 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				708B56421763C76500A4F534 /* AppKit.framework */,
+				708B56431763C76500A4F534 /* CoreData.framework */,
+				708B56441763C76500A4F534 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		708B56451763C76500A4F534 /* BNFParser */ = {
+			isa = PBXGroup;
+			children = (
+				700BE2151763CDC0004E12B2 /* README.md */,
+				70E4BE231763C87600AEAD11 /* Util */,
+				70E4BE161763C86700AEAD11 /* BNFTree */,
+				70E4BE091763C85600AEAD11 /* BNFTokenizer */,
+				70E4BDE31763C84700AEAD11 /* BNFComponent.h */,
+				70E4BDE41763C84700AEAD11 /* BNFComponent.m */,
+				70E4BDE51763C84700AEAD11 /* BNFParser.h */,
+				70E4BDE61763C84700AEAD11 /* BNFParser.m */,
+				70E4BDE71763C84700AEAD11 /* BNFParserFactory.h */,
+				70E4BDE81763C84700AEAD11 /* BNFParserFactory.m */,
+				70E4BDE91763C84700AEAD11 /* BNFParserStatus.h */,
+				70E4BDEA1763C84700AEAD11 /* BNFParserStatus.m */,
+				70E4BDEB1763C84700AEAD11 /* BNFPath.h */,
+				70E4BDEC1763C84700AEAD11 /* BNFPath.m */,
+				70E4BDED1763C84700AEAD11 /* BNFState.h */,
+				70E4BDEE1763C84700AEAD11 /* BNFState.m */,
+				70E4BDEF1763C84700AEAD11 /* BNFStateEmpty.h */,
+				70E4BDF01763C84700AEAD11 /* BNFStateEmpty.m */,
+				70E4BDF11763C84700AEAD11 /* BNFStateNumber.h */,
+				70E4BDF21763C84700AEAD11 /* BNFStateNumber.m */,
+				70E4BDF31763C84700AEAD11 /* BNFStateQuotedString.h */,
+				70E4BDF41763C84700AEAD11 /* BNFStateQuotedString.m */,
+				70E4BDDF1763C80500AEAD11 /* External Frameworks and Libraries */,
+				708B56461763C76500A4F534 /* Supporting Files */,
+			);
+			path = BNFParser;
+			sourceTree = "<group>";
+		};
+		708B56461763C76500A4F534 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70E4BE071763C84F00AEAD11 /* json.bnf */,
+				708B56471763C76500A4F534 /* BNFParser-Info.plist */,
+				708B56481763C76500A4F534 /* InfoPlist.strings */,
+				708B564B1763C76500A4F534 /* BNFParser-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		708B565B1763C76500A4F534 /* BNFParserTests */ = {
+			isa = PBXGroup;
+			children = (
+				70E4BE281763C8C000AEAD11 /* BNFParserFactoryTests.h */,
+				70E4BE291763C8C000AEAD11 /* BNFParserFactoryTests.m */,
+				70E4BE2A1763C8C000AEAD11 /* BNFParserTests.h */,
+				70E4BE2B1763C8C000AEAD11 /* BNFParserTests.m */,
+				70E4BE2C1763C8C000AEAD11 /* BNFTreeFactoryTests.h */,
+				70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */,
+				708B565C1763C76500A4F534 /* Supporting Files */,
+			);
+			path = BNFParserTests;
+			sourceTree = "<group>";
+		};
+		708B565C1763C76500A4F534 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				700BE20B1763CD79004E12B2 /* simple.json */,
+				700BE20C1763CD79004E12B2 /* simple_nested.json */,
+				700BE20D1763CD79004E12B2 /* simple_array.json */,
+				700BE20E1763CD79004E12B2 /* array_nested.json */,
+				700BE20F1763CD79004E12B2 /* bad.json */,
+				708B565D1763C76500A4F534 /* BNFParserTests-Info.plist */,
+				708B565E1763C76500A4F534 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70E4BDDF1763C80500AEAD11 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				707307731763CAFE00CD1205 /* libParseKit2.a */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		70E4BE091763C85600AEAD11 /* BNFTokenizer */ = {
+			isa = PBXGroup;
+			children = (
+				70E4BE0A1763C86200AEAD11 /* BNFTokenizerFactory.h */,
+				70E4BE0B1763C86200AEAD11 /* BNFTokenizerFactory.m */,
+				70E4BE0C1763C86200AEAD11 /* BNFTokenizer.h */,
+				70E4BE0D1763C86200AEAD11 /* BNFTokenizer.m */,
+				70E4BE0E1763C86200AEAD11 /* BNFToken.h */,
+				70E4BE0F1763C86200AEAD11 /* BNFToken.m */,
+			);
+			name = BNFTokenizer;
+			sourceTree = "<group>";
+		};
+		70E4BE161763C86700AEAD11 /* BNFTree */ = {
+			isa = PBXGroup;
+			children = (
+				70E4BE171763C87200AEAD11 /* BNFTreeFactory.h */,
+				70E4BE181763C87200AEAD11 /* BNFTreeFactory.m */,
+				70E4BE191763C87200AEAD11 /* BNFTreeNode.h */,
+				70E4BE1A1763C87200AEAD11 /* BNFTreeNode.m */,
+				70E4BE1B1763C87200AEAD11 /* BNFTree.h */,
+				70E4BE1C1763C87200AEAD11 /* BNFTree.m */,
+			);
+			name = BNFTree;
+			sourceTree = "<group>";
+		};
+		70E4BE231763C87600AEAD11 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				70E4BE241763C88100AEAD11 /* Stack.h */,
+				70E4BE251763C88100AEAD11 /* Stack.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		708B56391763C76500A4F534 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70E4BDF51763C84700AEAD11 /* BNFComponent.h in Headers */,
+				70E4BDF71763C84700AEAD11 /* BNFParser.h in Headers */,
+				70E4BDF91763C84700AEAD11 /* BNFParserFactory.h in Headers */,
+				70E4BDFB1763C84700AEAD11 /* BNFParserStatus.h in Headers */,
+				70E4BDFD1763C84700AEAD11 /* BNFPath.h in Headers */,
+				70E4BDFF1763C84700AEAD11 /* BNFState.h in Headers */,
+				70E4BE011763C84700AEAD11 /* BNFStateEmpty.h in Headers */,
+				70E4BE031763C84700AEAD11 /* BNFStateNumber.h in Headers */,
+				70E4BE051763C84700AEAD11 /* BNFStateQuotedString.h in Headers */,
+				70E4BE101763C86200AEAD11 /* BNFTokenizerFactory.h in Headers */,
+				70E4BE121763C86200AEAD11 /* BNFTokenizer.h in Headers */,
+				70E4BE141763C86200AEAD11 /* BNFToken.h in Headers */,
+				70E4BE1D1763C87200AEAD11 /* BNFTreeFactory.h in Headers */,
+				70E4BE1F1763C87200AEAD11 /* BNFTreeNode.h in Headers */,
+				70E4BE211763C87200AEAD11 /* BNFTree.h in Headers */,
+				70E4BE261763C88100AEAD11 /* Stack.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		708B563B1763C76500A4F534 /* BNFParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 708B56661763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParser" */;
+			buildPhases = (
+				8791C990B02B4C069CCA46C8 /* Check Pods Manifest.lock */,
+				708B56371763C76500A4F534 /* Sources */,
+				708B56381763C76500A4F534 /* Frameworks */,
+				708B56391763C76500A4F534 /* Headers */,
+				708B563A1763C76500A4F534 /* Resources */,
+				E99F3FCC2D97460BA7E6ECE2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BNFParser;
+			productName = BNFParser;
+			productReference = 708B563C1763C76500A4F534 /* BNFParser.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		708B56531763C76500A4F534 /* BNFParserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 708B56691763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParserTests" */;
+			buildPhases = (
+				708B564F1763C76500A4F534 /* Sources */,
+				708B56501763C76500A4F534 /* Frameworks */,
+				708B56511763C76500A4F534 /* Resources */,
+				708B56521763C76500A4F534 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				708B56591763C76500A4F534 /* PBXTargetDependency */,
+			);
+			name = BNFParserTests;
+			productName = BNFParserTests;
+			productReference = 708B56541763C76500A4F534 /* BNFParserTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		708B56331763C76500A4F534 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Mike Friesen";
+			};
+			buildConfigurationList = 708B56361763C76500A4F534 /* Build configuration list for PBXProject "BNFParser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 708B56321763C76500A4F534;
+			productRefGroup = 708B563D1763C76500A4F534 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				708B563B1763C76500A4F534 /* BNFParser */,
+				708B56531763C76500A4F534 /* BNFParserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		708B563A1763C76500A4F534 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B564A1763C76500A4F534 /* InfoPlist.strings in Resources */,
+				70E4BE081763C84F00AEAD11 /* json.bnf in Resources */,
+				700BE2161763CDC0004E12B2 /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708B56511763C76500A4F534 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708B56601763C76500A4F534 /* InfoPlist.strings in Resources */,
+				700BE2101763CD79004E12B2 /* simple.json in Resources */,
+				700BE2111763CD79004E12B2 /* simple_nested.json in Resources */,
+				700BE2121763CD79004E12B2 /* simple_array.json in Resources */,
+				700BE2131763CD79004E12B2 /* array_nested.json in Resources */,
+				700BE2141763CD79004E12B2 /* bad.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		708B56521763C76500A4F534 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		8791C990B02B4C069CCA46C8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		E99F3FCC2D97460BA7E6ECE2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		708B56371763C76500A4F534 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70E4BDF61763C84700AEAD11 /* BNFComponent.m in Sources */,
+				70E4BDF81763C84700AEAD11 /* BNFParser.m in Sources */,
+				70E4BDFA1763C84700AEAD11 /* BNFParserFactory.m in Sources */,
+				70E4BDFC1763C84700AEAD11 /* BNFParserStatus.m in Sources */,
+				70E4BDFE1763C84700AEAD11 /* BNFPath.m in Sources */,
+				70E4BE001763C84700AEAD11 /* BNFState.m in Sources */,
+				70E4BE021763C84700AEAD11 /* BNFStateEmpty.m in Sources */,
+				70E4BE041763C84700AEAD11 /* BNFStateNumber.m in Sources */,
+				70E4BE061763C84700AEAD11 /* BNFStateQuotedString.m in Sources */,
+				70E4BE111763C86200AEAD11 /* BNFTokenizerFactory.m in Sources */,
+				70E4BE131763C86200AEAD11 /* BNFTokenizer.m in Sources */,
+				70E4BE151763C86200AEAD11 /* BNFToken.m in Sources */,
+				70E4BE1E1763C87200AEAD11 /* BNFTreeFactory.m in Sources */,
+				70E4BE201763C87200AEAD11 /* BNFTreeNode.m in Sources */,
+				70E4BE221763C87200AEAD11 /* BNFTree.m in Sources */,
+				70E4BE271763C88100AEAD11 /* Stack.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		708B564F1763C76500A4F534 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70E4BE2E1763C8C000AEAD11 /* BNFParserFactoryTests.m in Sources */,
+				70E4BE2F1763C8C000AEAD11 /* BNFParserTests.m in Sources */,
+				70E4BE301763C8C000AEAD11 /* BNFTreeFactoryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		708B56591763C76500A4F534 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 708B563B1763C76500A4F534 /* BNFParser */;
+			targetProxy = 708B56581763C76500A4F534 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		708B56481763C76500A4F534 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				708B56491763C76500A4F534 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		708B565E1763C76500A4F534 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				708B565F1763C76500A4F534 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		708B56641763C76500A4F534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		708B56651763C76500A4F534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		708B56671763C76500A4F534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParser/BNFParser-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BNFParser\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		708B56681763C76500A4F534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParser/BNFParser-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BNFParser\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		708B566A1763C76500A4F534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParserTests/BNFParserTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BNFParser\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		708B566B1763C76500A4F534 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BNFParser/BNFParser-Prefix.pch";
+				INFOPLIST_FILE = "BNFParserTests/BNFParserTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BNFParser\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		708B56361763C76500A4F534 /* Build configuration list for PBXProject "BNFParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708B56641763C76500A4F534 /* Debug */,
+				708B56651763C76500A4F534 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		708B56661763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708B56671763C76500A4F534 /* Debug */,
+				708B56681763C76500A4F534 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		708B56691763C76500A4F534 /* Build configuration list for PBXNativeTarget "BNFParserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708B566A1763C76500A4F534 /* Debug */,
+				708B566B1763C76500A4F534 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 708B56331763C76500A4F534 /* Project object */;
+}

@@ -1,0 +1,10 @@
+PODS:
+  - ParseKit (0.7)
+
+DEPENDENCIES:
+  - ParseKit (= 0.7)
+
+SPEC CHECKSUMS:
+  ParseKit: cdc8305c8c8db91a3bec773009ebf6a3f4533a2c
+
+COCOAPODS: 0.20.2

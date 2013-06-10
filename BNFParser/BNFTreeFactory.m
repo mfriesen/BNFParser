@@ -88,7 +88,7 @@
         
     NSMutableString *ms = [[NSMutableString alloc] init];
     
-    while (![token isLastToken]) {
+    while (token && ![token isLastToken]) {
         
         BNFTreeNode *top = [stack top];
         BOOL haserror = errorPosition > -1 && errorPosition <= [token position];

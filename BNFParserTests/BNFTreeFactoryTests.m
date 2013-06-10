@@ -28,6 +28,16 @@
     [super tearDown];
 }
 
+- (void)testNull {
+    
+    BNFParserStatus *status = [[BNFParserStatus alloc] init];
+    
+    BNFTree *tree = [_factory json:status];
+    STAssertTrue([[tree nodes] count] == 0, @"assume no childre");
+
+    [status release];
+}
+
 - (void)testFormatValidString01 {
     NSString *str = @"{\"id\":\"118019484951173_228591\"}";
     BNFParserStatus *status = [self buildFromString:str];

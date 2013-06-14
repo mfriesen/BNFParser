@@ -21,6 +21,7 @@
 		708B56571763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
 		708B565A1763C76500A4F534 /* BNFParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563C1763C76500A4F534 /* BNFParser.framework */; };
 		708B56601763C76500A4F534 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 708B565E1763C76500A4F534 /* InfoPlist.strings */; };
+		70C67ED7176AC86A00AD6B99 /* group-members.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C67ED6176AC86A00AD6B99 /* group-members.json */; };
 		70E4BDF51763C84700AEAD11 /* BNFComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDE31763C84700AEAD11 /* BNFComponent.h */; };
 		70E4BDF61763C84700AEAD11 /* BNFComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BDE41763C84700AEAD11 /* BNFComponent.m */; };
 		70E4BDF71763C84700AEAD11 /* BNFParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BDE51763C84700AEAD11 /* BNFParser.h */; };
@@ -93,6 +94,7 @@
 		708B56551763C76500A4F534 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		708B565D1763C76500A4F534 /* BNFParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BNFParserTests-Info.plist"; sourceTree = "<group>"; };
 		708B565F1763C76500A4F534 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		70C67ED6176AC86A00AD6B99 /* group-members.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "group-members.json"; sourceTree = "<group>"; };
 		70E4BDE31763C84700AEAD11 /* BNFComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFComponent.h; sourceTree = "<group>"; };
 		70E4BDE41763C84700AEAD11 /* BNFComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFComponent.m; sourceTree = "<group>"; };
 		70E4BDE51763C84700AEAD11 /* BNFParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParser.h; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				700BE20F1763CD79004E12B2 /* bad.json */,
 				708B565D1763C76500A4F534 /* BNFParserTests-Info.plist */,
 				708B565E1763C76500A4F534 /* InfoPlist.strings */,
+				70C67ED6176AC86A00AD6B99 /* group-members.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				700BE2121763CD79004E12B2 /* simple_array.json in Resources */,
 				700BE2131763CD79004E12B2 /* array_nested.json in Resources */,
 				700BE2141763CD79004E12B2 /* bad.json in Resources */,
+				70C67ED7176AC86A00AD6B99 /* group-members.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

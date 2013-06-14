@@ -105,9 +105,11 @@
     STAssertTrue([token position] == 30, @"positon %d", [token position]);
 }
 
+
 - (BNFParserStatus *)validateJsonFile:(NSString *)file {
     NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:file ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile: path];
+    STAssertNotNil(data, @"data is nil");
     NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     BNFParser *parser = [_factory json];

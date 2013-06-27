@@ -17,28 +17,58 @@
 
 @implementation BNFToken
 
-@synthesize position = _position;
-@synthesize nextToken = _nextToken;
-@synthesize isLastToken = _isLastToken;
-@synthesize stringValue = _stringValue;
-
-- (id)initWithToken:(PKToken *)token position:(NSInteger)position {
-    
+- (id)init {
     self = [super init];
-    
     if (self) {
         
-        [self setPosition:position];
-        PKToken *eof = [PKToken EOFToken];
-        [self setIsLastToken:token == eof];
-        [self setStringValue:[token stringValue]];
     }
     
     return self;
 }
+- (id)initWithValue:(NSString *)value {
+    self = [super init];
+    if (self) {
+        [self setValueWithString:value];
+    }
+    return self;
+}
+
+- (void)appendValue:(char)ch {
+    [_value appendString:[NSString stringWithFormat:@"%c",ch]];
+}
+
+- (BOOL)isSymbol {
+    return _type == BNFTokenType_SYMBOL;
+}
+
+- (BOOL)isWord {
+    return _type == BNFTokenType_WORD;
+}
+
+- (BOOL)isQuotedString {
+    return _type == BNFTokenType_QUOTED_STRING;
+}
+
+- (BOOL)isNumber {
+    return _type == BNFTokenType_NUMBER;
+}
+
+- (BOOL)isComment {
+    return _type == BNFTokenType_COMMENT;
+}
+
+- (BOOL)isWhitespace {
+    return _type == BNFTokenType_WHITESPACE;
+}
+
+- (void)setValueWithString:(NSString *)value {
+    NSMutableString *s = [[NSMutableString alloc] initWithString:value];
+    [self setValue:s];
+    [s release];
+}
 
 - (void)dealloc {
-    [_stringValue release];
+    [_value release];
     [_nextToken release];
     [super dealloc];
 }

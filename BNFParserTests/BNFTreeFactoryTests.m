@@ -14,7 +14,7 @@
 //  limitations under the License.
 
 #import "BNFTreeFactoryTests.h"
-#import "BNFParserFactory.h"
+//#import "BNFParserFactory.h"
 
 @implementation BNFTreeFactoryTests
 
@@ -27,7 +27,7 @@
     [_factory release];
     [super tearDown];
 }
-
+/*
 - (void)testNull {
     
     BNFParserStatus *status = [[BNFParserStatus alloc] init];
@@ -185,5 +185,5 @@
     BNFParser *parser = [parserFactory json];
     return [parser parse:json];
 }
-
+*/
 @end

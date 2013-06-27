@@ -14,12 +14,31 @@
 //  limitations under the License.
 
 #import <Foundation/Foundation.h>
-#import "BNFTokenizer.h"
 #import "BNFToken.h"
+#import "BNFTokenizerParams.h"
 
 @interface BNFTokenizerFactory : NSObject
 
-- (BNFTokenizer *)tokenizerWithString:(NSString *)string;
+typedef enum BNFTokenizerType : NSInteger {
+    BNFTokenizerType_NONE,
+    BNFTokenizerType_COMMENT_SINGLE_LINE,
+    BNFTokenizerType_COMMENT_MULTI_LINE,
+    BNFTokenizerType_QUOTE_SINGLE,
+    BNFTokenizerType_QUOTE_DOUBLE,
+    BNFTokenizerType_NUMBER,
+    BNFTokenizerType_LETTER,
+    BNFTokenizerType_SYMBOL,
+    BNFTokenizerType_SYMBOL_HASH,
+    BNFTokenizerType_SYMBOL_AT,
+    BNFTokenizerType_SYMBOL_STAR,
+    BNFTokenizerType_SYMBOL_SLASH_FORWARD,
+    BNFTokenizerType_WHITESPACE,
+    BNFTokenizerType_WHITESPACE_OTHER,
+    BNFTokenizerType_WHITESPACE_NEWLINE
+} BNFTokenizerType;
+
+- (BNFToken *)tokens:(NSString *)text;
+- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params;
 
 @end
 

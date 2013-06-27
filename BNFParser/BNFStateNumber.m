@@ -1,35 +1,27 @@
 //
-//  Copyright (c) 2013 Mike Friesen
+//  BNFStateNumber.m
+//  BNFParser
 //
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
+//  Created by Mike Friesen on 2013-06-22.
+//  Copyright (c) 2013 Mike Friesen. All rights reserved.
 //
-//  http://www.apache.org/licenses/LICENSE-2.0
-//
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
 
 #import "BNFStateNumber.h"
 
 @implementation BNFStateNumber
 
-- (void)parse:(BNFParserStatus *)status states:(NSMutableDictionary *)states repetition:(BNFRepetition)repetition {
-    BNFToken *token = [status current];
+- (BOOL)match:(BNFToken *)token {
+    NSError *error = NULL;
     
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    NSNumber *num = [formatter numberFromString:[token stringValue]];
+    NSString *string = [token value];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[\\d\\-\\.]+$"
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:&error];
     
-    if (num) {
-        [status setStatus:STATE_COMPLETE];
-    } else {
-        [status setStatus:STATE_FAILED];
-    }
-    
-    [formatter release];
+    NSUInteger numberOfMatches = [regex numberOfMatchesInString:string
+                                  options:0
+                                  range:NSMakeRange(0, [string length])];
+    return numberOfMatches > 0;
 }
 
 @end

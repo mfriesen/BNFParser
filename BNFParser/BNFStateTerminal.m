@@ -1,5 +1,5 @@
 //
-//  BNFStateQuotedString.h
+//  BNFStateTerminal.m
 //  BNFParser
 //
 //  Created by Mike Friesen on 2013-06-22.
@@ -8,6 +8,14 @@
 
 #import "BNFStateTerminal.h"
 
-@interface BNFStateQuotedString : BNFStateTerminal
+@implementation BNFStateTerminal
+
+- (BOOL)isTerminal {
+    return TRUE;
+}
+
+- (void)dealloc {
+    [super dealloc];
+}
 
 @end

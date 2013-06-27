@@ -17,7 +17,7 @@
 #import "Stack.h"
 
 @implementation BNFTreeFactory
-
+/*
 - (BNFTree *)json:(BNFParserStatus *)status {
     
     NSInteger errorPosition = [self errorPosition:[status error]];
@@ -189,5 +189,5 @@
         token = [token nextToken];
     }
 }
-
+*/
 @end

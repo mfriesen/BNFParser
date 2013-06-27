@@ -17,14 +17,11 @@
 
 @implementation Stack
 
-@synthesize m_array = _m_array;
-@synthesize count = _count;
-
 - (id)init {
     
     if (self = [super init] ) {
         NSMutableArray *list = [[NSMutableArray alloc] init];
-        [self setM_array:list];
+        [self setObjects:list];
         [list release];
         
         [self setCount:0];
@@ -34,20 +31,29 @@
 }
 
 - (void)dealloc {
-    [_m_array release];
+    [_objects release];
     [super dealloc];
 }
 
-- (void)push:(id)anObject {
-    [_m_array addObject:anObject];
-    [self setCount:[_m_array count]];
+- (id)firstElement {
+    id obj = nil;
+    if ([_objects count] > 0) {
+        obj = [[[_objects objectAtIndex:0] retain] autorelease];
+    }
+    
+    return obj;
 }
 
-- (id)top {
+- (void)push:(id)anObject {
+    [_objects addObject:anObject];
+    [self setCount:[_objects count]];
+}
+
+- (id)peek {
     
     id obj = nil;
-    if ([_m_array count] > 0) {
-        obj = [[[_m_array lastObject]retain]autorelease];
+    if ([_objects count] > 0) {
+        obj = [[[_objects lastObject] retain] autorelease];
     }
     
     return obj;
@@ -56,21 +62,21 @@
 - (id)pop {
     
     id obj = nil;
-    if ([_m_array count] > 0) {
-        obj = [[[_m_array lastObject]retain]autorelease];
-        [_m_array removeLastObject];
-        [self setCount:[_m_array count]];
+    if ([_objects count] > 0) {
+        obj = [[[_objects lastObject] retain] autorelease];
+        [_objects removeLastObject];
+        [self setCount:[_objects count]];
     }
     
     return obj;
 }
 
 - (void)clear {
-    [_m_array removeAllObjects];
+    [_objects removeAllObjects];
     [self setCount:0];
 }
 
-- (BOOL)empty {
+- (BOOL)isEmpty {
     return _count == 0;
 }
 

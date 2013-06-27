@@ -18,11 +18,30 @@
 
 @interface BNFToken : NSObject
 
-@property (nonatomic, assign) BOOL isLastToken;
-@property (nonatomic, assign) NSInteger position;
-@property (nonatomic, retain) NSString *stringValue;
+typedef enum BNFTokenType : NSInteger {
+    BNFTokenType_COMMENT,
+    BNFTokenType_QUOTED_STRING,
+    BNFTokenType_NUMBER,
+    BNFTokenType_WORD,
+    BNFTokenType_SYMBOL,
+    BNFTokenType_WHITESPACE,
+    BNFTokenType_WHITESPACE_NEWLINE
+} BNFTokenType;
+
+@property (nonatomic, assign) NSInteger identifier;
+@property (nonatomic, retain) NSMutableString *value;
+@property (nonatomic, assign) BNFTokenType type;
 @property (nonatomic, retain) BNFToken *nextToken;
 
-- (id)initWithToken:(PKToken *)token position:(NSInteger)position;
+- (id)init;
+- (id)initWithValue:(NSString *)value;
+- (void)appendValue:(char)ch;
+- (void)setValueWithString:(NSString *)s;
+- (BOOL)isSymbol;
+- (BOOL)isWord;
+- (BOOL)isQuotedString;
+- (BOOL)isNumber;
+- (BOOL)isComment;
+- (BOOL)isWhitespace;
 
 @end

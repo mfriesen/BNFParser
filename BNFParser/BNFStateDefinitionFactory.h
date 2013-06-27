@@ -1,5 +1,5 @@
 //
-//  BNFParserFactory.h
+//  BNFStateDefinitionFactory.h
 //  BNFParser
 //
 //  Created by Mike Friesen on 2013-06-23.
@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BNFParser.h"
 
-@interface BNFParserFactory : NSObject
+@interface BNFStateDefinitionFactory : NSObject
 
-- (BNFParser *)json;
+- (NSMutableDictionary *)json;
 
 @end

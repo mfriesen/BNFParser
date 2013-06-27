@@ -17,13 +17,14 @@
 
 @interface Stack : NSObject
 
-- (void)push:(id)anObject;
+- (id)firstElement;
+- (id)peek;
 - (id)pop;
-- (id)top;
+- (void)push:(id)anObject;
 - (void)clear;
-- (BOOL)empty;
+- (BOOL)isEmpty;
 
-@property (nonatomic, retain) NSMutableArray *m_array;
+@property (nonatomic, retain) NSMutableArray *objects;
 @property (nonatomic, assign) NSUInteger count;
 
 @end

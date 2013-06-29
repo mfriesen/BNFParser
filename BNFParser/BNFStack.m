@@ -66,7 +66,7 @@
                  foundRepetition = YES;
              }
  
-             sp = [self pop];
+             [self pop];
  
              if (foundRepetition && [state nextState]) {
                  nextState = [state nextState];
@@ -76,7 +76,7 @@
          } else {
  
              if (foundRepetition) {
-                 sp = [self pop];
+                 [self pop];
              } else {
                  break;
              }

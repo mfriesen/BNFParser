@@ -179,7 +179,7 @@
 }
 
 - (BNFToken *)createBNFToken:(NSString *)value type:(BNFTokenizerType)type {
-    BNFToken *token = [[BNFToken alloc] init];
+    BNFToken *token = [[[BNFToken alloc] init] autorelease];
     [token setValueWithString:value];
     
     if ([self isComment:type]) {

@@ -10,4 +10,6 @@
 
 @interface PropertyParser : NSObject
 
+- (NSMutableDictionary *)parse:(NSString *)s;
+
 @end

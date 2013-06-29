@@ -7,148 +7,162 @@
 //
 
 #import "BNFStateDefinitionFactory.h"
+#import "PropertyParser.h"
+#import "BNFStateDefinition.h"
+#import "BNFStateEnd.h"
+#import "BNFState.h"
+#import "BNFStateNumber.h"
+#import "BNFStateQuotedString.h"
+#import "BNFStateEmpty.h"
 
 @implementation BNFStateDefinitionFactory
 
 - (NSMutableDictionary *)json {
+    
     NSMutableDictionary *dic = [[[NSMutableDictionary alloc] init] autorelease];
+    
+    NSMutableDictionary *prop = [self loadProperties];
+    
+    for (NSString *key in prop) {
+        
+        NSString *value = [prop objectForKey:key];
+        NSArray *values = [value componentsSeparatedByString:@"|"];
+        
+        NSMutableArray *states = [self createStates:key states:values];
+        NSMutableArray *sorted = [self sort:states];
+        
+        BNFStateDefinition *def = [[BNFStateDefinition alloc] init];
+        [def setName:key];
+        [def setStates:sorted];
+        [dic setValue:def forKey:key];
+        
+        [def release];
+    }
+
     return dic;
 }
 
-/*
- @Override
- public Map<String, BNFStateDefinition> json() {
+- (NSMutableArray *)sort:(NSMutableArray *)states {
+    
+    NSArray *sortedArray;
+    sortedArray = [states sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        BNFState *first = (BNFState*)a;
+        BNFState *second = (BNFState*)b;
+        if ([first isKindOfClass:[BNFStateEmpty class]]) {
+            return 1;
+        } else if ([second isKindOfClass:[BNFStateEmpty class]]) {
+            return -1;
+        }
+        return 0;
+    }];
+    
+    return [[sortedArray mutableCopy] autorelease];
+}
+
+- (NSMutableDictionary *)loadProperties {
+    
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"json.bnf" ofType:nil];
+    NSData *data = [NSData dataWithContentsOfFile: path];
+    NSString *s = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+
+    PropertyParser *parser = [[PropertyParser alloc] init];
+    NSMutableDictionary *dic = [parser parse:s];
+    [parser release];
+    
+    return dic;
+}
+
+
+- (NSMutableArray *)createStates:(NSString *)name states:(NSArray *)states {
+
+    NSMutableArray *c = [[[NSMutableArray alloc] init] autorelease];
  
- Map<String, BNFStateDefinition> map = new HashMap<String, BNFStateDefinition>();
+    for (NSString *s in states) {
+
+        BNFState *firstState = nil;
+        BNFState *previousState = nil;
+        s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSArray *values = [s componentsSeparatedByString:@" "];
  
- Map<String, String> prop = loadProperties();
+        for (NSString *ss in values) {
  
- for (Map.Entry<String, String> e : prop.entrySet()) {
- String name = e.getKey().toString();
+            BNFState *state = [self createState:ss];
  
- String value = e.getValue().toString();
+            if (!firstState) {
+                firstState = state;
+            }
  
- String[] values = value.split("[|]");
+            if (previousState) {
+                [previousState setNextState:state];
+            }
  
- List<BNFState> states = createStates(name, values);
- sort(states);
+            previousState = state;
+        }
  
- map.put(name, new BNFStateDefinition(name, states));
- }
+        if (previousState && [name isEqualToString:@"@start"]) {
+            BNFStateEnd *end = [[BNFStateEnd alloc] init];
+            [previousState setNextState:end];
+            [end release];
+        }
  
- return map;
- }
+        [c addObject:firstState];
+    }
  
- private void sort(List<BNFState> states) {
- Collections.sort(states, new Comparator<BNFState>() {
- @Override
- public int compare(BNFState o1, BNFState o2) {
- if (o1.getClass().equals(BNFStateEmpty.class)) {
- return 1;
- } else if (o2.getClass().equals(BNFStateEmpty.class)) {
- return -1;
- }
- return 0;
- }
- });
- }
+    return c;
+}
+
+- (BNFState *)createState:(NSString *) ss {
+    
+    BOOL isTerminal = [self isTerminal:ss];
+    NSString *name = [self fixQuotedString:ss];
+    BNFRepetition repetition = BNFRepetitionNONE;
  
- private Map<String, String> loadProperties() {
- PropertyParser parser = new PropertyParser();
- InputStream is = getClass().getResourceAsStream("/ca/gobits/bnf/parser/json.bnf");
- try {
- return parser.parse(is);
- } catch (Exception e) {
- throw new RuntimeException(e);
- }
- }
+    if ([name hasSuffix:@"*"]) {
+        repetition = BNFRepetitionZERO_OR_MORE;
+        name = [name substringToIndex:[name length] - 1];
+    }
  
- private List<BNFState> createStates(String name, String[] states)
- {
- List<BNFState> c = new ArrayList<BNFState>(states.length);
+    BNFState *state = [self createStateInstance:name isTerminal:isTerminal];
+    [state setName:name];
+    [state setRepetition:repetition];
  
- for (String s : states) {
+    return state;
+}
+
+- (BNFState *)createStateInstance:(NSString *)ss isTerminal:(BOOL)terminal {
+    BNFState *state = nil;
  
- BNFState firstState = null;
- BNFState previousState = null;
- String[] split = s.trim().split(" ");
+    if (terminal) {
+        state = [[[BNFStateTerminal alloc] init] autorelease];
+    } else if ([ss isEqualToString:@"Number"]) {
+        state = [[[BNFStateNumber alloc] init] autorelease];
+    } else if ([ss isEqualToString:@"QuotedString"]) {
+        state = [[[BNFStateQuotedString alloc] init] autorelease];
+    } else if ([ss isEqualToString:@"Empty"]) {
+        state = [[[BNFStateEmpty alloc] init] autorelease];
+    } else {
+        state = [[[BNFState alloc] init] autorelease];
+    }
  
- for (String ss : split) {
+    return state;
+}
  
- BNFState state = createState(ss);
+- (BOOL)isTerminal:(NSString *) ss {
+    return [ss hasPrefix:@"'"] || [ss hasPrefix:@"\""];
+}
  
- if (firstState == null) {
- firstState = state;
- }
+- (NSString *)fixQuotedString:(NSString *)ss {
  
- if (previousState != null) {
- previousState.setNextState(state);
- }
+    NSInteger len = [ss length];
+    NSInteger start = [ss hasPrefix:@"'"] ? 1 : 0;
+    NSInteger end = [ss hasSuffix:@";"] ? len - 1 : len;
+    end = [ss hasSuffix:@"';"] ? len - 2 : end;
  
- previousState = state;
- }
+    if (start > 0 || end < len) {
+        ss = [ss substringWithRange:NSMakeRange(start, end - start)];
+    }
  
- if (previousState != null && name.equals("@start")) {
- previousState.setNextState(new BNFStateEnd());
- }
- 
- c.add(firstState);
- }
- 
- return c;
- }
- 
- private BNFState createState(String ss) {
- boolean isTerminal = isTerminal(ss);
- String name = fixQuotedString(ss);
- BNFRepetition repetition = BNFRepetition.NONE;
- 
- if (name.endsWith("*")) {
- repetition = BNFRepetition.ZERO_OR_MORE;
- name = name.substring(0, name.length() - 1);
- }
- 
- BNFState state = createStateInstance(name, isTerminal);
- state.setName(name);
- state.setRepetition(repetition);
- 
- return state;
- }
- 
- private BNFState createStateInstance(String ss, boolean terminal) {
- BNFState state = null;
- 
- if (terminal) {
- state = new BNFStateTerminal();
- } else if (ss.equals("Number")) {
- state = new BNFStateNumber();
- } else if (ss.equals("QuotedString")) {
- state = new BNFStateQuotedString();
- } else if (ss.equals("Empty")) {
- state = new BNFStateEmpty();
- } else {
- state = new BNFState();
- }
- 
- return state;
- }
- 
- private boolean isTerminal(String ss) {
- return ss.startsWith("'") || ss.startsWith("\"");
- }
- 
- private String fixQuotedString(String ss) {
- 
- int len = ss.length();
- int start = ss.startsWith("'") ? 1 : 0;
- int end = ss.endsWith(";") ? len - 1 : len;
- end = ss.endsWith("';") ? len - 2 : end;
- 
- if (start > 0 || end < len) {
- ss = ss.substring(start, end);
- }
- 
- return ss;
- }
- */
+    return ss;
+}
+
 @end

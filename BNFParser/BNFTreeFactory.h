@@ -25,6 +25,6 @@
 
 //- (NSString *)formatInvalidString:(BNFParserStatus *)status;
 
-- (void)debug:(BNFTree *)tree;
+//- (void)debug:(BNFTree *)tree;
 
 @end

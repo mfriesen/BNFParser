@@ -61,6 +61,9 @@
 		70C67ED7176AC86A00AD6B99 /* group-members.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C67ED6176AC86A00AD6B99 /* group-members.json */; };
 		70D9BF23177BD290005DBC5E /* BNFTokenizerFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF22177BD290005DBC5E /* BNFTokenizerFactoryTests.m */; };
 		70D9BF25177BDB6B005DBC5E /* json.bnf in Resources */ = {isa = PBXBuildFile; fileRef = 70D9BF24177BDB6B005DBC5E /* json.bnf */; };
+		70D9BF28177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF27177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m */; };
+		70D9BF2B177BE838005DBC5E /* PropertyParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF2A177BE838005DBC5E /* PropertyParserTests.m */; };
+		70D9BF2E177EA06A005DBC5E /* BNFParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF2D177EA06A005DBC5E /* BNFParserTests.m */; };
 		70E4BE081763C84F00AEAD11 /* json.bnf in Resources */ = {isa = PBXBuildFile; fileRef = 70E4BE071763C84F00AEAD11 /* json.bnf */; };
 		70E4BE101763C86200AEAD11 /* BNFTokenizerFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE0A1763C86200AEAD11 /* BNFTokenizerFactory.h */; };
 		70E4BE111763C86200AEAD11 /* BNFTokenizerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE0B1763C86200AEAD11 /* BNFTokenizerFactory.m */; };
@@ -153,6 +156,12 @@
 		70D9BF21177BD290005DBC5E /* BNFTokenizerFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTokenizerFactoryTests.h; sourceTree = "<group>"; };
 		70D9BF22177BD290005DBC5E /* BNFTokenizerFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTokenizerFactoryTests.m; sourceTree = "<group>"; };
 		70D9BF24177BDB6B005DBC5E /* json.bnf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.bnf; sourceTree = "<group>"; };
+		70D9BF26177BE046005DBC5E /* BNFStateDefinitionFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinitionFactoryTests.h; sourceTree = "<group>"; };
+		70D9BF27177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinitionFactoryTests.m; sourceTree = "<group>"; };
+		70D9BF29177BE838005DBC5E /* PropertyParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyParserTests.h; sourceTree = "<group>"; };
+		70D9BF2A177BE838005DBC5E /* PropertyParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyParserTests.m; sourceTree = "<group>"; };
+		70D9BF2C177EA06A005DBC5E /* BNFParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserTests.h; sourceTree = "<group>"; };
+		70D9BF2D177EA06A005DBC5E /* BNFParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserTests.m; sourceTree = "<group>"; };
 		70E4BE071763C84F00AEAD11 /* json.bnf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.bnf; sourceTree = "<group>"; };
 		70E4BE0A1763C86200AEAD11 /* BNFTokenizerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTokenizerFactory.h; sourceTree = "<group>"; };
 		70E4BE0B1763C86200AEAD11 /* BNFTokenizerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTokenizerFactory.m; sourceTree = "<group>"; };
@@ -248,6 +257,12 @@
 			children = (
 				7027EE3C17765B0B00B1E1BB /* States */,
 				70D9BF20177BD257005DBC5E /* Tokenizer */,
+				70D9BF26177BE046005DBC5E /* BNFStateDefinitionFactoryTests.h */,
+				70D9BF27177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m */,
+				70D9BF29177BE838005DBC5E /* PropertyParserTests.h */,
+				70D9BF2A177BE838005DBC5E /* PropertyParserTests.m */,
+				70D9BF2C177EA06A005DBC5E /* BNFParserTests.h */,
+				70D9BF2D177EA06A005DBC5E /* BNFParserTests.m */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -622,6 +637,9 @@
 				70E4BE301763C8C000AEAD11 /* BNFTreeFactoryTests.m in Sources */,
 				7027EE3F17765B2100B1E1BB /* BNFStateNumberTests.m in Sources */,
 				70D9BF23177BD290005DBC5E /* BNFTokenizerFactoryTests.m in Sources */,
+				70D9BF28177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m in Sources */,
+				70D9BF2B177BE838005DBC5E /* PropertyParserTests.m in Sources */,
+				70D9BF2E177EA06A005DBC5E /* BNFParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

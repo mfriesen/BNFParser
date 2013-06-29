@@ -32,11 +32,11 @@
     
     [_stack clear];
  
-    BNFParseResult *result = [[BNFParseResult alloc] init];
+    BNFParseResult *result = [[[BNFParseResult alloc] init] autorelease];
     [result setTop:token];
     [result setMaxMatchToken:token];
  
-    BNFStateDefinition *sd = [_stateDefinitions valueForKey:@"@start"];
+    BNFStateDefinition *sd = [_stateDefinitions objectForKey:@"@start"];
     [self pushToStackOrFirstState:token stateDefinition:sd];
  
     while (![_stack isEmpty]) {
@@ -97,6 +97,7 @@
     if (state) {
         BNFPathState *path = [[BNFPathState alloc] initWithState:state token:token];
         [_stack push:path];
+        [path release];
     }
 }
 

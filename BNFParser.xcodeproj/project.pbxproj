@@ -44,8 +44,6 @@
 		702C94671777E4A80013C655 /* BNFParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C94651777E4A80013C655 /* BNFParserFactory.m */; };
 		702C946A1777E53B0013C655 /* BNFStateDefinitionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */; };
 		702C946B1777E53B0013C655 /* BNFStateDefinitionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */; };
-		707307741763CAFE00CD1205 /* libParseKit2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 707307731763CAFE00CD1205 /* libParseKit2.a */; };
-		707307751763CAFE00CD1205 /* libParseKit2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 707307731763CAFE00CD1205 /* libParseKit2.a */; };
 		708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
 		708B564A1763C76500A4F534 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 708B56481763C76500A4F534 /* InfoPlist.strings */; };
 		708B56561763C76500A4F534 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B56551763C76500A4F534 /* SenTestingKit.framework */; };
@@ -78,8 +76,6 @@
 		70E4BE261763C88100AEAD11 /* Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE241763C88100AEAD11 /* Stack.h */; };
 		70E4BE271763C88100AEAD11 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE251763C88100AEAD11 /* Stack.m */; };
 		70E4BE301763C8C000AEAD11 /* BNFTreeFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */; };
-		70E4BE311763C90F00AEAD11 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CA945E981C4822B65EBDEE /* libPods.a */; };
-		8A8C319571144272925ADDCA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CA945E981C4822B65EBDEE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +90,6 @@
 
 /* Begin PBXFileReference section */
 		1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		67CA945E981C4822B65EBDEE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		700BE20B1763CD79004E12B2 /* simple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple.json; sourceTree = "<group>"; };
 		700BE20C1763CD79004E12B2 /* simple_nested.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_nested.json; sourceTree = "<group>"; };
 		700BE20D1763CD79004E12B2 /* simple_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_array.json; sourceTree = "<group>"; };
@@ -133,7 +128,6 @@
 		702C94651777E4A80013C655 /* BNFParserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserFactory.m; sourceTree = "<group>"; };
 		702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinitionFactory.h; sourceTree = "<group>"; };
 		702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinitionFactory.m; sourceTree = "<group>"; };
-		707307731763CAFE00CD1205 /* libParseKit2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libParseKit2.a; sourceTree = "<group>"; };
 		708B563C1763C76500A4F534 /* BNFParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNFParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		708B563F1763C76500A4F534 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		708B56421763C76500A4F534 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -185,8 +179,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */,
-				8A8C319571144272925ADDCA /* libPods.a in Frameworks */,
-				707307741763CAFE00CD1205 /* libParseKit2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,11 +186,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70E4BE311763C90F00AEAD11 /* libPods.a in Frameworks */,
 				708B56561763C76500A4F534 /* SenTestingKit.framework in Frameworks */,
 				708B56571763C76500A4F534 /* Cocoa.framework in Frameworks */,
 				708B565A1763C76500A4F534 /* BNFParser.framework in Frameworks */,
-				707307751763CAFE00CD1205 /* libParseKit2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +292,6 @@
 				708B563F1763C76500A4F534 /* Cocoa.framework */,
 				708B56551763C76500A4F534 /* SenTestingKit.framework */,
 				708B56411763C76500A4F534 /* Other Frameworks */,
-				67CA945E981C4822B65EBDEE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -381,7 +370,6 @@
 		70E4BDDF1763C80500AEAD11 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				707307731763CAFE00CD1205 /* libParseKit2.a */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";

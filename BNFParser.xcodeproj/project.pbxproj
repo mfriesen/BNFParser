@@ -40,8 +40,6 @@
 		702C945F177732910013C655 /* BNFPathStateDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C945D177732910013C655 /* BNFPathStateDefinition.m */; };
 		702C9462177764880013C655 /* BNFStateDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C9460177764880013C655 /* BNFStateDefinition.h */; };
 		702C9463177764880013C655 /* BNFStateDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C9461177764880013C655 /* BNFStateDefinition.m */; };
-		702C94661777E4A80013C655 /* BNFParserFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C94641777E4A80013C655 /* BNFParserFactory.h */; };
-		702C94671777E4A80013C655 /* BNFParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C94651777E4A80013C655 /* BNFParserFactory.m */; };
 		702C946A1777E53B0013C655 /* BNFStateDefinitionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */; };
 		702C946B1777E53B0013C655 /* BNFStateDefinitionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */; };
 		708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
@@ -124,8 +122,6 @@
 		702C945D177732910013C655 /* BNFPathStateDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFPathStateDefinition.m; sourceTree = "<group>"; };
 		702C9460177764880013C655 /* BNFStateDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinition.h; sourceTree = "<group>"; };
 		702C9461177764880013C655 /* BNFStateDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinition.m; sourceTree = "<group>"; };
-		702C94641777E4A80013C655 /* BNFParserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserFactory.h; sourceTree = "<group>"; };
-		702C94651777E4A80013C655 /* BNFParserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserFactory.m; sourceTree = "<group>"; };
 		702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinitionFactory.h; sourceTree = "<group>"; };
 		702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinitionFactory.m; sourceTree = "<group>"; };
 		708B563C1763C76500A4F534 /* BNFParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNFParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,8 +198,6 @@
 				702C9448177729330013C655 /* BNFParser.m */,
 				702C944B1777297A0013C655 /* BNFParseResult.h */,
 				702C944C1777297A0013C655 /* BNFParseResult.m */,
-				702C94641777E4A80013C655 /* BNFParserFactory.h */,
-				702C94651777E4A80013C655 /* BNFParserFactory.m */,
 				702C945817772D9A0013C655 /* BNFPath.h */,
 				702C945917772D9A0013C655 /* BNFPath.m */,
 				702C945417772D7F0013C655 /* BNFPathState.h */,
@@ -246,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				7027EE3C17765B0B00B1E1BB /* States */,
-				70D9BF20177BD257005DBC5E /* Tokenizer */,
 				70D9BF26177BE046005DBC5E /* BNFStateDefinitionFactoryTests.h */,
 				70D9BF27177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m */,
 				70D9BF29177BE838005DBC5E /* PropertyParserTests.h */,
@@ -311,11 +304,10 @@
 			children = (
 				7027EE211776410A00B1E1BB /* Parser */,
 				700BE2151763CDC0004E12B2 /* README.md */,
-				70E4BE231763C87600AEAD11 /* Util */,
-				70E4BE161763C86700AEAD11 /* BNFTree */,
-				70E4BE091763C85600AEAD11 /* Tokenizer */,
-				70E4BDDF1763C80500AEAD11 /* External Frameworks and Libraries */,
 				708B56461763C76500A4F534 /* Supporting Files */,
+				70E4BE091763C85600AEAD11 /* Tokenizer */,
+				70E4BE161763C86700AEAD11 /* Tree */,
+				70E4BE231763C87600AEAD11 /* Util */,
 			);
 			path = BNFParser;
 			sourceTree = "<group>";
@@ -334,9 +326,9 @@
 		708B565B1763C76500A4F534 /* BNFParserTests */ = {
 			isa = PBXGroup;
 			children = (
+				709B3248177F788A00052F5F /* Tree */,
+				70D9BF20177BD257005DBC5E /* Tokenizer */,
 				7027EE3B17765B0600B1E1BB /* Parser */,
-				70E4BE2C1763C8C000AEAD11 /* BNFTreeFactoryTests.h */,
-				70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */,
 				708B565C1763C76500A4F534 /* Supporting Files */,
 			);
 			path = BNFParserTests;
@@ -358,6 +350,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		709B3248177F788A00052F5F /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				70E4BE2C1763C8C000AEAD11 /* BNFTreeFactoryTests.h */,
+				70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */,
+			);
+			name = Tree;
+			sourceTree = "<group>";
+		};
 		70D9BF20177BD257005DBC5E /* Tokenizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,13 +366,6 @@
 				70D9BF22177BD290005DBC5E /* BNFTokenizerFactoryTests.m */,
 			);
 			name = Tokenizer;
-			sourceTree = "<group>";
-		};
-		70E4BDDF1763C80500AEAD11 /* External Frameworks and Libraries */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
 		};
 		70E4BE091763C85600AEAD11 /* Tokenizer */ = {
@@ -389,7 +383,7 @@
 			name = Tokenizer;
 			sourceTree = "<group>";
 		};
-		70E4BE161763C86700AEAD11 /* BNFTree */ = {
+		70E4BE161763C86700AEAD11 /* Tree */ = {
 			isa = PBXGroup;
 			children = (
 				70E4BE171763C87200AEAD11 /* BNFTreeFactory.h */,
@@ -399,7 +393,7 @@
 				70E4BE1B1763C87200AEAD11 /* BNFTree.h */,
 				70E4BE1C1763C87200AEAD11 /* BNFTree.m */,
 			);
-			name = BNFTree;
+			name = Tree;
 			sourceTree = "<group>";
 		};
 		70E4BE231763C87600AEAD11 /* Util */ = {
@@ -437,7 +431,6 @@
 				702C945A17772D9A0013C655 /* BNFPath.h in Headers */,
 				702C945E177732910013C655 /* BNFPathStateDefinition.h in Headers */,
 				702C9462177764880013C655 /* BNFStateDefinition.h in Headers */,
-				702C94661777E4A80013C655 /* BNFParserFactory.h in Headers */,
 				702C946A1777E53B0013C655 /* BNFStateDefinitionFactory.h in Headers */,
 				708B97581779462D00B9B9AE /* PropertyParser.h in Headers */,
 				708B975C1779468B00B9B9AE /* BNFFastForward.h in Headers */,
@@ -610,7 +603,6 @@
 				702C945B17772D9A0013C655 /* BNFPath.m in Sources */,
 				702C945F177732910013C655 /* BNFPathStateDefinition.m in Sources */,
 				702C9463177764880013C655 /* BNFStateDefinition.m in Sources */,
-				702C94671777E4A80013C655 /* BNFParserFactory.m in Sources */,
 				702C946B1777E53B0013C655 /* BNFStateDefinitionFactory.m in Sources */,
 				708B97591779462D00B9B9AE /* PropertyParser.m in Sources */,
 				708B975D1779468B00B9B9AE /* BNFFastForward.m in Sources */,

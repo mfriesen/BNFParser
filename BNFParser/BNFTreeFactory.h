@@ -15,16 +15,16 @@
 
 #import <Foundation/Foundation.h>
 #import "BNFTree.h"
-//#import "BNFParserStatus.h"
+#import "BNFParseResult.h"
 
 @interface BNFTreeFactory : NSObject
 
-//- (BNFTree *)json:(BNFParserStatus *)status;
+- (BNFTree *)json:(BNFParseResult *)status;
 
-//- (NSString *)formatValidString:(BNFParserStatus *)status;
+- (NSString *)formatValidString:(BNFParseResult *)status;
 
-//- (NSString *)formatInvalidString:(BNFParserStatus *)status;
+- (NSString *)formatInvalidString:(BNFParseResult *)status;
 
-//- (void)debug:(BNFTree *)tree;
+- (void)debug:(BNFTree *)tree;
 
 @end

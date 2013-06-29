@@ -19,4 +19,5 @@
 @interface BNFTreeFactoryTests : SenTestCase
 
 @property (nonatomic, retain) BNFTreeFactory *factory;
+
 @end

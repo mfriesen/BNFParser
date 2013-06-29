@@ -14,23 +14,27 @@
 //  limitations under the License.
 
 #import "BNFTreeFactoryTests.h"
-//#import "BNFParserFactory.h"
+#import "BNFTokenizerFactory.h"
+#import "BNFParser.h"
+#import "BNFStateDefinitionFactory.h"
 
 @implementation BNFTreeFactoryTests
 
 - (void)setUp {
     [super setUp];
-    self.factory = [[BNFTreeFactory alloc] init];
+    BNFTreeFactory *factory = [[BNFTreeFactory alloc] init];
+    [self setFactory:factory];
+    [factory release];
 }
 
 - (void)tearDown {
     [_factory release];
     [super tearDown];
 }
-/*
+
 - (void)testNull {
     
-    BNFParserStatus *status = [[BNFParserStatus alloc] init];
+    BNFParseResult *status = [[BNFParseResult alloc] init];
     
     BNFTree *tree = [_factory json:status];
     STAssertTrue([[tree nodes] count] == 0, @"assume no childre");
@@ -40,7 +44,7 @@
 
 - (void)testFormatValidString01 {
     NSString *str = @"{\"id\":\"118019484951173_228591\"}";
-    BNFParserStatus *status = [self buildFromString:str];
+    BNFParseResult *status = [self buildFromString:str];
     NSString *s = [_factory formatValidString:status];
     NSString *expect = @"{\n\t\"id\" : \"118019484951173_228591\"\n}";
     STAssertEqualObjects(expect, s, @"got %@", s);
@@ -48,7 +52,7 @@
 
 - (void)testFormatValidString02 {
     NSString *str = @"[{\"name\":\"jack\"}]";
-    BNFParserStatus *status = [self buildFromString:str];
+    BNFParseResult *status = [self buildFromString:str];
     NSString *s = [_factory formatValidString:status];
     NSString *expect = @"[\n\t{\n\t\t\"name\" : \"jack\"\n\t}\n]";
     STAssertEqualObjects(expect, s, @"got %@", s);
@@ -56,7 +60,7 @@
 
 - (void)testFormatInValidString {
     NSString *str = @"{\"id\":\"118019484951173_228591\",adsadasdas}";
-    BNFParserStatus *status = [self buildFromString:str];
+    BNFParseResult *status = [self buildFromString:str];
     NSString *s = [_factory formatInvalidString:status];
     NSString *expect = @"adsadasdas}";
     STAssertEqualObjects(expect, s, @"got %@", s);
@@ -92,7 +96,7 @@
 - (void)testArray {
     
     NSString *json = @"[{\"name\":\"Brad Hayward\",\"id\":\"769775313\"},{\"name\":\"David Archibald\",\"id\":\"684745596\"}]";
-    BNFParserStatus *status = [self buildFromString:json];
+    BNFParseResult *status = [self buildFromString:json];
     BNFTree *tree = [_factory json:status];
   
     NSMutableArray *c0 = [self validate:tree value:nil children:2];
@@ -132,7 +136,7 @@
 - (void)testNested {
     
     NSString *json = @"{\"data\":{\"id\":\"118019484951173_228591\"}}";
-    BNFParserStatus *status = [self buildFromString:json];
+    BNFParseResult *status = [self buildFromString:json];
     BNFTree *tree = [_factory json:status];
 
     NSMutableArray *c0 = [self validate:tree value:nil children:2];
@@ -162,28 +166,40 @@
 
 - (BNFTree *)buildTree:(NSString *)file {
     
-    BNFParserStatus *status = [self buildFromPath:@"simple.json"];
+    BNFParseResult *status = [self buildFromPath:@"simple.json"];
     
     BNFTree *tree = [_factory json:status];
     return tree;
 }
 
-- (BNFParserStatus *)buildFromPath:(NSString *)file {
+- (BNFParseResult *)buildFromPath:(NSString *)file {
 
     NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:file ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile: path];
     NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
  
-    BNFParserFactory *parserFactory = [[BNFParserFactory alloc] init];
-    BNFParser *parser = [parserFactory json];
-    return [parser parse:json];
+    BNFTokenizerFactory *tokenizer = [[BNFTokenizerFactory alloc] init];
+    BNFToken *token = [tokenizer tokens:json];
+    [tokenizer release];
+    
+    BNFStateDefinitionFactory *states = [[BNFStateDefinitionFactory alloc] init];
+    BNFParser *parser = [[BNFParser alloc] initWithStateDefinitions:[states json]];
+    [states release];
+    
+    return [parser parse:token];
 }
 
-- (BNFParserStatus *)buildFromString:(NSString *)json {
-        
-    BNFParserFactory *parserFactory = [[BNFParserFactory alloc] init];
-    BNFParser *parser = [parserFactory json];
-    return [parser parse:json];
+- (BNFParseResult *)buildFromString:(NSString *)json {
+    
+    BNFTokenizerFactory *tokenizer = [[BNFTokenizerFactory alloc] init];
+    BNFToken *token = [tokenizer tokens:json];
+    [tokenizer release];
+
+    BNFStateDefinitionFactory *states = [[BNFStateDefinitionFactory alloc] init];
+    BNFParser *parser = [[BNFParser alloc] initWithStateDefinitions:[states json]];
+    [states release];
+
+    return [parser parse:token];
 }
-*/
+
 @end

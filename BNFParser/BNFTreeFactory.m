@@ -17,8 +17,8 @@
 #import "Stack.h"
 
 @implementation BNFTreeFactory
-/*
-- (BNFTree *)json:(BNFParserStatus *)status {
+
+- (BNFTree *)json:(BNFParseResult *)status {
     
     NSInteger errorPosition = [self errorPosition:[status error]];
     
@@ -28,7 +28,7 @@
 }
 
 - (NSInteger)errorPosition:(BNFToken *)error {
-    return error ? [error position] : -1;
+    return error ? [error identifier] : -1;
 }
 
 - (void)debug:(BNFTree *)tree {
@@ -47,7 +47,7 @@
     }
 }
 
-- (NSString *)formatValidString:(BNFParserStatus *)status {
+- (NSString *)formatValidString:(BNFParseResult *)status {
     
     NSMutableString *ms = [[NSMutableString alloc] init];
     
@@ -62,14 +62,14 @@
     return s;
 }
 
-- (NSString *)formatInvalidString:(BNFParserStatus *)status {
+- (NSString *)formatInvalidString:(BNFParseResult *)status {
     
     NSMutableString *ms = [[NSMutableString alloc] init];
     
     BNFToken *token = [status error];
     
-    while (token && ![token isLastToken]) {
-        [ms appendString:[token stringValue]];
+    while (token) {
+        [ms appendString:[token value]];
         token = [token nextToken];
     }
     
@@ -88,11 +88,11 @@
         
     NSMutableString *ms = [[NSMutableString alloc] init];
     
-    while (token && ![token isLastToken]) {
+    while (token) {
         
-        BNFTreeNode *top = [stack top];
-        BOOL haserror = errorPosition > -1 && errorPosition <= [token position];
-        NSString *s = [token stringValue];
+        BNFTreeNode *top = [stack peek];
+        BOOL haserror = errorPosition > -1 && errorPosition <= [token identifier];
+        NSString *s = [token value];
         
         if ([s hasSuffix:@"["] || [s hasSuffix:@"{"]) {
   
@@ -119,7 +119,7 @@
             }
             
             [stack pop];
-            [self addTreeNode:[stack top] string:[NSString stringWithString:s] haserror:haserror];
+            [self addTreeNode:[stack peek] string:[NSString stringWithString:s] haserror:haserror];
 
         } else {
             
@@ -156,9 +156,9 @@
 
 - (void)buildJsonToken:(BNFToken *)token error:(BNFToken *)error intoString:(NSMutableString *)ms tab:(NSInteger)tab {
     
-    while (![token isLastToken] && token != error) {
+    while (token != error) {
         
-        NSString *s = [token stringValue];
+        NSString *s = [token value];
 
         if ([s isEqualToString:@"{"] || [s isEqualToString:@"["]) {
             
@@ -189,5 +189,5 @@
         token = [token nextToken];
     }
 }
-*/
+
 @end

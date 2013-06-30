@@ -65,15 +65,8 @@
 		70E4BE111763C86200AEAD11 /* BNFTokenizerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE0B1763C86200AEAD11 /* BNFTokenizerFactory.m */; };
 		70E4BE141763C86200AEAD11 /* BNFToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE0E1763C86200AEAD11 /* BNFToken.h */; };
 		70E4BE151763C86200AEAD11 /* BNFToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE0F1763C86200AEAD11 /* BNFToken.m */; };
-		70E4BE1D1763C87200AEAD11 /* BNFTreeFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE171763C87200AEAD11 /* BNFTreeFactory.h */; };
-		70E4BE1E1763C87200AEAD11 /* BNFTreeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE181763C87200AEAD11 /* BNFTreeFactory.m */; };
-		70E4BE1F1763C87200AEAD11 /* BNFTreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE191763C87200AEAD11 /* BNFTreeNode.h */; };
-		70E4BE201763C87200AEAD11 /* BNFTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE1A1763C87200AEAD11 /* BNFTreeNode.m */; };
-		70E4BE211763C87200AEAD11 /* BNFTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE1B1763C87200AEAD11 /* BNFTree.h */; };
-		70E4BE221763C87200AEAD11 /* BNFTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE1C1763C87200AEAD11 /* BNFTree.m */; };
 		70E4BE261763C88100AEAD11 /* Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E4BE241763C88100AEAD11 /* Stack.h */; };
 		70E4BE271763C88100AEAD11 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE251763C88100AEAD11 /* Stack.m */; };
-		70E4BE301763C8C000AEAD11 /* BNFTreeFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,16 +150,8 @@
 		70E4BE0B1763C86200AEAD11 /* BNFTokenizerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTokenizerFactory.m; sourceTree = "<group>"; };
 		70E4BE0E1763C86200AEAD11 /* BNFToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFToken.h; sourceTree = "<group>"; };
 		70E4BE0F1763C86200AEAD11 /* BNFToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFToken.m; sourceTree = "<group>"; };
-		70E4BE171763C87200AEAD11 /* BNFTreeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTreeFactory.h; sourceTree = "<group>"; };
-		70E4BE181763C87200AEAD11 /* BNFTreeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTreeFactory.m; sourceTree = "<group>"; };
-		70E4BE191763C87200AEAD11 /* BNFTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTreeNode.h; sourceTree = "<group>"; };
-		70E4BE1A1763C87200AEAD11 /* BNFTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTreeNode.m; sourceTree = "<group>"; };
-		70E4BE1B1763C87200AEAD11 /* BNFTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTree.h; sourceTree = "<group>"; };
-		70E4BE1C1763C87200AEAD11 /* BNFTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTree.m; sourceTree = "<group>"; };
 		70E4BE241763C88100AEAD11 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		70E4BE251763C88100AEAD11 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
-		70E4BE2C1763C8C000AEAD11 /* BNFTreeFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTreeFactoryTests.h; sourceTree = "<group>"; };
-		70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTreeFactoryTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +291,6 @@
 				700BE2151763CDC0004E12B2 /* README.md */,
 				708B56461763C76500A4F534 /* Supporting Files */,
 				70E4BE091763C85600AEAD11 /* Tokenizer */,
-				70E4BE161763C86700AEAD11 /* Tree */,
 				70E4BE231763C87600AEAD11 /* Util */,
 			);
 			path = BNFParser;
@@ -326,7 +310,6 @@
 		708B565B1763C76500A4F534 /* BNFParserTests */ = {
 			isa = PBXGroup;
 			children = (
-				709B3248177F788A00052F5F /* Tree */,
 				70D9BF20177BD257005DBC5E /* Tokenizer */,
 				7027EE3B17765B0600B1E1BB /* Parser */,
 				708B565C1763C76500A4F534 /* Supporting Files */,
@@ -348,15 +331,6 @@
 				70D9BF24177BDB6B005DBC5E /* json.bnf */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		709B3248177F788A00052F5F /* Tree */ = {
-			isa = PBXGroup;
-			children = (
-				70E4BE2C1763C8C000AEAD11 /* BNFTreeFactoryTests.h */,
-				70E4BE2D1763C8C000AEAD11 /* BNFTreeFactoryTests.m */,
-			);
-			name = Tree;
 			sourceTree = "<group>";
 		};
 		70D9BF20177BD257005DBC5E /* Tokenizer */ = {
@@ -383,19 +357,6 @@
 			name = Tokenizer;
 			sourceTree = "<group>";
 		};
-		70E4BE161763C86700AEAD11 /* Tree */ = {
-			isa = PBXGroup;
-			children = (
-				70E4BE171763C87200AEAD11 /* BNFTreeFactory.h */,
-				70E4BE181763C87200AEAD11 /* BNFTreeFactory.m */,
-				70E4BE191763C87200AEAD11 /* BNFTreeNode.h */,
-				70E4BE1A1763C87200AEAD11 /* BNFTreeNode.m */,
-				70E4BE1B1763C87200AEAD11 /* BNFTree.h */,
-				70E4BE1C1763C87200AEAD11 /* BNFTree.m */,
-			);
-			name = Tree;
-			sourceTree = "<group>";
-		};
 		70E4BE231763C87600AEAD11 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,9 +375,6 @@
 			files = (
 				70E4BE101763C86200AEAD11 /* BNFTokenizerFactory.h in Headers */,
 				70E4BE141763C86200AEAD11 /* BNFToken.h in Headers */,
-				70E4BE1D1763C87200AEAD11 /* BNFTreeFactory.h in Headers */,
-				70E4BE1F1763C87200AEAD11 /* BNFTreeNode.h in Headers */,
-				70E4BE211763C87200AEAD11 /* BNFTree.h in Headers */,
 				70E4BE261763C88100AEAD11 /* Stack.h in Headers */,
 				7027EE291776440E00B1E1BB /* BNFState.h in Headers */,
 				7027EE2D1776498400B1E1BB /* BNFStateTerminal.h in Headers */,
@@ -586,9 +544,6 @@
 			files = (
 				70E4BE111763C86200AEAD11 /* BNFTokenizerFactory.m in Sources */,
 				70E4BE151763C86200AEAD11 /* BNFToken.m in Sources */,
-				70E4BE1E1763C87200AEAD11 /* BNFTreeFactory.m in Sources */,
-				70E4BE201763C87200AEAD11 /* BNFTreeNode.m in Sources */,
-				70E4BE221763C87200AEAD11 /* BNFTree.m in Sources */,
 				70E4BE271763C88100AEAD11 /* Stack.m in Sources */,
 				7027EE2A1776440E00B1E1BB /* BNFState.m in Sources */,
 				7027EE2E1776498400B1E1BB /* BNFStateTerminal.m in Sources */,
@@ -614,7 +569,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70E4BE301763C8C000AEAD11 /* BNFTreeFactoryTests.m in Sources */,
 				7027EE3F17765B2100B1E1BB /* BNFStateNumberTests.m in Sources */,
 				70D9BF23177BD290005DBC5E /* BNFTokenizerFactoryTests.m in Sources */,
 				70D9BF28177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m in Sources */,

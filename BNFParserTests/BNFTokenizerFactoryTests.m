@@ -226,6 +226,30 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
+- (void)testAHrefLink {
+    
+    // given
+    NSString *s = @"{\"notes\":\"Different browsers have support for different video formats, see sub-features for details. \\r\\n\\r\\nThe Android browser (before 2.3) requires <a href=\\\"http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/\\\">specific handling</a> to run the video element.\"}";
+
+    // when
+    BNFToken *token = [_factory tokens:s];
+    
+    STAssertEqualObjects(@"{", [token value], @"got %@", [token value]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@"\"notes\"", [token value], @"got %@", [token value]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@":", [token value], @"got %@", [token value]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@"\"Different browsers have support for different video formats, see sub-features for details. \\r\\n\\r\\nThe Android browser (before 2.3) requires <a href=\\\"http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/\\\">specific handling</a> to run the video element.\"", [token value], @"got %@", [token value]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    token = [token nextToken];
+}
+
 - (void)testJsonGrammar {
     
     // given

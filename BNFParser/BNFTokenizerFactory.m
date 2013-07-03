@@ -38,7 +38,7 @@
     for (int i = 0; i < len; i++) {
         
         char c = [text characterAtIndex:i];
-        BNFTokenizerType type = [self getType:c];
+        BNFTokenizerType type = [self getType:c lastType:lastType];
         
         if ([ff isActive]) {
             
@@ -104,7 +104,7 @@
     [ff setStart:BNFTokenizerType_NONE];
     
     // single line comment
-    if (lastType == BNFTokenizerType_SYMBOL_SLASH_FORWARD && type == BNFTokenizerType_SYMBOL_SLASH_FORWARD) {
+    if (lastType == BNFTokenizerType_SYMBOL_FORWARD_SLASH && type == BNFTokenizerType_SYMBOL_FORWARD_SLASH) {
         
         [ff setStart:BNFTokenizerType_COMMENT_SINGLE_LINE];
         [ff setEndWithType:BNFTokenizerType_WHITESPACE_NEWLINE];
@@ -113,10 +113,10 @@
         [ff appendIfActiveNSString:[token value]];
         
 		// multi line comment
-    } else if (lastType == BNFTokenizerType_SYMBOL_SLASH_FORWARD && type == BNFTokenizerType_SYMBOL_STAR) {
+    } else if (lastType == BNFTokenizerType_SYMBOL_FORWARD_SLASH && type == BNFTokenizerType_SYMBOL_STAR) {
         
         [ff setStart:BNFTokenizerType_COMMENT_MULTI_LINE];
-        [ff setEndWithType:BNFTokenizerType_SYMBOL_SLASH_FORWARD type2:BNFTokenizerType_SYMBOL_STAR];
+        [ff setEndWithType:BNFTokenizerType_SYMBOL_FORWARD_SLASH type2:BNFTokenizerType_SYMBOL_STAR];
         
         BNFToken *token = [stack pop];
         [ff appendIfActiveNSString:[token value]];
@@ -210,7 +210,8 @@
     || type == BNFTokenizerType_SYMBOL_HASH
     || type == BNFTokenizerType_SYMBOL_AT
     || type == BNFTokenizerType_SYMBOL_STAR
-    || type == BNFTokenizerType_SYMBOL_SLASH_FORWARD;
+    || type == BNFTokenizerType_SYMBOL_FORWARD_SLASH
+    || type == BNFTokenizerType_SYMBOL_BACKWARD_SLASH;
 }
 
 - (BOOL)isWhitespace:(BNFTokenizerType)type {
@@ -230,7 +231,7 @@
     return type == BNFTokenizerType_LETTER;
 }
 
-- (BNFTokenizerType)getType:(NSInteger)c {
+- (BNFTokenizerType)getType:(NSInteger)c lastType:(BNFTokenizerType)lastType {
     if (c == 10 || c == 13) {
         return BNFTokenizerType_WHITESPACE_NEWLINE;
     } else if (c >= 0 && c <= 31) { // From: 0 to: 31 From:0x00 to:0x20
@@ -240,13 +241,13 @@
     } else if (c == 33) {
         return BNFTokenizerType_SYMBOL;
     } else if (c == '"') { // From: 34 to: 34 From:0x22 to:0x22
-        return BNFTokenizerType_QUOTE_DOUBLE;
+        return lastType == BNFTokenizerType_SYMBOL_BACKWARD_SLASH ? BNFTokenizerType_QUOTE_DOUBLE_ESCAPED : BNFTokenizerType_QUOTE_DOUBLE;
     } else if (c == '#') { // From: 35 to: 35 From:0x23 to:0x23
         return BNFTokenizerType_SYMBOL_HASH;
     } else if (c >= 36 && c <= 38) {
         return BNFTokenizerType_SYMBOL;
     } else if (c == '\'') { // From: 39 to: 39 From:0x27 to:0x27
-        return BNFTokenizerType_QUOTE_SINGLE;
+        return lastType == BNFTokenizerType_SYMBOL_BACKWARD_SLASH ? BNFTokenizerType_QUOTE_SINGLE_ESCAPED : BNFTokenizerType_QUOTE_SINGLE;
     } else if (c >= 40 && c <= 41) {
         return BNFTokenizerType_SYMBOL;
     } else if (c == 42) {
@@ -260,7 +261,7 @@
     } else if (c == '.') { // From: 46 to: 46 From:0x2E to:0x2E
         return BNFTokenizerType_NUMBER;
     } else if (c == '/') { // From: 47 to: 47 From:0x2F to:0x2F
-        return BNFTokenizerType_SYMBOL_SLASH_FORWARD;
+        return BNFTokenizerType_SYMBOL_FORWARD_SLASH;
     } else if (c >= '0' && c <= '9') { // From: 48 to: 57 From:0x30 to:0x39
         return BNFTokenizerType_NUMBER;
     } else if (c >= 58 && c <= 63) {
@@ -269,6 +270,8 @@
         return BNFTokenizerType_SYMBOL_AT;
     } else if (c >= 'A' && c <= 'Z') { // From: 65 to: 90 From:0x41 to:0x5A
         return BNFTokenizerType_LETTER;
+    } else if (c == 92) { // /
+        return BNFTokenizerType_SYMBOL_BACKWARD_SLASH;
     } else if (c >= 91 && c <= 96) {
         return BNFTokenizerType_SYMBOL;
     } else if (c >= 'a' && c <= 'z') { // From: 97 to:122 From:0x61 to:0x7A

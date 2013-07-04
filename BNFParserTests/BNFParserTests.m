@@ -166,7 +166,7 @@
     STAssertFalse([result success], @"assume fail");
     STAssertNotNil([result top], @"assume not nil");
     STAssertEqualObjects([result error], [result top], @"assume equals");
-    STAssertEqualObjects(json, [[result error] value], @"assume equals");
+    STAssertEqualObjects(json, [[result error] stringValue], @"assume equals");
 }
 
 - (void)testBadSimple01 {
@@ -183,7 +183,7 @@
     STAssertNotNil([result top], @"assume not nil");
     STAssertNotNil([result error], @"assume not error");
     STAssertTrue([[result error] identifier] == 2, @"got %d",[[result error] identifier]);
-    STAssertEqualObjects(@"asdasd", [[result error] value], @"assume equals");
+    STAssertEqualObjects(@"asdasd", [[result error] stringValue], @"assume equals");
 }
 
 - (void)testBadSimple02 {
@@ -199,7 +199,23 @@
     STAssertFalse([result success], @"assume fail");
     STAssertNotNil([result top], @"assume not nil");
     STAssertNotNil([result error], @"assume not nil");
-    STAssertEqualObjects(@"!", [[result error] value], @"assume equals");
+    STAssertEqualObjects(@"!", [[result error] stringValue], @"assume equals");
+}
+
+- (void)testBadSimple03 {
+    
+    // given
+    NSString *json = @"[";
+    BNFToken *token = [_tokenizerFactory tokens:json];
+    
+    // when
+    BNFParseResult *result = [_parser parse:token];
+    
+    // then
+    STAssertNotNil([result top], @"assume not nil");
+    STAssertNotNil([result error], @"assume not nil");
+    STAssertFalse([result success], @"assume fail");
+    STAssertEqualObjects(@"[", [[result error] stringValue], @"assume equals");
 }
 
 @end

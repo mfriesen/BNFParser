@@ -12,9 +12,15 @@
 
 - (BOOL)match:(BNFToken *)token {
     
-    NSString *value = [token value];
+    BOOL match = NO;
+    
+    if (token) {
+        NSString *value = [token stringValue];
 
-    return ([value hasPrefix:@"\""] && [value hasSuffix:@"\""]) || ([value hasPrefix:@"'"] && [value hasSuffix:@"'"]);
+        match = ([value hasPrefix:@"\""] && [value hasSuffix:@"\""]) || ([value hasPrefix:@"'"] && [value hasSuffix:@"'"]);
+    }
+    
+    return match;
 }
 
 @end

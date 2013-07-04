@@ -34,7 +34,7 @@
 }
 
 - (void)appendValue:(char)ch {
-    [_value appendString:[NSString stringWithFormat:@"%c",ch]];
+    [_stringValue appendString:[NSString stringWithFormat:@"%c",ch]];
 }
 
 - (BOOL)isSymbol {
@@ -63,12 +63,12 @@
 
 - (void)setValueWithString:(NSString *)value {
     NSMutableString *s = [[NSMutableString alloc] initWithString:value];
-    [self setValue:s];
+    [self setStringValue:s];
     [s release];
 }
 
 - (void)dealloc {
-    [_value release];
+    [_stringValue release];
     [_nextToken release];
     [super dealloc];
 }

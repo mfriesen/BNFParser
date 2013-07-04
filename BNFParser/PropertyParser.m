@@ -36,14 +36,14 @@
             start = @"";
             [sb setString:@""];
             
-        } else if ([[token value] isEqualToString:@"="]) {
+        } else if ([[token stringValue] isEqualToString:@"="]) {
             
             start = [NSString stringWithString:sb];
             [sb setString:@""];
             
         } else {
             
-            [sb appendString:[token value]];
+            [sb appendString:[token stringValue]];
         }
         
         token = [token nextToken];

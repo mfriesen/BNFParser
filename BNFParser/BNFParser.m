@@ -70,7 +70,7 @@
 }
  
 - (BOOL)isEmpty:(BNFToken *)token {
-    return !token || !([token value]) || [self stringLength:[token value]] == 0;
+    return !token || !([token stringValue]) || [self stringLength:[token stringValue]] == 0;
 }
 
 - (NSInteger)stringLength:(NSString *)s {
@@ -143,7 +143,10 @@
     } else if ([state match:token]) {
   
         token = [token nextToken];
-        [result setMaxMatchToken:token];
+        
+        if (token) {
+            [result setMaxMatchToken:token];
+        }
  
         BNFState *rewindState = [_stack rewindStackMatchedToken];
         [self pushToStack:rewindState token:token];

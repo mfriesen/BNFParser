@@ -110,7 +110,7 @@
         [ff setEndWithType:BNFTokenizerType_WHITESPACE_NEWLINE];
         
         BNFToken *token = [stack pop];
-        [ff appendIfActiveNSString:[token value]];
+        [ff appendIfActiveNSString:[token stringValue]];
         
 		// multi line comment
     } else if (lastType == BNFTokenizerType_SYMBOL_FORWARD_SLASH && type == BNFTokenizerType_SYMBOL_STAR) {
@@ -119,7 +119,7 @@
         [ff setEndWithType:BNFTokenizerType_SYMBOL_FORWARD_SLASH type2:BNFTokenizerType_SYMBOL_STAR];
         
         BNFToken *token = [stack pop];
-        [ff appendIfActiveNSString:[token value]];
+        [ff appendIfActiveNSString:[token stringValue]];
         
     } else if (type == BNFTokenizerType_QUOTE_DOUBLE) {
         

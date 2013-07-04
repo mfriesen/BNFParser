@@ -11,17 +11,23 @@
 @implementation BNFStateNumber
 
 - (BOOL)match:(BNFToken *)token {
-    NSError *error = NULL;
+    BOOL match = NO;
     
-    NSString *string = [token value];
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[\\d\\-\\.]+$"
-                                  options:NSRegularExpressionCaseInsensitive
-                                  error:&error];
+    if (token) {
+        NSError *error = NULL;
+        
+        NSString *string = [token stringValue];
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[\\d\\-\\.]+$"
+                                      options:NSRegularExpressionCaseInsensitive
+                                      error:&error];
+        
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:string
+                                      options:0
+                                      range:NSMakeRange(0, [string length])];
+        match = numberOfMatches > 0;
+    }
     
-    NSUInteger numberOfMatches = [regex numberOfMatchesInString:string
-                                  options:0
-                                  range:NSMakeRange(0, [string length])];
-    return numberOfMatches > 0;
+    return match;
 }
 
 @end

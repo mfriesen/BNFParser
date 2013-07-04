@@ -31,7 +31,7 @@
     BNFToken *token = [_factory tokens:s];
  
     // then
-    STAssertEqualObjects(@"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"", [token stringValue], @"got %@", [token stringValue]);
     STAssertFalse([token isWord], @"not expected");
     STAssertFalse([token isNumber], @"not expected");
     STAssertFalse([token isSymbol], @"not expected");
@@ -47,12 +47,12 @@
     BNFToken *token = [_factory tokens:s];
  
     // then
-    STAssertEqualObjects(@"{", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue(1 == [token identifier], @"got %d", [token identifier]);
     STAssertTrue([token isSymbol], @"expected symbol");
 
     token = [token nextToken];
-    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue(2 == [token identifier], @"got %d", [token identifier]);
     STAssertTrue([token isSymbol], @"expected symbol");
     STAssertNil([token nextToken], @"expected nil");
@@ -67,13 +67,13 @@
     BNFToken *token = [_factory tokens:s];
  
     // then
-    STAssertEqualObjects(@"{", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isSymbol], @"expected symbol");
     token = [token nextToken];
-    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isSymbol], @"expected symbol");
     token = [token nextToken];
-    STAssertEqualObjects(@"asd", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"asd", [token stringValue], @"got %@", [token stringValue]);
     STAssertNil([token nextToken], @"expected nil");
 }
 
@@ -86,13 +86,13 @@
     BNFToken *token = [_factory tokens:s];
 
     // then
-    STAssertEqualObjects(@"{", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isSymbol], @"expected symbol");
     token = [token nextToken];
-    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isSymbol], @"expected symbol");
     token = [token nextToken];
-    STAssertEqualObjects(@"asd", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"asd", [token stringValue], @"got %@", [token stringValue]);
     STAssertNil([token nextToken], @"expected nil");
 }
 
@@ -105,9 +105,9 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"hi", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"hi", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"\"asd\"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"asd\"", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
@@ -121,7 +121,7 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"\"asd\"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"asd\"", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
@@ -134,7 +134,7 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"\"asd's\"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"asd's\"", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
@@ -147,7 +147,7 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"\"asd's", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"asd's", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
@@ -160,21 +160,21 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"{", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@"\"asd\"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"asd\"", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
     token = [token nextToken];
     
-    STAssertEqualObjects(@":", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@":", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@"\"123\"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"123\"", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
     token = [token nextToken];
     
-    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     STAssertNil([token nextToken], @"expected nil");
 }
 
@@ -187,18 +187,18 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"'asd'", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"'asd'", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
     token = [token nextToken];
     
-    STAssertEqualObjects(@":", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@":", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@"'123'", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"'123'", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
     token = [token nextToken];
     
-    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     STAssertNil([token nextToken], @"expected nil");
 }
 
@@ -211,18 +211,18 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"'asd'", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"'asd'", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
     token = [token nextToken];
     
-    STAssertEqualObjects(@":", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@":", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@"123", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"123", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isNumber], @"not expected");
     token = [token nextToken];
     
-    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     STAssertNil([token nextToken], @"expected nil");
 }
 
@@ -234,19 +234,19 @@
     // when
     BNFToken *token = [_factory tokens:s];
     
-    STAssertEqualObjects(@"{", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@"\"notes\"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"notes\"", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@":", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@":", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@"\"Different browsers have support for different video formats, see sub-features for details. \\r\\n\\r\\nThe Android browser (before 2.3) requires <a href=\\\"http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/\\\">specific handling</a> to run the video element.\"", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"\"Different browsers have support for different video formats, see sub-features for details. \\r\\n\\r\\nThe Android browser (before 2.3) requires <a href=\\\"http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/\\\">specific handling</a> to run the video element.\"", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
-    STAssertEqualObjects(@"}", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
 }
 
@@ -261,37 +261,37 @@
     BNFToken *token = [_factory tokens:s];
     
     // then
-    STAssertEqualObjects(@"@", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"@", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"start", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"start", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isWord], @"expected word");
     token = [token nextToken];
-    STAssertEqualObjects(@"=", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"=", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"Empty", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"Empty", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"|", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"|", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isSymbol], @"expected symbol");
     token = [token nextToken];
-    STAssertEqualObjects(@"array", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"array", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"|", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"|", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"object", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"object", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@";", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@";", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"object", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"object", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"=", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"=", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"openCurly", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"openCurly", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"objectContent", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"objectContent", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@"closeCurly", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@"closeCurly", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
-    STAssertEqualObjects(@";", [token value], @"got %@", [token value]);
+    STAssertEqualObjects(@";", [token stringValue], @"got %@", [token stringValue]);
 }
 
 @end

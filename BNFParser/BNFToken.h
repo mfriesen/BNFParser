@@ -28,7 +28,7 @@ typedef enum BNFTokenType : NSInteger {
 } BNFTokenType;
 
 @property (nonatomic, assign) NSInteger identifier;
-@property (nonatomic, retain) NSMutableString *value;
+@property (nonatomic, retain) NSMutableString *stringValue;
 @property (nonatomic, assign) BNFTokenType type;
 @property (nonatomic, retain) BNFToken *nextToken;
 

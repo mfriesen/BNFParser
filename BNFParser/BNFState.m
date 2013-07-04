@@ -32,7 +32,7 @@
 }
 
 - (BOOL)match:(BNFToken *)token {
-    return [_name isEqualToString:[token value]];
+    return token && [_name isEqualToString:[token stringValue]];
 }
 
 - (BOOL)isEnd {

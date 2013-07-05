@@ -14,6 +14,17 @@
     return YES;
 }
 
+- (BOOL)hasNextSequence {
+    
+    BNFState *state = nil;
+    
+    if (_position < [[_stateDefinition states] count]) {
+        state = [[_stateDefinition states] objectAtIndex:_position];
+    }
+    
+    return state != nil;
+}
+
 - (BNFState *)getNextSequence {
     
     BNFState *state = nil;

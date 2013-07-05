@@ -12,6 +12,7 @@
 
 @interface BNFStack : Stack
 
+- (void)rewindToNextTokenAndNextSequence;
 - (BNFState *)rewindStackMatchedToken;
 - (BNFState *)rewindStackUnmatchedToken;
 - (BNFState *)rewindStackEmptyState;

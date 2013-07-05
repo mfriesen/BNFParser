@@ -14,6 +14,7 @@
 @property (nonatomic, retain) BNFStateDefinition *stateDefinition;
 @property (nonatomic, assign) NSInteger position;
 
+- (BOOL)hasNextSequence;
 - (BNFState *)getNextSequence;
 - (BNFState *)getNextState;
 

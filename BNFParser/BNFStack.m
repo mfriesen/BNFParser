@@ -13,6 +13,30 @@
 
 @implementation BNFStack
 
+/**
+ * Rewinds to the next Token with next sequence
+ */
+- (void)rewindToNextTokenAndNextSequence {
+    
+    while (![self isEmpty]) {
+        
+        BNFPath *sp = [self peek];
+        
+        if ([sp isStateDefinition]) {
+            
+            BNFPathStateDefinition *spd = (BNFPathStateDefinition *) sp;
+            
+            if ([sp token] && [spd hasNextSequence]) {
+                break;
+            } else {
+                [self pop];
+            }
+            
+        } else {
+            [self pop];
+        }
+    }
+}
 
  - (BNFState *)rewindStackMatchedToken {
  
@@ -75,10 +99,13 @@
  
          } else {
  
+             BNFPathStateDefinition *spd = (BNFPathStateDefinition *)sp;
              if (foundRepetition) {
                  [self pop];
-             } else {
+             } else if ([spd hasNextSequence]) {
                  break;
+             } else {
+                 [self pop];
              }
          }
      }

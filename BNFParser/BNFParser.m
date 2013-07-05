@@ -48,14 +48,17 @@
             sp = [_stack pop];
  
             if ([self isEmpty:[sp token]]) {
-                [result setSuccess:YES];
                 break;
             }
+        
+        } else if (![sp token]) {
+
+            [_stack rewindToNextTokenAndNextSequence];
+
         } else if ([sp isStateDefinition]) {
  
             BOOL added = [self parseStateDefinition:[sp token]];
             if (!added) {
-                [result setSuccess:NO];
                 break;
             }
  
@@ -78,7 +81,6 @@
     return [text length];
 }
 
-
 - (BOOL)parseStateDefinition:(BNFToken *)token {
     BOOL success = NO;
     BNFPathStateDefinition *sd = [_stack peek];
@@ -89,8 +91,7 @@
     }
  
     return success;
- }
-
+}
 
 - (void)pushToStack:(BNFState *)state token:(BNFToken *)token {
  
@@ -136,12 +137,17 @@
         [self pushToStackOrFirstState:token stateDefinition:sd];
  
     } else if ([state isKindOfClass:[BNFStateEmpty class]]) {
- 
+
+        if ([self isEmpty:token]) {
+            [result setSuccess:YES];
+        }
+
         BNFState *rewindState = [_stack rewindStackEmptyState];
         [self pushToStack:rewindState token:token];
  
     } else if ([state match:token]) {
   
+        [result setSuccess:YES];
         token = [token nextToken];
         
         if (token) {
@@ -153,6 +159,7 @@
  
     } else {
  
+        [result setSuccess:NO];
         BNFState *nextState = [_stack rewindStackUnmatchedToken];
         [self pushToStack:nextState token:token];
     }

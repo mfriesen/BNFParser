@@ -33,7 +33,7 @@
     [super tearDown];
 }
 
-- (void)testOpenClose {
+- (void)testOpenCloseBrace {
     
     // given
     NSString *json = @"{}";
@@ -46,6 +46,21 @@
     STAssertNotNil([result top], @"assume not nil");
     STAssertNil([result error], @"assume nil");
     STAssertTrue([result success], @"assume success");
+}
+
+- (void)testOpenCloseBracket {
+    
+    // given
+    NSString *json = @"[]";
+    BNFToken *token = [_tokenizerFactory tokens:json];
+    
+    // when
+    BNFParseResult *result = [_parser parse:token];
+    
+    // then
+    STAssertTrue([result success], @"assume success");
+    STAssertNotNil([result top], @"assume not nil");
+    STAssertNil([result error], @"assume nil");
 }
 
 - (void)testEmpty {

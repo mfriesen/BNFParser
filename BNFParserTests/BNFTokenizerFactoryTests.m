@@ -294,4 +294,26 @@
     STAssertEqualObjects(@";", [token stringValue], @"got %@", [token stringValue]);
 }
 
+- (void)testRussianCharacters {
+    NSString *s = @"{\"text\":\"Й\"}";
+    
+    // when
+    BNFToken *token = [_factory tokens:s];
+    
+    STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@"\"text\"", [token stringValue], @"got %@", [token stringValue]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@":", [token stringValue], @"got %@", [token stringValue]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@"\"Й\"", [token stringValue], @"got %@", [token stringValue]);
+    token = [token nextToken];
+    
+    STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
+    token = [token nextToken];
+}
+
 @end

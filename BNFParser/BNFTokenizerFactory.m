@@ -37,7 +37,7 @@
     
     for (int i = 0; i < len; i++) {
         
-        char c = [text characterAtIndex:i];
+        unichar c = [text characterAtIndex:i];
         BNFTokenizerType type = [self getType:c lastType:lastType];
         
         if ([ff isActive]) {
@@ -231,7 +231,7 @@
     return type == BNFTokenizerType_LETTER;
 }
 
-- (BNFTokenizerType)getType:(NSInteger)c lastType:(BNFTokenizerType)lastType {
+- (BNFTokenizerType)getType:(unichar)c lastType:(BNFTokenizerType)lastType {
     if (c == 10 || c == 13) {
         return BNFTokenizerType_WHITESPACE_NEWLINE;
     } else if (c >= 0 && c <= 31) { // From: 0 to: 31 From:0x00 to:0x20

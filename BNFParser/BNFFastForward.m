@@ -73,9 +73,9 @@
     [_end addObject:[NSNumber numberWithInt:type2]];
 }
 
-- (void)appendIfActiveChar:(char)c {
+- (void)appendIfActiveChar:(unichar)c {
     if ([self isActive]) {
-        [_ms appendFormat:@"%c", c];
+        [_ms appendFormat:@"%C", c];
     }
 }
 

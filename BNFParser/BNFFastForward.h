@@ -19,7 +19,7 @@
 - (BOOL)isActive;
 - (BOOL)isComplete:(BNFTokenizerType)type lastType:(BNFTokenizerType) lastType position:(NSInteger)i length:(NSInteger)len;
 - (void)complete;
-- (void)appendIfActiveChar:(char)c;
+- (void)appendIfActiveChar:(unichar)c;
 - (void)appendIfActiveNSString:(NSString *)s;
 - (NSString *)getString;
 - (void)setEndWithType:(BNFTokenizerType)type;

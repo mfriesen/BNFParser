@@ -12,7 +12,6 @@
 		700BE2121763CD79004E12B2 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20D1763CD79004E12B2 /* simple_array.json */; };
 		700BE2131763CD79004E12B2 /* array_nested.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20E1763CD79004E12B2 /* array_nested.json */; };
 		700BE2141763CD79004E12B2 /* bad.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20F1763CD79004E12B2 /* bad.json */; };
-		700BE2161763CDC0004E12B2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 700BE2151763CDC0004E12B2 /* README.md */; };
 		7027EE291776440E00B1E1BB /* BNFState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE271776440E00B1E1BB /* BNFState.h */; };
 		7027EE2A1776440E00B1E1BB /* BNFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE281776440E00B1E1BB /* BNFState.m */; };
 		7027EE2D1776498400B1E1BB /* BNFStateTerminal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE2B1776498400B1E1BB /* BNFStateTerminal.h */; };
@@ -86,7 +85,6 @@
 		700BE20D1763CD79004E12B2 /* simple_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_array.json; sourceTree = "<group>"; };
 		700BE20E1763CD79004E12B2 /* array_nested.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = array_nested.json; sourceTree = "<group>"; };
 		700BE20F1763CD79004E12B2 /* bad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad.json; sourceTree = "<group>"; };
-		700BE2151763CDC0004E12B2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		7027EE271776440E00B1E1BB /* BNFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFState.h; sourceTree = "<group>"; };
 		7027EE281776440E00B1E1BB /* BNFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFState.m; sourceTree = "<group>"; };
 		7027EE2B1776498400B1E1BB /* BNFStateTerminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateTerminal.h; sourceTree = "<group>"; };
@@ -288,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				7027EE211776410A00B1E1BB /* Parser */,
-				700BE2151763CDC0004E12B2 /* README.md */,
 				708B56461763C76500A4F534 /* Supporting Files */,
 				70E4BE091763C85600AEAD11 /* Tokenizer */,
 				70E4BE231763C87600AEAD11 /* Util */,
@@ -472,7 +469,6 @@
 			files = (
 				708B564A1763C76500A4F534 /* InfoPlist.strings in Resources */,
 				70E4BE081763C84F00AEAD11 /* json.bnf in Resources */,
-				700BE2161763CDC0004E12B2 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

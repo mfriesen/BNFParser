@@ -16,21 +16,15 @@ The BNFParser Framework offers 3 basic services of general interest to developer
 
 Uses the string tokenizer to parse a string and create key/value mapping based on the '=' symbol.
 
-Example
----------
-sample key = sample value
+#### Example
 
-returns a key/value mapping where "sample key" is the key and "sample value" is the value.
-
-Usage
------
 NSString *text = @"sample key = sample value";
 
 PropertyParser *propertyParser = [[PropertyParser alloc] init];
 
-NSMutableDictionary *keyValueMap = [_propertyParser parse:s];
+NSMutableDictionary *keyValueMap = [propertyParser parse:text];
 
-STAssertNotNil([dic objectForKey:@"sample key"], @"expect key exists");
+STAssertNotNil([keyValueMap objectForKey:@"sample key"], @"expect key exists");
 
 ### Text Parsing via Gramars
 

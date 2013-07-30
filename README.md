@@ -12,7 +12,20 @@ The BNFParser Framework offers 3 basic services of general interest to developer
 
 3. Text Parsing via Grammars via BNFParser [see grammar syntax](http://parsekit.com/grammars.html)
 
-### PropertyParser
+### 1. String Tokenization
+
+NSString *text = @"The cow jumped over the moon!";
+
+BNFTokenizerFactory *factory = [[BNFTokenizerFactory alloc] init];
+
+BNFToken *token = [factory tokens:text];
+
+while (token) {
+  NSLog(@"TOKEN %@", [token stringValue]);
+  token = [token nextToken];
+}
+
+### 2. PropertyParser
 
 Uses the string tokenizer to parse a string and create key/value mapping based on the '=' symbol.
 
@@ -26,12 +39,11 @@ NSMutableDictionary *keyValueMap = [propertyParser parse:text];
 
 STAssertNotNil([keyValueMap objectForKey:@"sample key"], @"expect key exists");
 
-### Text Parsing via Gramars
+### 3. Text Parsing via Grammars
 
 BNFParser currently only ships with a JSON grammar so the example are based on that.
 
-Example Valid JSON
--------------------
+#### Example
 
 // Create String Tokens
 

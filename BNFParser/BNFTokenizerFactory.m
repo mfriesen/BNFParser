@@ -27,12 +27,18 @@
     return token;
 }
 
-- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params {
+- (BNFToken *)tokens:(NSString *)text2 params:(BNFTokenizerParams *)params {
     
     Stack *stack = [[Stack alloc] init];
     BNFFastForward *ff = [[BNFFastForward alloc] init];
     
     BNFTokenizerType lastType = BNFTokenizerType_NONE;
+    
+    NSString *text = [NSString stringWithCString:[text2 cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
+    
+    if (!text) {
+        text = text2;
+    }
     
     NSInteger len = [text length];
     
@@ -150,8 +156,8 @@
     }
 }
 
-- (void)addBNFToken:(Stack *)stack type:(BNFTokenizerType) type character:(char) c {
-    [self addBNFToken:stack type:type string:[NSString stringWithFormat:@"%c",c]];
+- (void)addBNFToken:(Stack *)stack type:(BNFTokenizerType) type character:(unichar) c {
+    [self addBNFToken:stack type:type string:[NSString stringWithFormat:@"%C",c]];
 }
 
 - (void)addBNFToken:(Stack *)stack type:(BNFTokenizerType)type string:(NSString *)s {

@@ -35,7 +35,7 @@ typedef enum BNFTokenType : NSInteger {
 
 - (id)init;
 - (id)initWithValue:(NSString *)value;
-- (void)appendValue:(char)ch;
+- (void)appendValue:(unichar)ch;
 - (void)setValueWithString:(NSString *)s;
 - (BOOL)isSymbol;
 - (BOOL)isWord;

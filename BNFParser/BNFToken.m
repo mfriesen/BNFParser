@@ -34,8 +34,8 @@
     return self;
 }
 
-- (void)appendValue:(char)ch {
-    [_stringValue appendString:[NSString stringWithFormat:@"%c",ch]];
+- (void)appendValue:(unichar)ch {
+    [_stringValue appendString:[NSString stringWithFormat:@"%C",ch]];
 }
 
 - (BOOL)isSymbol {

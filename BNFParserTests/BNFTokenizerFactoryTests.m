@@ -242,6 +242,7 @@
     // when
     BNFToken *token = [_factory tokens:s];
     
+    // then
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
@@ -256,6 +257,8 @@
     
     STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
+    
+    STAssertNil(token, @"expected nil");
 }
 
 - (void)testJsonGrammar {
@@ -303,11 +306,14 @@
 }
 
 - (void)testRussianCharacters {
+    
+    // given
     NSString *s = @"{\"text\":\"Й\"}";
     
     // when
     BNFToken *token = [_factory tokens:s];
     
+    // then
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
@@ -322,6 +328,38 @@
     
     STAssertEqualObjects(@"}", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
+    
+    STAssertNil(token, @"expected nil");
+}
+
+- (void)testUnicodeCharacter {
+    
+    // given
+    NSString *s = @"\u042d\u0442\u043e\u0440\u0443\u0441\u0441\u043a\u0438\u0439\u0442\u0435\u043a\u0441\u0442";
+        
+    // when
+    BNFToken *token = [_factory tokens:s];
+
+    // then
+    STAssertEqualObjects(@"Эторусскийтекст", [token stringValue], @"got %@", [token stringValue]);
+    token = [token nextToken];
+
+    STAssertNil(token, @"expected nil");
+}
+
+- (void)testUnicodeCharacter2 {
+    
+    // given
+    NSString *s = @"\\u042d";
+    
+    // when
+    BNFToken *token = [_factory tokens:s];
+    
+    // then
+    STAssertEqualObjects(@"Э", [token stringValue], @"got %@", [token stringValue]);
+    token = [token nextToken];
+    
+    STAssertNil(token, @"expected nil");
 }
 
 @end

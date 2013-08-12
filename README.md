@@ -68,6 +68,20 @@ Uses the string tokenizer to parse a string and create key/value mapping based o
     // the "first" error token, this token and any afterwards are considered to not have passed the grammar:
     STAssertNil([result error], @"assume nil");  
 
+### Bugs and Feedback
+
+For bugs, questions and discussions please use the [Github Issues](https://github.com/Netflix/BNFParser/issues).
+
+### Contributing
+
+We love contributions! If you'd like to contribute please submit a pull request via Github. 
+
+### In the Wild
+
+#### Applications (OS X)
+
+[GoJSON](http://gobits.ca) - JSON Editor
+
 ### LICENSE
 
 This library is distributed under the **Apache 2 Open Source License**.

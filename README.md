@@ -1,6 +1,8 @@
 ## BNFParser
 
-**BNFParser** is a [**Backus-Naur Form**](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form) Framework written by **Mike Friesen** released under the **Apache 2 Open Source License**.
+**BNFParser** is a [**Backus-Naur Form**](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form) Framework for Objective C written by **Mike Friesen** released under the **Apache 2 Open Source License**.
+
+An [**Java**](https://github.com/mfriesen/BNFParserJava) version is also available.
 
 **BNFParser** was inspired by the framework [ParseKit](http://parsekit.com/) by Todd Ditchendorf.
 
@@ -14,6 +16,9 @@ The **BNFParser** Framework offers 3 basic services of general interest to devel
 
 ### 1. String Tokenization
 
+The string tokenizer breaks down any string into a series of letter/number/symbols for easy processing.
+
+#### How do I use it? 
     NSString *text = @"The cow jumped over the moon!";
     BNFTokenizerFactory *factory = [[BNFTokenizerFactory alloc] init];
     BNFToken *token = [factory tokens:text];
@@ -26,7 +31,7 @@ The **BNFParser** Framework offers 3 basic services of general interest to devel
 
 Uses the string tokenizer to parse a string and create key/value mapping based on the `'='` symbol.
 
-#### Example:
+#### How do I use it?
 
     NSString *text = @"sample key = sample value";
     PropertyParser *propertyParser = [[PropertyParser alloc] init];
@@ -37,7 +42,7 @@ Uses the string tokenizer to parse a string and create key/value mapping based o
 
 **BNFParser** currently only ships with a **JSON grammar** so the example are based on that.
 
-#### Example:
+#### How do I use it?
 
     // Create String Tokens
     NSString *text = @"{ \"key\":\"value\"}";
@@ -62,3 +67,7 @@ Uses the string tokenizer to parse a string and create key/value mapping based o
     
     // the "first" error token, this token and any afterwards are considered to not have passed the grammar:
     STAssertNil([result error], @"assume nil");  
+
+### LICENSE
+
+This library is distributed under the **Apache 2 Open Source License**.

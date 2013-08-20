@@ -19,14 +19,14 @@
 
 @interface BNFState : NSObject
 
-typedef enum BNFRepetition : NSInteger {
+typedef enum BNFRepetition2 : NSInteger {
     BNFRepetitionNONE,
     BNFRepetitionZERO_OR_MORE
-} BNFRepetition;
+} BNFRepetition2;
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) BNFState *nextState;
-@property (nonatomic, assign) BNFRepetition repetition;
+@property (nonatomic, assign) BNFRepetition2 repetition;
 
 - (id)init;
 - (id)initWithName:(NSString *)name;

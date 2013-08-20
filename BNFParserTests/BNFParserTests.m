@@ -41,7 +41,11 @@
     [super tearDown];
 }
 
-- (void)testOpenCloseBrace {
+/**
+ * testOpenCloseBrace.
+ *
+ */
+- (void)testParse01 {
     
     // given
     NSString *json = @"{}";
@@ -56,7 +60,11 @@
     STAssertTrue([result success], @"assume success");
 }
 
-- (void)testOpenCloseBracket {
+/**
+ * testOpenCloseBracket.
+ *
+ */
+- (void)testParse02 {
     
     // given
     NSString *json = @"[]";
@@ -71,7 +79,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testEmpty {
+/**
+ * testEmpty.
+ *
+ */
+- (void)testParse03 {
     
     // given
     NSString *json = @"";
@@ -86,7 +98,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testQuotedString {
+/**
+ * testQuotedString.
+ *
+ */
+- (void)testParse04 {
     
     // given
     NSString *json = @"{ \"asd\":\"123\"}";
@@ -101,7 +117,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testNumber {
+/**
+ * testNumber.
+ *
+ */
+- (void)testParse05 {
     
     // given
     NSString *json = @"{ \"asd\":123}";
@@ -116,7 +136,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testSimple01 {
+/**
+ * testSimple01.
+ *
+ */
+- (void)testParse06 {
     
     // given
     NSString *json = @"{\"id\": \"118019484951173_228591\",\"message\": \"test test\"}";
@@ -131,7 +155,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testSimple02 {
+/**
+ * testSimple02.
+ *
+ */
+- (void)testParse07 {
     
     // given
     NSString *json = @"{\"id\": \"118019484951173_228591\",\"message\": \"test test\",\"created_time\": \"2011-06-19T09:14:16+0000\"}";
@@ -146,7 +174,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testNested {
+/**
+ * testNested.
+ *
+ */
+- (void)testParse08 {
     
     // given
     NSString *json = @"{\"card\":\"2\",\"numbers\":{\"Conway\":[1,11,21,1211,111221,312211],\"Fibonacci\":[0,1,1,2,3,5,8,13,21,34]}}";
@@ -161,7 +193,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testArray {
+/**
+ * testArray.
+ *
+ */
+- (void)testParse09 {
     
     // given
     NSString *json = @"[1,11,21,1211,111221,312211]";
@@ -176,7 +212,11 @@
     STAssertNil([result error], @"assume nil");
 }
 
-- (void)testBadSimple00 {
+/**
+ * testBadSimple00.
+ *
+ */
+- (void)testParse10 {
     
     // given
     NSString *json = @"asdasd";
@@ -192,7 +232,11 @@
     STAssertEqualObjects(json, [[result error] stringValue], @"assume equals");
 }
 
-- (void)testBadSimple01 {
+/**
+ * testBadSimple01.
+ *
+ */
+- (void)testParse11 {
     
     // given
     NSString *json = @"{ asdasd";
@@ -209,7 +253,11 @@
     STAssertEqualObjects(@"asdasd", [[result error] stringValue], @"assume equals");
 }
 
-- (void)testBadSimple02 {
+/**
+ * testBadSimple02.
+ *
+ */
+- (void)testParse12 {
     
     // given
     NSString *json = @"{\"id\": \"118019484951173_228591\",\"message\": \"test test\",\"created_time\"! \"2011-06-19T09:14:16+0000\"}";
@@ -225,7 +273,11 @@
     STAssertEqualObjects(@"!", [[result error] stringValue], @"assume equals");
 }
 
-- (void)testBadSimple03 {
+/**
+ * testBadSimple03.
+ *
+ */
+- (void)testParse13 {
     
     // given
     NSString *json = @"[";
@@ -239,6 +291,45 @@
     STAssertNotNil([result error], @"assume not nil");
     STAssertFalse([result success], @"assume fail");
     STAssertEqualObjects(@"[", [[result error] stringValue], @"assume equals");
+}
+
+/**
+ * good JSON.
+ *
+ */
+- (void)testParse14 {
+    
+    // given
+    NSString *json = @"{\"A\":null}";
+    BNFToken *token = [_tokenizerFactory tokens:json];
+    
+    // when
+    BNFParseResult *result = [_parser parse:token];
+    
+    // then
+    STAssertTrue([result success], @"assume success");
+    STAssertNotNil([result top], @"assume not nil");
+    STAssertNil([result error], @"assume nil");
+}
+
+/**
+ * bad JSON.
+ *
+ */
+- (void)testParse15 {
+    // given
+    NSString *json = @"{\"A\":\"B\",\"C\":}";
+    BNFToken *token = [_tokenizerFactory tokens:json];
+    
+    // when
+    BNFParseResult *result = [_parser parse:token];
+    
+    // then    
+    STAssertNotNil([result top], @"assume not nil");
+    STAssertNotNil([result error], @"assume not nil");
+    STAssertFalse([result success], @"assume fail");
+    STAssertEqualObjects(@"}", [[result error] stringValue], @"assume equals");
+
 }
 
 @end

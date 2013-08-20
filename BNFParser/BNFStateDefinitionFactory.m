@@ -123,7 +123,7 @@
     
     BOOL isTerminal = [self isTerminal:ss];
     NSString *name = [self fixQuotedString:ss];
-    BNFRepetition repetition = BNFRepetitionNONE;
+    BNFRepetition2 repetition = BNFRepetitionNONE;
  
     if ([name hasSuffix:@"*"]) {
         repetition = BNFRepetitionZERO_OR_MORE;

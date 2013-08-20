@@ -41,6 +41,13 @@
 		702C9463177764880013C655 /* BNFStateDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C9461177764880013C655 /* BNFStateDefinition.m */; };
 		702C946A1777E53B0013C655 /* BNFStateDefinitionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */; };
 		702C946B1777E53B0013C655 /* BNFStateDefinitionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */; };
+		706B063E17C306BC00EEBCA2 /* BNFSymbol.h in Headers */ = {isa = PBXBuildFile; fileRef = 706B063C17C306BC00EEBCA2 /* BNFSymbol.h */; };
+		706B063F17C306BC00EEBCA2 /* BNFSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B063D17C306BC00EEBCA2 /* BNFSymbol.m */; };
+		706B064217C307A300EEBCA2 /* BNFSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 706B064017C307A300EEBCA2 /* BNFSequence.h */; };
+		706B064317C307A300EEBCA2 /* BNFSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B064117C307A300EEBCA2 /* BNFSequence.m */; };
+		706B064617C3082000EEBCA2 /* BNFSequenceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 706B064417C3081F00EEBCA2 /* BNFSequenceFactory.h */; };
+		706B064717C3082000EEBCA2 /* BNFSequenceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B064517C3081F00EEBCA2 /* BNFSequenceFactory.m */; };
+		706B064A17C310FF00EEBCA2 /* BNFSequenceFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B064917C310FF00EEBCA2 /* BNFSequenceFactoryTest.m */; };
 		708B56401763C76500A4F534 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B563F1763C76500A4F534 /* Cocoa.framework */; };
 		708B564A1763C76500A4F534 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 708B56481763C76500A4F534 /* InfoPlist.strings */; };
 		708B56561763C76500A4F534 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708B56551763C76500A4F534 /* SenTestingKit.framework */; };
@@ -115,6 +122,14 @@
 		702C9461177764880013C655 /* BNFStateDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinition.m; sourceTree = "<group>"; };
 		702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinitionFactory.h; sourceTree = "<group>"; };
 		702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinitionFactory.m; sourceTree = "<group>"; };
+		706B063C17C306BC00EEBCA2 /* BNFSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFSymbol.h; sourceTree = "<group>"; };
+		706B063D17C306BC00EEBCA2 /* BNFSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFSymbol.m; sourceTree = "<group>"; };
+		706B064017C307A300EEBCA2 /* BNFSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFSequence.h; sourceTree = "<group>"; };
+		706B064117C307A300EEBCA2 /* BNFSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFSequence.m; sourceTree = "<group>"; };
+		706B064417C3081F00EEBCA2 /* BNFSequenceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFSequenceFactory.h; sourceTree = "<group>"; };
+		706B064517C3081F00EEBCA2 /* BNFSequenceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFSequenceFactory.m; sourceTree = "<group>"; };
+		706B064817C310FF00EEBCA2 /* BNFSequenceFactoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFSequenceFactoryTest.h; sourceTree = "<group>"; };
+		706B064917C310FF00EEBCA2 /* BNFSequenceFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFSequenceFactoryTest.m; sourceTree = "<group>"; };
 		708B563C1763C76500A4F534 /* BNFParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BNFParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		708B563F1763C76500A4F534 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		708B56421763C76500A4F534 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -196,6 +211,12 @@
 				708B97561779462D00B9B9AE /* PropertyParser.h */,
 				708B97571779462D00B9B9AE /* PropertyParser.m */,
 				7027EE221776411600B1E1BB /* States */,
+				706B063C17C306BC00EEBCA2 /* BNFSymbol.h */,
+				706B063D17C306BC00EEBCA2 /* BNFSymbol.m */,
+				706B064017C307A300EEBCA2 /* BNFSequence.h */,
+				706B064117C307A300EEBCA2 /* BNFSequence.m */,
+				706B064417C3081F00EEBCA2 /* BNFSequenceFactory.h */,
+				706B064517C3081F00EEBCA2 /* BNFSequenceFactory.m */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -229,6 +250,8 @@
 				70D9BF2A177BE838005DBC5E /* PropertyParserTests.m */,
 				70D9BF2C177EA06A005DBC5E /* BNFParserTests.h */,
 				70D9BF2D177EA06A005DBC5E /* BNFParserTests.m */,
+				706B064817C310FF00EEBCA2 /* BNFSequenceFactoryTest.h */,
+				706B064917C310FF00EEBCA2 /* BNFSequenceFactoryTest.m */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -390,6 +413,9 @@
 				708B97581779462D00B9B9AE /* PropertyParser.h in Headers */,
 				708B975C1779468B00B9B9AE /* BNFFastForward.h in Headers */,
 				708B9760177947C500B9B9AE /* BNFTokenizerParams.h in Headers */,
+				706B063E17C306BC00EEBCA2 /* BNFSymbol.h in Headers */,
+				706B064217C307A300EEBCA2 /* BNFSequence.h in Headers */,
+				706B064617C3082000EEBCA2 /* BNFSequenceFactory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +584,9 @@
 				708B97591779462D00B9B9AE /* PropertyParser.m in Sources */,
 				708B975D1779468B00B9B9AE /* BNFFastForward.m in Sources */,
 				708B9761177947C500B9B9AE /* BNFTokenizerParams.m in Sources */,
+				706B063F17C306BC00EEBCA2 /* BNFSymbol.m in Sources */,
+				706B064317C307A300EEBCA2 /* BNFSequence.m in Sources */,
+				706B064717C3082000EEBCA2 /* BNFSequenceFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +599,7 @@
 				70D9BF28177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m in Sources */,
 				70D9BF2B177BE838005DBC5E /* PropertyParserTests.m in Sources */,
 				70D9BF2E177EA06A005DBC5E /* BNFParserTests.m in Sources */,
+				706B064A17C310FF00EEBCA2 /* BNFSequenceFactoryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,35 +12,11 @@
 		700BE2121763CD79004E12B2 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20D1763CD79004E12B2 /* simple_array.json */; };
 		700BE2131763CD79004E12B2 /* array_nested.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20E1763CD79004E12B2 /* array_nested.json */; };
 		700BE2141763CD79004E12B2 /* bad.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20F1763CD79004E12B2 /* bad.json */; };
-		7027EE291776440E00B1E1BB /* BNFState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE271776440E00B1E1BB /* BNFState.h */; };
-		7027EE2A1776440E00B1E1BB /* BNFState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE281776440E00B1E1BB /* BNFState.m */; };
-		7027EE2D1776498400B1E1BB /* BNFStateTerminal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE2B1776498400B1E1BB /* BNFStateTerminal.h */; };
-		7027EE2E1776498400B1E1BB /* BNFStateTerminal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE2C1776498400B1E1BB /* BNFStateTerminal.m */; };
-		7027EE3117764A3B00B1E1BB /* BNFStateEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE2F17764A3B00B1E1BB /* BNFStateEmpty.h */; };
-		7027EE3217764A3B00B1E1BB /* BNFStateEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE3017764A3B00B1E1BB /* BNFStateEmpty.m */; };
-		7027EE3517764A6400B1E1BB /* BNFStateEnd.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE3317764A6400B1E1BB /* BNFStateEnd.h */; };
-		7027EE3617764A6400B1E1BB /* BNFStateEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE3417764A6400B1E1BB /* BNFStateEnd.m */; };
-		7027EE3917764AAE00B1E1BB /* BNFStateNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE3717764AAD00B1E1BB /* BNFStateNumber.h */; };
-		7027EE3A17764AAE00B1E1BB /* BNFStateNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE3817764AAE00B1E1BB /* BNFStateNumber.m */; };
 		7027EE3F17765B2100B1E1BB /* BNFStateNumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE3E17765B2100B1E1BB /* BNFStateNumberTests.m */; };
-		7027EE4217765D0D00B1E1BB /* BNFStateQuotedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027EE4017765D0C00B1E1BB /* BNFStateQuotedString.h */; };
-		7027EE4317765D0D00B1E1BB /* BNFStateQuotedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7027EE4117765D0D00B1E1BB /* BNFStateQuotedString.m */; };
 		702C9449177729330013C655 /* BNFParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C9447177729330013C655 /* BNFParser.h */; };
 		702C944A177729330013C655 /* BNFParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C9448177729330013C655 /* BNFParser.m */; };
 		702C944D1777297A0013C655 /* BNFParseResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C944B1777297A0013C655 /* BNFParseResult.h */; };
 		702C944E1777297A0013C655 /* BNFParseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C944C1777297A0013C655 /* BNFParseResult.m */; };
-		702C945117772ACD0013C655 /* BNFStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C944F17772ACD0013C655 /* BNFStack.h */; };
-		702C945217772ACD0013C655 /* BNFStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C945017772ACD0013C655 /* BNFStack.m */; };
-		702C945617772D7F0013C655 /* BNFPathState.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C945417772D7F0013C655 /* BNFPathState.h */; };
-		702C945717772D7F0013C655 /* BNFPathState.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C945517772D7F0013C655 /* BNFPathState.m */; };
-		702C945A17772D9A0013C655 /* BNFPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C945817772D9A0013C655 /* BNFPath.h */; };
-		702C945B17772D9A0013C655 /* BNFPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C945917772D9A0013C655 /* BNFPath.m */; };
-		702C945E177732910013C655 /* BNFPathStateDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C945C177732910013C655 /* BNFPathStateDefinition.h */; };
-		702C945F177732910013C655 /* BNFPathStateDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C945D177732910013C655 /* BNFPathStateDefinition.m */; };
-		702C9462177764880013C655 /* BNFStateDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C9460177764880013C655 /* BNFStateDefinition.h */; };
-		702C9463177764880013C655 /* BNFStateDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C9461177764880013C655 /* BNFStateDefinition.m */; };
-		702C946A1777E53B0013C655 /* BNFStateDefinitionFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */; };
-		702C946B1777E53B0013C655 /* BNFStateDefinitionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */; };
 		706B063E17C306BC00EEBCA2 /* BNFSymbol.h in Headers */ = {isa = PBXBuildFile; fileRef = 706B063C17C306BC00EEBCA2 /* BNFSymbol.h */; };
 		706B063F17C306BC00EEBCA2 /* BNFSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B063D17C306BC00EEBCA2 /* BNFSymbol.m */; };
 		706B064217C307A300EEBCA2 /* BNFSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 706B064017C307A300EEBCA2 /* BNFSequence.h */; };
@@ -63,7 +39,6 @@
 		70C67ED7176AC86A00AD6B99 /* group-members.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C67ED6176AC86A00AD6B99 /* group-members.json */; };
 		70D9BF23177BD290005DBC5E /* BNFTokenizerFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF22177BD290005DBC5E /* BNFTokenizerFactoryTests.m */; };
 		70D9BF25177BDB6B005DBC5E /* json.bnf in Resources */ = {isa = PBXBuildFile; fileRef = 70D9BF24177BDB6B005DBC5E /* json.bnf */; };
-		70D9BF28177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF27177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m */; };
 		70D9BF2B177BE838005DBC5E /* PropertyParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF2A177BE838005DBC5E /* PropertyParserTests.m */; };
 		70D9BF2E177EA06A005DBC5E /* BNFParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D9BF2D177EA06A005DBC5E /* BNFParserTests.m */; };
 		70E06B4C17C4689A00F88BE7 /* BNFParserState.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E06B4A17C4689A00F88BE7 /* BNFParserState.h */; };
@@ -94,36 +69,12 @@
 		700BE20D1763CD79004E12B2 /* simple_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_array.json; sourceTree = "<group>"; };
 		700BE20E1763CD79004E12B2 /* array_nested.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = array_nested.json; sourceTree = "<group>"; };
 		700BE20F1763CD79004E12B2 /* bad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad.json; sourceTree = "<group>"; };
-		7027EE271776440E00B1E1BB /* BNFState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFState.h; sourceTree = "<group>"; };
-		7027EE281776440E00B1E1BB /* BNFState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFState.m; sourceTree = "<group>"; };
-		7027EE2B1776498400B1E1BB /* BNFStateTerminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateTerminal.h; sourceTree = "<group>"; };
-		7027EE2C1776498400B1E1BB /* BNFStateTerminal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateTerminal.m; sourceTree = "<group>"; };
-		7027EE2F17764A3B00B1E1BB /* BNFStateEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateEmpty.h; sourceTree = "<group>"; };
-		7027EE3017764A3B00B1E1BB /* BNFStateEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateEmpty.m; sourceTree = "<group>"; };
-		7027EE3317764A6400B1E1BB /* BNFStateEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateEnd.h; sourceTree = "<group>"; };
-		7027EE3417764A6400B1E1BB /* BNFStateEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateEnd.m; sourceTree = "<group>"; };
-		7027EE3717764AAD00B1E1BB /* BNFStateNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateNumber.h; sourceTree = "<group>"; };
-		7027EE3817764AAE00B1E1BB /* BNFStateNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateNumber.m; sourceTree = "<group>"; };
 		7027EE3D17765B2100B1E1BB /* BNFStateNumberTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateNumberTests.h; sourceTree = "<group>"; };
 		7027EE3E17765B2100B1E1BB /* BNFStateNumberTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateNumberTests.m; sourceTree = "<group>"; };
-		7027EE4017765D0C00B1E1BB /* BNFStateQuotedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateQuotedString.h; sourceTree = "<group>"; };
-		7027EE4117765D0D00B1E1BB /* BNFStateQuotedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateQuotedString.m; sourceTree = "<group>"; };
 		702C9447177729330013C655 /* BNFParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParser.h; sourceTree = "<group>"; };
 		702C9448177729330013C655 /* BNFParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParser.m; sourceTree = "<group>"; };
 		702C944B1777297A0013C655 /* BNFParseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParseResult.h; sourceTree = "<group>"; };
 		702C944C1777297A0013C655 /* BNFParseResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParseResult.m; sourceTree = "<group>"; };
-		702C944F17772ACD0013C655 /* BNFStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStack.h; sourceTree = "<group>"; };
-		702C945017772ACD0013C655 /* BNFStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStack.m; sourceTree = "<group>"; };
-		702C945417772D7F0013C655 /* BNFPathState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFPathState.h; sourceTree = "<group>"; };
-		702C945517772D7F0013C655 /* BNFPathState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFPathState.m; sourceTree = "<group>"; };
-		702C945817772D9A0013C655 /* BNFPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFPath.h; sourceTree = "<group>"; };
-		702C945917772D9A0013C655 /* BNFPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFPath.m; sourceTree = "<group>"; };
-		702C945C177732910013C655 /* BNFPathStateDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFPathStateDefinition.h; sourceTree = "<group>"; };
-		702C945D177732910013C655 /* BNFPathStateDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFPathStateDefinition.m; sourceTree = "<group>"; };
-		702C9460177764880013C655 /* BNFStateDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinition.h; sourceTree = "<group>"; };
-		702C9461177764880013C655 /* BNFStateDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinition.m; sourceTree = "<group>"; };
-		702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinitionFactory.h; sourceTree = "<group>"; };
-		702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinitionFactory.m; sourceTree = "<group>"; };
 		706B063C17C306BC00EEBCA2 /* BNFSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFSymbol.h; sourceTree = "<group>"; };
 		706B063D17C306BC00EEBCA2 /* BNFSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFSymbol.m; sourceTree = "<group>"; };
 		706B064017C307A300EEBCA2 /* BNFSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFSequence.h; sourceTree = "<group>"; };
@@ -154,8 +105,6 @@
 		70D9BF21177BD290005DBC5E /* BNFTokenizerFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFTokenizerFactoryTests.h; sourceTree = "<group>"; };
 		70D9BF22177BD290005DBC5E /* BNFTokenizerFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFTokenizerFactoryTests.m; sourceTree = "<group>"; };
 		70D9BF24177BDB6B005DBC5E /* json.bnf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.bnf; sourceTree = "<group>"; };
-		70D9BF26177BE046005DBC5E /* BNFStateDefinitionFactoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFStateDefinitionFactoryTests.h; sourceTree = "<group>"; };
-		70D9BF27177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFStateDefinitionFactoryTests.m; sourceTree = "<group>"; };
 		70D9BF29177BE838005DBC5E /* PropertyParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyParserTests.h; sourceTree = "<group>"; };
 		70D9BF2A177BE838005DBC5E /* PropertyParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyParserTests.m; sourceTree = "<group>"; };
 		70D9BF2C177EA06A005DBC5E /* BNFParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserTests.h; sourceTree = "<group>"; };
@@ -200,21 +149,8 @@
 				702C9448177729330013C655 /* BNFParser.m */,
 				702C944B1777297A0013C655 /* BNFParseResult.h */,
 				702C944C1777297A0013C655 /* BNFParseResult.m */,
-				702C945817772D9A0013C655 /* BNFPath.h */,
-				702C945917772D9A0013C655 /* BNFPath.m */,
-				702C945417772D7F0013C655 /* BNFPathState.h */,
-				702C945517772D7F0013C655 /* BNFPathState.m */,
-				702C945C177732910013C655 /* BNFPathStateDefinition.h */,
-				702C945D177732910013C655 /* BNFPathStateDefinition.m */,
-				702C944F17772ACD0013C655 /* BNFStack.h */,
-				702C945017772ACD0013C655 /* BNFStack.m */,
-				702C9460177764880013C655 /* BNFStateDefinition.h */,
-				702C9461177764880013C655 /* BNFStateDefinition.m */,
-				702C94681777E53A0013C655 /* BNFStateDefinitionFactory.h */,
-				702C94691777E53A0013C655 /* BNFStateDefinitionFactory.m */,
 				708B97561779462D00B9B9AE /* PropertyParser.h */,
 				708B97571779462D00B9B9AE /* PropertyParser.m */,
-				7027EE221776411600B1E1BB /* States */,
 				706B063C17C306BC00EEBCA2 /* BNFSymbol.h */,
 				706B063D17C306BC00EEBCA2 /* BNFSymbol.m */,
 				706B064017C307A300EEBCA2 /* BNFSequence.h */,
@@ -227,31 +163,10 @@
 			name = Parser;
 			sourceTree = "<group>";
 		};
-		7027EE221776411600B1E1BB /* States */ = {
-			isa = PBXGroup;
-			children = (
-				7027EE271776440E00B1E1BB /* BNFState.h */,
-				7027EE281776440E00B1E1BB /* BNFState.m */,
-				7027EE2B1776498400B1E1BB /* BNFStateTerminal.h */,
-				7027EE2C1776498400B1E1BB /* BNFStateTerminal.m */,
-				7027EE2F17764A3B00B1E1BB /* BNFStateEmpty.h */,
-				7027EE3017764A3B00B1E1BB /* BNFStateEmpty.m */,
-				7027EE3317764A6400B1E1BB /* BNFStateEnd.h */,
-				7027EE3417764A6400B1E1BB /* BNFStateEnd.m */,
-				7027EE3717764AAD00B1E1BB /* BNFStateNumber.h */,
-				7027EE3817764AAE00B1E1BB /* BNFStateNumber.m */,
-				7027EE4017765D0C00B1E1BB /* BNFStateQuotedString.h */,
-				7027EE4117765D0D00B1E1BB /* BNFStateQuotedString.m */,
-			);
-			name = States;
-			sourceTree = "<group>";
-		};
 		7027EE3B17765B0600B1E1BB /* Parser */ = {
 			isa = PBXGroup;
 			children = (
 				7027EE3C17765B0B00B1E1BB /* States */,
-				70D9BF26177BE046005DBC5E /* BNFStateDefinitionFactoryTests.h */,
-				70D9BF27177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m */,
 				70D9BF29177BE838005DBC5E /* PropertyParserTests.h */,
 				70D9BF2A177BE838005DBC5E /* PropertyParserTests.m */,
 				70D9BF2C177EA06A005DBC5E /* BNFParserTests.h */,
@@ -402,20 +317,8 @@
 				70E4BE101763C86200AEAD11 /* BNFTokenizerFactory.h in Headers */,
 				70E4BE141763C86200AEAD11 /* BNFToken.h in Headers */,
 				70E4BE261763C88100AEAD11 /* Stack.h in Headers */,
-				7027EE291776440E00B1E1BB /* BNFState.h in Headers */,
-				7027EE2D1776498400B1E1BB /* BNFStateTerminal.h in Headers */,
-				7027EE3117764A3B00B1E1BB /* BNFStateEmpty.h in Headers */,
-				7027EE3517764A6400B1E1BB /* BNFStateEnd.h in Headers */,
-				7027EE3917764AAE00B1E1BB /* BNFStateNumber.h in Headers */,
-				7027EE4217765D0D00B1E1BB /* BNFStateQuotedString.h in Headers */,
 				702C9449177729330013C655 /* BNFParser.h in Headers */,
 				702C944D1777297A0013C655 /* BNFParseResult.h in Headers */,
-				702C945117772ACD0013C655 /* BNFStack.h in Headers */,
-				702C945617772D7F0013C655 /* BNFPathState.h in Headers */,
-				702C945A17772D9A0013C655 /* BNFPath.h in Headers */,
-				702C945E177732910013C655 /* BNFPathStateDefinition.h in Headers */,
-				702C9462177764880013C655 /* BNFStateDefinition.h in Headers */,
-				702C946A1777E53B0013C655 /* BNFStateDefinitionFactory.h in Headers */,
 				708B97581779462D00B9B9AE /* PropertyParser.h in Headers */,
 				708B975C1779468B00B9B9AE /* BNFFastForward.h in Headers */,
 				708B9760177947C500B9B9AE /* BNFTokenizerParams.h in Headers */,
@@ -574,20 +477,8 @@
 				70E4BE111763C86200AEAD11 /* BNFTokenizerFactory.m in Sources */,
 				70E4BE151763C86200AEAD11 /* BNFToken.m in Sources */,
 				70E4BE271763C88100AEAD11 /* Stack.m in Sources */,
-				7027EE2A1776440E00B1E1BB /* BNFState.m in Sources */,
-				7027EE2E1776498400B1E1BB /* BNFStateTerminal.m in Sources */,
-				7027EE3217764A3B00B1E1BB /* BNFStateEmpty.m in Sources */,
-				7027EE3617764A6400B1E1BB /* BNFStateEnd.m in Sources */,
-				7027EE3A17764AAE00B1E1BB /* BNFStateNumber.m in Sources */,
-				7027EE4317765D0D00B1E1BB /* BNFStateQuotedString.m in Sources */,
 				702C944A177729330013C655 /* BNFParser.m in Sources */,
 				702C944E1777297A0013C655 /* BNFParseResult.m in Sources */,
-				702C945217772ACD0013C655 /* BNFStack.m in Sources */,
-				702C945717772D7F0013C655 /* BNFPathState.m in Sources */,
-				702C945B17772D9A0013C655 /* BNFPath.m in Sources */,
-				702C945F177732910013C655 /* BNFPathStateDefinition.m in Sources */,
-				702C9463177764880013C655 /* BNFStateDefinition.m in Sources */,
-				702C946B1777E53B0013C655 /* BNFStateDefinitionFactory.m in Sources */,
 				708B97591779462D00B9B9AE /* PropertyParser.m in Sources */,
 				708B975D1779468B00B9B9AE /* BNFFastForward.m in Sources */,
 				708B9761177947C500B9B9AE /* BNFTokenizerParams.m in Sources */,
@@ -604,7 +495,6 @@
 			files = (
 				7027EE3F17765B2100B1E1BB /* BNFStateNumberTests.m in Sources */,
 				70D9BF23177BD290005DBC5E /* BNFTokenizerFactoryTests.m in Sources */,
-				70D9BF28177BE046005DBC5E /* BNFStateDefinitionFactoryTests.m in Sources */,
 				70D9BF2B177BE838005DBC5E /* PropertyParserTests.m in Sources */,
 				70D9BF2E177EA06A005DBC5E /* BNFParserTests.m in Sources */,
 				706B064A17C310FF00EEBCA2 /* BNFSequenceFactoryTest.m in Sources */,

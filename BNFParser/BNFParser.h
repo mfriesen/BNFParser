@@ -17,12 +17,12 @@
 #import <Foundation/Foundation.h>
 #import "BNFToken.h"
 #import "BNFParseResult.h"
-#import "BNFStack.h"
+#import "Stack.h"
 
 @interface BNFParser : NSObject
 
-@property (nonatomic, retain) BNFStack *stack;
-@property (nonatomic, retain) NSMutableDictionary *stateDefinitions;
+@property (nonatomic, retain) Stack *stack;
+@property (nonatomic, retain) NSMutableDictionary *sequenceMap;
 
 - (id)initWithStateDefinitions:(NSMutableDictionary *)dic;
 

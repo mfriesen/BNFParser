@@ -15,12 +15,12 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "BNFStateNumber.h"
+//import "BNFStateNumber.h"
 #import "BNFToken.h"
 
 @interface BNFStateNumberTests : SenTestCase
 
-@property (nonatomic, retain) BNFStateNumber *state;
+//@property (nonatomic, retain) BNFStateNumber *state;
 @property (nonatomic, retain) BNFToken *token;
 
 @end

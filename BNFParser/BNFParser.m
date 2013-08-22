@@ -15,20 +15,19 @@
 //
 
 #import "BNFParser.h"
-#import "BNFPath.h"
-#import "BNFStateDefinition.h"
-#import "BNFPathStateDefinition.h"
-#import "BNFPathState.h"
-#import "BNFStateEmpty.h"
+#import "BNFParserState.h"
+#import "BNFSymbol.h"
 
 @implementation BNFParser
 
 - (id)initWithStateDefinitions:(NSMutableDictionary *)dic {
     self = [super init];
+    
     if (self) {
-        [self setStateDefinitions:dic];
         
-        BNFStack *stack = [[BNFStack alloc] init];
+        [self setSequenceMap:dic];
+        
+        Stack *stack = [[Stack alloc] init];
         [self setStack:stack];
         [stack release];
     }
@@ -37,140 +36,421 @@
 }
 
 - (BNFParseResult *)parse:(BNFToken *)token {
+    NSMutableArray *sd = [_sequenceMap objectForKey:@"@start"];
+    [self addParserStateSequences:sd token:token parserRepetition:BNFParserRepetition_NONE repetition:BNFRepetition_NONE];
     
-    [_stack clear];
- 
-    BNFParseResult *result = [[[BNFParseResult alloc] init] autorelease];
-    [result setTop:token];
-    [result setMaxMatchToken:token];
- 
-    BNFStateDefinition *sd = [_stateDefinitions objectForKey:@"@start"];
-    [self pushToStackOrFirstState:token stateDefinition:sd];
- 
-    while (![_stack isEmpty]) {
- 
-        BNFPath *sp = [_stack peek];
- 
-        if ([sp isStateEnd]) {
- 
-            sp = [_stack pop];
- 
-            if ([self isEmpty:[sp token]]) {
-                break;
-            }
-        
-        } else if (![sp token]) {
-
-            [_stack rewindToNextTokenAndNextSequence];
-
-        } else if ([sp isStateDefinition]) {
- 
-            BOOL added = [self parseStateDefinition:[sp token]];
-            if (!added) {
-                break;
-            }
- 
-        } else {
-            [self parseState:result];
-        }
-    }
- 
-    [result complete];
- 
-    return result;
-}
- 
-- (BOOL)isEmpty:(BNFToken *)token {
-    return !token || !([token stringValue]) || [self stringLength:[token stringValue]] == 0;
+    return [self parseSequences:token];
 }
 
-- (NSInteger)stringLength:(NSString *)s {
-    NSString *text = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    return [text length];
-}
-
-- (BOOL)parseStateDefinition:(BNFToken *)token {
+- (BNFParseResult *)parseSequences:(BNFToken *)startToken {
+    
     BOOL success = NO;
-    BNFPathStateDefinition *sd = [_stack peek];
-    BNFState *state = [sd getNextSequence];
-    if (state) {
-        success = YES;
-        [self pushToStack:state token:token];
-    }
- 
-    return success;
-}
-
-- (void)pushToStack:(BNFState *)state token:(BNFToken *)token {
- 
-    if (state) {
-        BNFPathState *path = [[BNFPathState alloc] initWithState:state token:token];
-        [_stack push:path];
-        [path release];
-    }
-}
-
-- (void)pushToStack:(BNFToken *)token stateDefinition:(BNFStateDefinition *)sd {
     
-    BNFPathStateDefinition *path = [[[BNFPathStateDefinition alloc] init] autorelease];
-    [path setToken:token];
-    [path setStateDefinition:sd];
-    [_stack push:path];
-}
-
-
-- (void)pushToStackOrFirstState:(BNFToken *)token stateDefinition:(BNFStateDefinition *)sd {
+    BNFParseResult *result = [[BNFParseResult alloc] init];
+    [result setTop:startToken];
+    [result setMaxMatchToken:startToken];
     
-    if ([sd hasSequences]) {
-        [self pushToStack:token stateDefinition:sd];
-    } else {
-        [self pushToStack:[sd getFirstState] token:token];
-    }
-}
- 
-- (void)parseState:(BNFParseResult *)result {
- 
-    BNFPathState *sp = [_stack peek];
-    BNFState *state = [sp state];
-    BNFToken *token = [sp token];
- 
-    if (![state isTerminal]) {
- 
-        BNFStateDefinition *sd = [_stateDefinitions objectForKey:[state name]];
- 
-        if (!sd) {
-            [NSException raise:@"unknown state" format:@"unknown state %@", [state name]];
-        }
- 
-        [self pushToStackOrFirstState:token stateDefinition:sd];
- 
-    } else if ([state isKindOfClass:[BNFStateEmpty class]]) {
-
-        if ([self isEmpty:token]) {
-            [result setSuccess:YES];
-        }
-
-        BNFState *rewindState = [_stack rewindStackEmptyState];
-        [self pushToStack:rewindState token:token];
- 
-    } else if ([state match:token]) {
-  
-        [result setSuccess:YES];
-        token = [token nextToken];
+    while (![_stack isEmpty]) {
         
-        if (token) {
-            [result setMaxMatchToken:token];
+        BNFParserState *holder = [_stack peek];
+        
+        if ([holder state] == ParserState_EMPTY) {
+            
+            [_stack pop];
+            
+            BNFToken *token = [[_stack peek] currentToken];
+            if (![self isEmpty:token]) {
+                [self rewindToNextSymbol];
+            } else {
+                success = YES;
+                [result setError:nil];
+                [self rewindToNextSequence];
+            }
+            
+        } else if ([holder state] == ParserState_NO_MATCH_WITH_ZERO_REPETITION) {
+            
+            [self processNoMatchWithZeroRepetition];
+            
+        } else if ([holder state] == ParserState_MATCH_WITH_ZERO_REPETITION) {
+            
+            [self processMatchWithZeroRepetition];
+            
+        } else if ([holder state] == ParserState_NO_MATCH_WITH_ZERO_REPETITION_LOOKING_FOR_FIRST_MATCH) {
+            
+            BNFToken *maxMatchToken = [self processNoMatchWithZeroRepetitionLookingForFirstMatch];
+            [result setMaxMatchToken:maxMatchToken];
+            [result setError:nil];
+            success = YES;
+            
+        } else if ([holder state] == ParserState_MATCH) {
+            
+            BNFToken *maxMatchToken = [self processMatch];
+            [result setMaxMatchToken:maxMatchToken];
+            [result setError:nil];
+            success = YES;
+            
+        } else if ([holder state] == ParserState_NO_MATCH) {
+            
+            BNFToken *eToken = [self processNoMatch];
+            BNFToken *errorToken = [self updateErrorToken:[result error] token2:eToken];
+            [result setError:errorToken];
+            success = NO;
+            
+        } else {
+            [self processStack];
         }
- 
-        BNFState *rewindState = [_stack rewindStackMatchedToken];
-        [self pushToStack:rewindState token:token];
- 
-    } else {
- 
-        [result setSuccess:NO];
-        BNFState *nextState = [_stack rewindStackUnmatchedToken];
-        [self pushToStack:nextState token:token];
     }
+    
+    [result setSuccess:success];
+    
+    return [result autorelease];
+}
+
+- (BNFToken *)updateErrorToken:(BNFToken *)token1 token2:(BNFToken *)token2 {
+    return token1 && [token1 identifier] > [token2 identifier] ? token1 : token2;
+}
+
+- (BNFToken *)processNoMatch {
+    
+    [self debugPrintIndents];
+//    NSLog(@"-> no match, rewinding to next sequence");
+    
+    [_stack pop];
+    
+    BNFToken *token = [[_stack peek] currentToken];
+    
+    [self rewindToNextSequence];
+    
+    if (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        [holder resetToken];
+    }
+    
+    return token;
+}
+
+- (BNFToken *)processMatchWithZeroRepetition {
+    
+    [_stack pop];
+    
+    BNFToken *token = [[_stack peek] currentToken];
+    
+    [self debugPrintIndents];
+//    NSLog(@"-> matched token %@ rewind to start of repetition", [token stringValue]);
+    
+    [self rewindToOutsideOfRepetition];
+    
+    if (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        [holder advanceToken:[token nextToken]];
+    }
+    
+    return token;
+}
+
+- (BNFToken *)processNoMatchWithZeroRepetitionLookingForFirstMatch {
+    
+    [_stack pop];
+    
+    BNFToken *token = [[_stack peek] currentToken];
+    
+    [self debugPrintIndents];
+//    NSLog(@"-> no match Zero Or More Looking for First Match token %@ rewind outside of Repetition", [self debug:token]);
+    
+    [self rewindToOutsideOfRepetition];
+    [self rewindToNextSymbol];
+    
+    if (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        [holder advanceToken:token];
+    }
+    
+    return token;
+}
+
+- (BNFToken *)processMatch {
+    
+    [_stack pop];
+    
+    BNFToken *token = [[_stack peek] currentToken];
+    
+    [self debugPrintIndents];
+//    NSLog(@"-> matched token %@ rewind to next symbol", [token stringValue]);
+    
+    [self rewindToNextSymbolOrRepetition];
+    
+    if (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        
+        token = [token nextToken];
+        [holder advanceToken:token];
+    }
+    
+    return token;
+}
+
+- (void)processNoMatchWithZeroRepetition {
+    
+    [self debugPrintIndents];
+//    NSLog(@"-> NO_MATCH_WITH_ZERO_REPETITION, rewind to next symbol");
+    
+    [_stack pop];
+    
+    BNFToken *token = [[_stack peek] currentToken];
+    
+    [self rewindToNextSymbol];
+    
+    if (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        [holder advanceToken:token];
+    }
+}
+
+- (void)rewindToOutsideOfRepetition {
+    
+    while (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        
+        if ([holder parserRepetition] != BNFParserRepetition_NONE) {
+            [_stack pop];
+        } else {
+            break;
+        }
+    }
+}
+
+/**
+ * Rewinds to next incomplete sequence or to ZERO_OR_MORE repetition which
+ * ever one is first.
+ */
+- (void)rewindToNextSymbolOrRepetition {
+    
+    while (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        
+        if ([holder repetition] == BNFRepetition_ZERO_OR_MORE && [holder isComplete]) {
+            [holder reset];
+            if ([holder repetition] != BNFRepetition_NONE) {
+                [holder setParserRepetition:BNFParserRepetition_ZERO_OR_MORE_LOOKING_FOR_FIRST_MATCH];
+            }
+            break;
+        } else if ([holder sequence] && ![holder isComplete]) {
+            if ([holder parserRepetition] == BNFParserRepetition_ZERO_OR_MORE_LOOKING_FOR_FIRST_MATCH) {
+                [holder setParserRepetition:BNFParserRepetition_NONE];
+            }
+            
+            break;
+        }
+        
+        [_stack pop];
+    }
+}
+
+/**
+ * Rewinds to next incomplete sequence or to ZERO_OR_MORE repetition which
+ * ever one is first.
+ */
+- (void)rewindToNextSymbol {
+    while (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        
+        if ([holder sequence] && ![holder isComplete]) {
+            break;
+        }
+        
+        [_stack pop];
+    }
+}
+
+/**
+ * rewindToNextSequence.
+ */
+- (void)rewindToNextSequence {
+    
+    while (![_stack isEmpty]) {
+        BNFParserState *holder = [_stack peek];
+        if ([holder sequences]) {
+            break;
+        }
+        
+        [_stack pop];
+    }
+}
+
+/**
+ * processStack.
+ */
+- (void)processStack {
+    
+    BNFParserState *holder = [_stack peek];
+    
+    if ([holder isComplete]) {
+        [_stack pop];
+    } else {
+        
+        BNFToken *currentToken = [holder currentToken];
+        
+        if ([holder sequences]) {
+            
+            BNFSequence *sequence = [holder nextSequence];
+            [self addParserStateSequence:sequence token:currentToken parserRepetition:[holder parserRepetition] repetition:BNFRepetition_NONE];
+            
+        } else if ([holder sequence]) {
+            
+            BNFSymbol *symbol = [holder nextSymbol];
+            NSMutableArray *sd = [_sequenceMap objectForKey:[symbol name]];
+            
+            BNFParserRepetition parserRepetition = [self parserRepetition:holder symbol:symbol];
+            
+            if (sd) {
+                
+                [self addParserStateSequences:sd token:currentToken parserRepetition:parserRepetition repetition:[symbol repetition]];
+                 
+            } else {
+                     
+                ParserState state = [self parserState:symbol token:currentToken parserRepetition:parserRepetition];
+                [self addParserState:state];
+            }
+        }
+    }
+}
+                 
+/**
+ * Gets the Parser State.
+ */
+- (ParserState)parserState:(BNFSymbol *)symbol token:(BNFToken *)token parserRepetition:(BNFParserRepetition) repetition {
+
+    ParserState state = ParserState_NO_MATCH;
+
+    NSString *symbolName = [symbol name];
+
+    if ([symbolName isEqualToString:@"Empty"]) {
+
+        state = ParserState_EMPTY;
+
+    } else if ([self isMatch:symbolName token:token]) {
+
+        state = ParserState_MATCH;
+
+    } else if (repetition == BNFParserRepetition_ZERO_OR_MORE_LOOKING_FOR_FIRST_MATCH) {
+
+        state = ParserState_NO_MATCH_WITH_ZERO_REPETITION_LOOKING_FOR_FIRST_MATCH;
+
+    } else if (repetition == BNFParserRepetition_ZERO_OR_MORE) {
+
+        state = ParserState_NO_MATCH_WITH_ZERO_REPETITION;
+    }
+
+    return state;
+}
+
+- (BOOL)isMatch:(NSString *)symbolName token:(BNFToken *)token {
+
+    BOOL match = NO;
+
+    if (token) {
+        NSString *s = [self isQuotedString:symbolName] ? [symbolName substringWithRange:NSMakeRange(1, [symbolName length] - 2)] : symbolName;
+        match = [s isEqualToString:[token stringValue]] || [self isQuotedString:symbolName token:token] || [self isNumber:symbolName token:token];
+    }
+
+    return match;
+}
+
+- (BOOL)isQuotedString:(NSString *)value {
+    return ([value hasPrefix:@"\""] && [value hasSuffix:@"\""]) || ([value hasPrefix:@"'"] && [value hasSuffix:@"'"]);
+}
+
+- (BOOL)isQuotedString:(NSString *)symbolName token:(BNFToken *)token {
+    NSString *value = [token stringValue];
+    return [symbolName isEqualToString:@"QuotedString"] && [self isQuotedString:value];
+}
+
+- (BOOL)isNumber:(NSString *)symbolName token:(BNFToken *)token {
+
+    BOOL match = NO;
+    
+    if (token && [symbolName isEqualToString:@"Number"]) {
+        NSError *error = NULL;
+        
+        NSString *string = [token stringValue];
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[\\d\\-\\.]+$"
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:&error];
+        
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:string
+                                                            options:0
+                                                              range:NSMakeRange(0, [string length])];
+        match = numberOfMatches > 0;
+    }
+    
+    return match;
+}
+
+- (void)addParserState:(ParserState)state {
+    BNFParserState *pstate = [[BNFParserState alloc] initWithParserState:state];
+    [_stack push:pstate];
+    [pstate release];
+}
+
+- (void)addParserStateSequences:(NSMutableArray *)sequences token:(BNFToken *)token parserRepetition:(BNFParserRepetition)parserRepetition repetition:(BNFRepetition)repetition {
+
+    if ([sequences count] == 1) {
+        [self addParserStateSequence:[sequences objectAtIndex:0] token:token parserRepetition:parserRepetition repetition:repetition];
+    } else {
+        [self debugSequences:sequences token:token parserRepetition:parserRepetition];
+
+        BNFParserState *state = [[BNFParserState alloc] initWithSequences:sequences token:token parserRepetition:parserRepetition repetition:repetition];
+        [_stack push:state];
+        [state release];
+    }
+}
+
+- (void)addParserStateSequence:(BNFSequence *)sequence token:(BNFToken *)token parserRepetition:(BNFParserRepetition)parserRepetition repetition:(BNFRepetition)repetition {
+    [self debugSequence:sequence token:token parserRepetition:parserRepetition];
+
+    BNFParserState *state = [[BNFParserState alloc] initWithSequence:sequence token:token parserRepetition:parserRepetition repetition:repetition];
+    [_stack push:state];
+    [state release];
+}
+
+- (BNFParserRepetition)parserRepetition:(BNFParserState *)holder symbol:(BNFSymbol *)symbol {
+   
+   BNFRepetition symbolRepetition = [symbol repetition];
+   BNFParserRepetition holderRepetition = [holder parserRepetition];
+   
+   if (symbolRepetition != BNFRepetition_NONE && holderRepetition == BNFParserRepetition_NONE) {
+       holderRepetition = BNFParserRepetition_ZERO_OR_MORE_LOOKING_FOR_FIRST_MATCH;
+   } else if (symbolRepetition != BNFRepetition_NONE && holderRepetition != BNFParserRepetition_NONE) {
+       holderRepetition = BNFParserRepetition_ZERO_OR_MORE;
+   }
+   
+   return holderRepetition;
+}
+
+- (BOOL)isEmpty:(BNFToken *)currentToken {
+   return !([[currentToken stringValue] length] > 0);
+}
+
+- (void)debugPrintIndents {
+//   NSInteger size = [_stack count] - 1;
+//   for (int i = 0; i < size; i++) {
+//       NSLog(@" ");
+//   }
+}
+
+- (NSString *)debug:(BNFToken *)token {
+   return token ? [token stringValue] : NULL;
+}
+
+     
+- (void)debugSequence:(BNFSequence *)sequence token:(BNFToken *)token parserRepetition:(BNFParserRepetition)repetition {
+//   [self debugPrintIndents];
+//   NSLog(@"-> procesing pipe line %@ for token %@ with repetition %ld", sequence, [self debug:token], repetition);
+}
+
+- (void)debugSequences:(NSMutableArray *)sd token:(BNFToken *)token parserRepetition:(BNFParserRepetition)repetition {
+//   [self debugPrintIndents];
+//   NSLog(@"-> adding pipe lines %@ for token %@ with repetition %ld", sd, [self debug:token], repetition);
 }
 
 @end

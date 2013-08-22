@@ -46,4 +46,19 @@ typedef enum ParserState : NSInteger {
 @property (nonatomic, assign) BNFRepetition repetition;
 @property (nonatomic, assign) BNFParserRepetition parserRepetition;
 
+- (id)init;
+- (id)initWithParserState:(ParserState)parserState;
+- (id)initWithSequences:(NSMutableArray *)seqs token:(BNFToken *)token;
+- (id)initWithToken:(BNFToken *)token;
+- (id)initWithSequence:(BNFSequence *)seq token:(BNFToken *)token;
+- (id)initWithSequences:(NSMutableArray *)sd token:(BNFToken *)token parserRepetition:(BNFParserRepetition)parserRep repetition:(BNFRepetition)rep;
+- (id)initWithSequence:(BNFSequence *)seq token:(BNFToken *)token parserRepetition:(BNFParserRepetition)parserRep repetition:(BNFRepetition)rep;
+
+- (void)advanceToken:(BNFToken *)token;
+- (void)resetToken;
+- (BOOL)isComplete;
+- (void)reset;
+- (BNFSequence *)nextSequence;
+- (BNFSymbol *)nextSymbol;
+
 @end

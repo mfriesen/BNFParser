@@ -19,6 +19,7 @@
 
 @implementation BNFStateNumberTests
 
+/*
 - (void)setUp {
     [super setUp];
     BNFStateNumber *s = [[BNFStateNumber alloc] init];
@@ -57,5 +58,5 @@
     [_token setValueWithString:@"a1"];
     STAssertFalse([_state match:_token], @"expect false");
 }
-
+*/
 @end

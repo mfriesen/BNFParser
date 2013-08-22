@@ -98,11 +98,10 @@
     NSMutableArray *symbols = [[NSMutableArray alloc] init];
     
     for (NSString *ss in split) {
-        NSLog(@"SS %@", ss);
         BNFSymbol *symbol = [self createSymbol:ss];
         [symbols addObject:symbol];
     }
-    NSLog(@"----------------------------");
+
     return [symbols autorelease];
 }
 

@@ -22,6 +22,7 @@
     self = [super init];
     
     if (self) {
+        [self setCurrentPosition:-1];
         [self setState:ParserState_NONE];
         [self setParserRepetition:BNFParserRepetition_NONE];
     }
@@ -113,7 +114,7 @@
     return [self isCompleteSequence] || [self isCompleteSymbol];
 }
 
-- (BNFSequence *)getNextSequence {
+- (BNFSequence *)nextSequence {
     
     BNFSequence *seq = nil;
     NSInteger i = _currentPosition + 1;
@@ -127,10 +128,18 @@
 }
 
 - (BOOL)isCompleteSequence {
-    return _sequences && _currentPosition >= [_sequences count] - 1;
+
+    BOOL complete = NO;
+    
+    if (_sequences) {
+        NSInteger count = [_sequences count] - 1;
+        complete = _currentPosition >= count;
+    }
+    
+    return complete;
 }
 
-- (BNFSymbol *)getNextSymbol {
+- (BNFSymbol *)nextSymbol {
     
     BNFSymbol *symbol = nil;
     NSInteger i = _currentPosition + 1;
@@ -144,7 +153,14 @@
 }
 
 - (BOOL)isCompleteSymbol {
-    return _sequence && _currentPosition >= [[_sequence symbols] count] - 1;
+    BOOL complete = NO;
+    
+    if (_sequence) {
+        NSInteger count = [[_sequence symbols] count] - 1;
+        complete = _currentPosition >= count;
+    }
+    
+    return complete;
 }
 
 - (void)reset {

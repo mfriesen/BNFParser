@@ -15,7 +15,7 @@
 //
 
 #import "BNFParserTests.h"
-#import "BNFStateDefinitionFactory.h"
+#import "BNFSequenceFactory.h"
 
 @implementation BNFParserTests
 
@@ -26,7 +26,7 @@
     [self setTokenizerFactory:tokenizerFactory];
     [tokenizerFactory release];
   
-    BNFStateDefinitionFactory *stateDefinitionFactory = [[BNFStateDefinitionFactory alloc] init];
+    BNFSequenceFactory *stateDefinitionFactory = [[BNFSequenceFactory alloc] init];
     NSMutableDictionary *dic = [stateDefinitionFactory json];
     
     BNFParser *parser = [[BNFParser alloc] initWithStateDefinitions:dic];

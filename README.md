@@ -50,8 +50,8 @@ Uses the string tokenizer to parse a string and create key/value mapping based o
     BNFToken *token = [factory tokens:text];
     
     // Create Backus-Naur Form State Definitions
-    BNFStateDefinitionFactory *sdf = [[BNFStateDefinitionFactory alloc] init];
-    NSMutableDictionary *map = [stateDefinitionFactory json];
+    BNFSequenceFactory *sf = [[BNFSequenceFactory alloc] init];
+    NSMutableDictionary *map = [sf json];
     
     // Run Tokens through Parser
     BNFParser *parser = [[BNFParser alloc] initWithStateDefinitions:dic];

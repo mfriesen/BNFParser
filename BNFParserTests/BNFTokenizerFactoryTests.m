@@ -30,7 +30,10 @@
     [super tearDown];
 }
 
-- (void)testEmpty {
+/**
+ * testEmpty.
+ */
+- (void)testTokens01 {
     
     // given
     NSString *s = @"";
@@ -46,7 +49,10 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
-- (void)testSymbolAndWhiteSpace {
+/**
+ * testSymbolAndWhiteSpace.
+ */
+- (void)testTokens02 {
     
     // given
     NSString *s = @"{ \n}";
@@ -66,7 +72,10 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
-- (void)testSingleLineComment {
+/**
+ * testSingleLineComment.
+ */
+- (void)testTokens03 {
     
     // given
     NSString *s = @"{ }//bleh\nasd";
@@ -85,7 +94,10 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
-- (void)testMultiLineComment {
+/**
+ * testMultiLineComment.
+ */
+- (void)testTokens04 {
     
     // given
     NSString *s = @"{ }/*bleh\n\nffsdf\n*/asd";
@@ -104,7 +116,10 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
-- (void)testQuotedString01 {
+/**
+ * testQuotedString01.
+ */
+- (void)testTokens05 {
     
     // given
     NSString *s = @"hi \"asd\"";
@@ -119,8 +134,10 @@
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
-
-- (void)testQuotedString02 {
+/**
+ * testQuotedString02.
+ */
+- (void)testTokens06 {
     
     // given
     NSString *s = @"\"asd\"";
@@ -133,7 +150,10 @@
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
-- (void)testQuotedString03 {
+/**
+ * testQuotedString03.
+ */
+- (void)testTokens07 {
     
     // given
     NSString *s = @"\"asd's\"";
@@ -146,7 +166,10 @@
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
-- (void)testQuotedString04 {
+/**
+ * testQuotedString04.
+ */
+- (void)testTokens08 {
     
     // given
     NSString *s = @"\"asd's";
@@ -159,7 +182,10 @@
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
 
-- (void)testQuotedString05 {
+/**
+ * testQuotedString05.
+ */
+- (void)testTokens09 {
     
     // given
     NSString *s = @"{ \"asd\":\"123\"}";
@@ -186,7 +212,10 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
-- (void)testQuotedString06 {
+/**
+ * testQuotedString06.
+ */
+- (void)testTokens10 {
     
     // given
     NSString *s = @"'asd':'123'}";
@@ -210,7 +239,10 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
-- (void)testQuotedNumber01 {
+/**
+ * testQuotedNumber01.
+ */
+- (void)testTokens11 {
     
     // given
     NSString *s = @"'asd':123}";
@@ -234,7 +266,10 @@
     STAssertNil([token nextToken], @"expected nil");
 }
 
-- (void)testAHrefLink {
+/**
+ * testAHrefLink.
+ */
+- (void)testTokens12 {
     
     // given
     NSString *s = @"{\"notes\":\"Different browsers have support for different video formats, see sub-features for details. \\r\\n\\r\\nThe Android browser (before 2.3) requires <a href=\\\"http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/\\\">specific handling</a> to run the video element.\"}";
@@ -261,7 +296,10 @@
     STAssertNil(token, @"expected nil");
 }
 
-- (void)testJsonGrammar {
+/**
+ * testJsonGrammar.
+ */
+- (void)testTokens13 {
     
     // given
     NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"json.bnf" ofType:nil];
@@ -305,7 +343,10 @@
     STAssertEqualObjects(@";", [token stringValue], @"got %@", [token stringValue]);
 }
 
-- (void)testRussianCharacters {
+/**
+ * testRussianCharacters.
+ */
+- (void)testTokens14 {
     
     // given
     NSString *s = @"{\"text\":\"Й\"}";
@@ -332,7 +373,10 @@
     STAssertNil(token, @"expected nil");
 }
 
-- (void)testUnicodeCharacter {
+/**
+ * testUnicodeCharacter.
+ */
+- (void)testTokens15 {
     
     // given
     NSString *s = @"\u042d\u0442\u043e\u0440\u0443\u0441\u0441\u043a\u0438\u0439\u0442\u0435\u043a\u0441\u0442";
@@ -344,21 +388,6 @@
     STAssertEqualObjects(@"Эторусскийтекст", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
 
-    STAssertNil(token, @"expected nil");
-}
-
-- (void)testUnicodeCharacter2 {
-    
-    // given
-    NSString *s = @"\\u042d";
-    
-    // when
-    BNFToken *token = [_factory tokens:s];
-    
-    // then
-    STAssertEqualObjects(@"Э", [token stringValue], @"got %@", [token stringValue]);
-    token = [token nextToken];
-    
     STAssertNil(token, @"expected nil");
 }
 

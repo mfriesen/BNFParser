@@ -27,19 +27,13 @@
     return token;
 }
 
-- (BNFToken *)tokens:(NSString *)text2 params:(BNFTokenizerParams *)params {
+- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params {
     
     Stack *stack = [[Stack alloc] init];
     BNFFastForward *ff = [[BNFFastForward alloc] init];
     
     BNFTokenizerType lastType = BNFTokenizerType_NONE;
-    
-    NSString *text = [NSString stringWithCString:[text2 cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
-    
-    if (!text) {
-        text = text2;
-    }
-    
+
     NSInteger len = [text length];
     
     for (int i = 0; i < len; i++) {

@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70085F6817D5752E00874C1F /* BNFParserFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 70085F6617D5752E00874C1F /* BNFParserFactory.h */; };
+		70085F6917D5752E00874C1F /* BNFParserFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70085F6717D5752E00874C1F /* BNFParserFactory.m */; };
+		70085F6C17D5766D00874C1F /* BNFIndexFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 70085F6A17D5766D00874C1F /* BNFIndexFactory.h */; };
+		70085F6D17D5766D00874C1F /* BNFIndexFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 70085F6B17D5766D00874C1F /* BNFIndexFactory.m */; };
+		70085F7017D576AC00874C1F /* BNFIndexFactoryJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 70085F6E17D576AC00874C1F /* BNFIndexFactoryJSON.h */; };
+		70085F7117D576AC00874C1F /* BNFIndexFactoryJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 70085F6F17D576AC00874C1F /* BNFIndexFactoryJSON.m */; };
+		70085F7417D5770300874C1F /* BNFIndexFactoryJSONTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 70085F7317D5770300874C1F /* BNFIndexFactoryJSONTest.m */; };
+		700A1C3017D51C050036F083 /* BNFIndexPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 700A1C2E17D51C050036F083 /* BNFIndexPath.h */; };
+		700A1C3117D51C050036F083 /* BNFIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 700A1C2F17D51C050036F083 /* BNFIndexPath.m */; };
+		700A1C3417D51C680036F083 /* BNFIndexNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 700A1C3217D51C680036F083 /* BNFIndexNode.h */; };
+		700A1C3517D51C680036F083 /* BNFIndexNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 700A1C3317D51C680036F083 /* BNFIndexNode.m */; };
+		700A1C3817D51F980036F083 /* BNFIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 700A1C3617D51F980036F083 /* BNFIndex.h */; };
+		700A1C3917D51F980036F083 /* BNFIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 700A1C3717D51F980036F083 /* BNFIndex.m */; };
 		700BE2101763CD79004E12B2 /* simple.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20B1763CD79004E12B2 /* simple.json */; };
 		700BE2111763CD79004E12B2 /* simple_nested.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20C1763CD79004E12B2 /* simple_nested.json */; };
 		700BE2121763CD79004E12B2 /* simple_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 700BE20D1763CD79004E12B2 /* simple_array.json */; };
@@ -64,6 +77,20 @@
 
 /* Begin PBXFileReference section */
 		1A0FA667C1CE4DAC8A153557 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		70085F6617D5752E00874C1F /* BNFParserFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFParserFactory.h; sourceTree = "<group>"; };
+		70085F6717D5752E00874C1F /* BNFParserFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFParserFactory.m; sourceTree = "<group>"; };
+		70085F6A17D5766D00874C1F /* BNFIndexFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFIndexFactory.h; sourceTree = "<group>"; };
+		70085F6B17D5766D00874C1F /* BNFIndexFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFIndexFactory.m; sourceTree = "<group>"; };
+		70085F6E17D576AC00874C1F /* BNFIndexFactoryJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFIndexFactoryJSON.h; sourceTree = "<group>"; };
+		70085F6F17D576AC00874C1F /* BNFIndexFactoryJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFIndexFactoryJSON.m; sourceTree = "<group>"; };
+		70085F7217D5770300874C1F /* BNFIndexFactoryJSONTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFIndexFactoryJSONTest.h; sourceTree = "<group>"; };
+		70085F7317D5770300874C1F /* BNFIndexFactoryJSONTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFIndexFactoryJSONTest.m; sourceTree = "<group>"; };
+		700A1C2E17D51C050036F083 /* BNFIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFIndexPath.h; sourceTree = "<group>"; };
+		700A1C2F17D51C050036F083 /* BNFIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFIndexPath.m; sourceTree = "<group>"; };
+		700A1C3217D51C680036F083 /* BNFIndexNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFIndexNode.h; sourceTree = "<group>"; };
+		700A1C3317D51C680036F083 /* BNFIndexNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFIndexNode.m; sourceTree = "<group>"; };
+		700A1C3617D51F980036F083 /* BNFIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNFIndex.h; sourceTree = "<group>"; };
+		700A1C3717D51F980036F083 /* BNFIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNFIndex.m; sourceTree = "<group>"; };
 		700BE20B1763CD79004E12B2 /* simple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple.json; sourceTree = "<group>"; };
 		700BE20C1763CD79004E12B2 /* simple_nested.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_nested.json; sourceTree = "<group>"; };
 		700BE20D1763CD79004E12B2 /* simple_array.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_array.json; sourceTree = "<group>"; };
@@ -142,6 +169,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		700A1C2C17D51B920036F083 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				700A1C2E17D51C050036F083 /* BNFIndexPath.h */,
+				700A1C2F17D51C050036F083 /* BNFIndexPath.m */,
+				700A1C3217D51C680036F083 /* BNFIndexNode.h */,
+				700A1C3317D51C680036F083 /* BNFIndexNode.m */,
+				700A1C3617D51F980036F083 /* BNFIndex.h */,
+				700A1C3717D51F980036F083 /* BNFIndex.m */,
+				70085F6A17D5766D00874C1F /* BNFIndexFactory.h */,
+				70085F6B17D5766D00874C1F /* BNFIndexFactory.m */,
+				70085F6E17D576AC00874C1F /* BNFIndexFactoryJSON.h */,
+				70085F6F17D576AC00874C1F /* BNFIndexFactoryJSON.m */,
+			);
+			name = Index;
+			sourceTree = "<group>";
+		};
+		700A1C4217D525B80036F083 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				70085F7217D5770300874C1F /* BNFIndexFactoryJSONTest.h */,
+				70085F7317D5770300874C1F /* BNFIndexFactoryJSONTest.m */,
+			);
+			name = Index;
+			sourceTree = "<group>";
+		};
 		7027EE211776410A00B1E1BB /* Parser */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +212,8 @@
 				706B064517C3081F00EEBCA2 /* BNFSequenceFactory.m */,
 				70E06B4A17C4689A00F88BE7 /* BNFParserState.h */,
 				70E06B4B17C4689A00F88BE7 /* BNFParserState.m */,
+				70085F6617D5752E00874C1F /* BNFParserFactory.h */,
+				70085F6717D5752E00874C1F /* BNFParserFactory.m */,
 			);
 			name = Parser;
 			sourceTree = "<group>";
@@ -229,6 +284,7 @@
 		708B56451763C76500A4F534 /* BNFParser */ = {
 			isa = PBXGroup;
 			children = (
+				700A1C2C17D51B920036F083 /* Index */,
 				7027EE211776410A00B1E1BB /* Parser */,
 				708B56461763C76500A4F534 /* Supporting Files */,
 				70E4BE091763C85600AEAD11 /* Tokenizer */,
@@ -251,6 +307,7 @@
 		708B565B1763C76500A4F534 /* BNFParserTests */ = {
 			isa = PBXGroup;
 			children = (
+				700A1C4217D525B80036F083 /* Index */,
 				70D9BF20177BD257005DBC5E /* Tokenizer */,
 				7027EE3B17765B0600B1E1BB /* Parser */,
 				708B565C1763C76500A4F534 /* Supporting Files */,
@@ -326,6 +383,12 @@
 				706B064217C307A300EEBCA2 /* BNFSequence.h in Headers */,
 				706B064617C3082000EEBCA2 /* BNFSequenceFactory.h in Headers */,
 				70E06B4C17C4689A00F88BE7 /* BNFParserState.h in Headers */,
+				700A1C3017D51C050036F083 /* BNFIndexPath.h in Headers */,
+				700A1C3417D51C680036F083 /* BNFIndexNode.h in Headers */,
+				700A1C3817D51F980036F083 /* BNFIndex.h in Headers */,
+				70085F6817D5752E00874C1F /* BNFParserFactory.h in Headers */,
+				70085F6C17D5766D00874C1F /* BNFIndexFactory.h in Headers */,
+				70085F7017D576AC00874C1F /* BNFIndexFactoryJSON.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +549,12 @@
 				706B064317C307A300EEBCA2 /* BNFSequence.m in Sources */,
 				706B064717C3082000EEBCA2 /* BNFSequenceFactory.m in Sources */,
 				70E06B4D17C4689A00F88BE7 /* BNFParserState.m in Sources */,
+				700A1C3117D51C050036F083 /* BNFIndexPath.m in Sources */,
+				700A1C3517D51C680036F083 /* BNFIndexNode.m in Sources */,
+				700A1C3917D51F980036F083 /* BNFIndex.m in Sources */,
+				70085F6917D5752E00874C1F /* BNFParserFactory.m in Sources */,
+				70085F6D17D5766D00874C1F /* BNFIndexFactory.m in Sources */,
+				70085F7117D576AC00874C1F /* BNFIndexFactoryJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +567,7 @@
 				70D9BF2B177BE838005DBC5E /* PropertyParserTests.m in Sources */,
 				70D9BF2E177EA06A005DBC5E /* BNFParserTests.m in Sources */,
 				706B064A17C310FF00EEBCA2 /* BNFSequenceFactoryTest.m in Sources */,
+				70085F7417D5770300874C1F /* BNFIndexFactoryJSONTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

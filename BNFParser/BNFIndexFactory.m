@@ -14,20 +14,16 @@
 // limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import "BNFToken.h"
-#import "BNFParseResult.h"
-#import "Stack.h"
+#import "BNFIndexFactory.h"
 
-@interface BNFParser : NSObject
+@implementation BNFIndexFactory
 
-@property (nonatomic, retain) Stack *stack;
-@property (nonatomic, retain) NSMutableDictionary *sequenceMap;
+- (BNFIndex *)createIndex:(BNFParseResult *)result {
+    return nil;
+}
 
-- (id)initWithStateDefinitions:(NSMutableDictionary *)dic;
-
-- (BNFParseResult *)parseString:(NSString *)token;
-
-- (BNFParseResult *)parse:(BNFToken *)token;
+- (void)dealloc {
+    [super dealloc];
+}
 
 @end

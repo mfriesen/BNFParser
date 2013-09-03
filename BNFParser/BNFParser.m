@@ -17,6 +17,7 @@
 #import "BNFParser.h"
 #import "BNFParserState.h"
 #import "BNFSymbol.h"
+#import "BNFTokenizerFactory.h"
 
 @implementation BNFParser
 
@@ -33,6 +34,16 @@
     }
     
     return self;
+}
+
+- (BNFParseResult *)parseString:(NSString *)s {
+    BNFTokenizerFactory *tokenizer = [[BNFTokenizerFactory alloc] init];
+    BNFToken *token = [tokenizer tokens:s];
+    
+    BNFParseResult *result = [self parse:token];
+    [tokenizer release];
+    
+    return result;
 }
 
 - (BNFParseResult *)parse:(BNFToken *)token {

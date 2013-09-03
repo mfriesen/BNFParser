@@ -15,19 +15,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BNFToken.h"
-#import "BNFParseResult.h"
-#import "Stack.h"
 
-@interface BNFParser : NSObject
+@class BNFParseResult;
+@class  BNFIndex;
 
-@property (nonatomic, retain) Stack *stack;
-@property (nonatomic, retain) NSMutableDictionary *sequenceMap;
+@interface BNFIndexFactory : NSObject
 
-- (id)initWithStateDefinitions:(NSMutableDictionary *)dic;
-
-- (BNFParseResult *)parseString:(NSString *)token;
-
-- (BNFParseResult *)parse:(BNFToken *)token;
+- (BNFIndex *)createIndex:(BNFParseResult *)result;
 
 @end

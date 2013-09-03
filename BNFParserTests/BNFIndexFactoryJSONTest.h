@@ -14,20 +14,14 @@
 // limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import "BNFToken.h"
-#import "BNFParseResult.h"
-#import "Stack.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import "BNFParser.h"
+#import "BNFIndexFactoryJSON.h"
 
-@interface BNFParser : NSObject
+@interface BNFIndexFactoryJSONTest : SenTestCase
 
-@property (nonatomic, retain) Stack *stack;
-@property (nonatomic, retain) NSMutableDictionary *sequenceMap;
+@property (nonatomic, retain) BNFParser *jsonParser;
 
-- (id)initWithStateDefinitions:(NSMutableDictionary *)dic;
-
-- (BNFParseResult *)parseString:(NSString *)token;
-
-- (BNFParseResult *)parse:(BNFToken *)token;
+@property (nonatomic, retain) BNFIndexFactoryJSON *indexFactory;
 
 @end

@@ -14,20 +14,23 @@
 // limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import "BNFToken.h"
-#import "BNFParseResult.h"
-#import "Stack.h"
+#import "BNFIndexPath.h"
 
-@interface BNFParser : NSObject
+@interface BNFIndexNode : BNFIndexPath
 
-@property (nonatomic, retain) Stack *stack;
-@property (nonatomic, retain) NSMutableDictionary *sequenceMap;
+/** key for the node. */
+@property (nonatomic, retain) NSString *keyValue;
 
-- (id)initWithStateDefinitions:(NSMutableDictionary *)dic;
+/** value for the node. */
+@property (nonatomic, retain) NSString *stringValue;
 
-- (BNFParseResult *)parseString:(NSString *)token;
+/** whether this node should be searched or skipped. */
+@property (nonatomic, assign) BOOL shouldSkip;
 
-- (BNFParseResult *)parse:(BNFToken *)token;
+/** list of children nodes. */
+@property (nonatomic, retain) NSMutableArray *nodes;
+
+- (id)init;
+- (id)initWithKeyValue:(NSString *)keyValue stringValue:(NSString *)stringValue;
 
 @end

@@ -328,9 +328,9 @@
     
     // then
     BNFIndexPath *result = [[resultIndex path:@"\"phoneNumbers\""] path:@"\"number\""];
-    BNFIndexNode *resultNode = [result node];
-    STAssertEqualObjects(@"\"number\"", [resultNode keyValue], @"got %@", [resultNode keyValue]);
-    STAssertEqualObjects(@"\"212 555-1234\"", [resultNode stringValue], @"got %@", [resultNode stringValue]);
+    BNFIndexPath *resultNode = [result node];
+    STAssertNotNil(resultNode, @"is nil");
+    STAssertTrue([resultNode eq:@"\"212 555-1234\""], @"got unexpected string");
 }
 
 //
@@ -347,9 +347,9 @@
     
     // then
     BNFIndexPath *result = [resultIndex path:@"\"phoneNumbers\""];
-    BNFIndexNode *resultNode = [result node];
-    STAssertEqualObjects(@"\"phoneNumbers\"", [resultNode keyValue], @"got %@", [resultNode keyValue]);
-    STAssertEqualObjects(@"[", [resultNode stringValue], @"got %@", [resultNode stringValue]);
+    BNFIndexPath *resultNode = [result node];
+    STAssertNotNil(resultNode, @"is nil");
+    STAssertTrue([resultNode eq:@"["], @"got unexpected string");
 }
 
 @end

@@ -24,5 +24,8 @@
 
 - (BNFIndexPath *)path:(NSMutableArray *)nodes path:(NSString *)path;
 
-- (BNFIndexNode *)node;
+- (BNFIndexPath *)node;
+
+- (BOOL)eq:(NSString *)string;
+
 @end

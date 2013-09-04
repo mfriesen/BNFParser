@@ -54,8 +54,12 @@
     return [self path:_nodes path:path];
 }
 
-- (BNFIndexNode *)node {
+- (BNFIndexPath *)node {
     return self;
+}
+
+- (BOOL)eq:(NSString *)string {
+    return [_stringValue isEqualToString:string];
 }
 
 - (void)addNode:(BNFIndexNode *)node {

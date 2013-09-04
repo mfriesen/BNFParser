@@ -46,8 +46,12 @@
     return nil;
 }
 
-- (BNFIndexNode *)node {
+- (BNFIndexPath *)node {
     return nil;
+}
+
+- (BOOL)eq:(NSString *)string {
+    return NO;
 }
 
 @end

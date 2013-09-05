@@ -66,6 +66,15 @@
     [_nodes addObject:node];
 }
 
+- (NSString *)pathName {
+    return _keyValue;
+}
+
+- (NSMutableArray *)paths {
+    return _nodes;
+}
+
+
 - (void)dealloc {
     
     [_keyValue release];

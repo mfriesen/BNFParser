@@ -54,4 +54,12 @@
     return NO;
 }
 
+- (NSString *)pathName {
+    return nil;
+}
+
+- (NSMutableArray *)paths {
+    return nil;
+}
+
 @end

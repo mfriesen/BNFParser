@@ -38,6 +38,10 @@
     return [self path:_nodes path:path];
 }
 
+- (NSMutableArray *)paths {
+    return _nodes;
+}
+
 - (void)dealloc {
     [_nodes release];
     [super dealloc];

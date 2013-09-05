@@ -22,6 +22,6 @@
 
 - (void)addNode:(BNFIndexNode *)node;
 
-- (BNFIndexNode *)path:(NSString *)path;
+- (BNFIndexPath *)path:(NSString *)path;
 
 @end

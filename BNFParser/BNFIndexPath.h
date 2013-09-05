@@ -28,4 +28,8 @@
 
 - (BOOL)eq:(NSString *)string;
 
+- (NSString *)pathName;
+
+- (NSMutableArray *)paths;
+
 @end

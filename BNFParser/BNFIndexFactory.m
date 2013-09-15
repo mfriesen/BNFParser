@@ -22,6 +22,10 @@
     return nil;
 }
 
+- (BNFIndex *)createIndex:(BNFParseResult *)result operation:(NSBlockOperation *)operation {
+    return nil;
+}
+
 - (void)dealloc {
     [super dealloc];
 }

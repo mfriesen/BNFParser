@@ -23,4 +23,6 @@
 
 - (BNFIndex *)createIndex:(BNFParseResult *)result;
 
+- (BNFIndex *)createIndex:(BNFParseResult *)result operation:(NSBlockOperation *)operation;
+
 @end

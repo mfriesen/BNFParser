@@ -21,14 +21,23 @@
 @implementation BNFTokenizerFactory
 
 - (BNFToken *)tokens:(NSString *)text {
+    return [self tokens:text operation:nil];
+}
+
+- (BNFToken *)tokens:(NSString *)text operation:(NSBlockOperation *)operation {
     BNFTokenizerParams *params = [[BNFTokenizerParams alloc] init];
-    BNFToken *token = [self tokens:text params:params];
+    BNFToken *token = [self tokens:text params:params operation:operation];
     [params release];
     return token;
 }
 
 - (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params {
+    return [self tokens:text params:params operation:nil];
+}
+
+- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params operation:(NSBlockOperation *)operation {
     
+    BOOL cancelled = NO;
     Stack *stack = [[Stack alloc] init];
     BNFFastForward *ff = [[BNFFastForward alloc] init];
     
@@ -75,15 +84,22 @@
         }
         
         lastType = type;
+        
+        if ([operation isCancelled]) {
+            cancelled = YES;
+            break;
+        }
     }
     
-    BNFToken *token;
+    BNFToken *token = nil;
     
-    if (![stack isEmpty]) {
-        token = [[[stack firstElement] retain] autorelease];
-    } else {
-        token = [[[BNFToken alloc] init] autorelease];
-        [token setValueWithString:@""];
+    if (!cancelled) {
+        if (![stack isEmpty]) {
+            token = [[[stack firstElement] retain] autorelease];
+        } else {
+            token = [[[BNFToken alloc] init] autorelease];
+            [token setValueWithString:@""];
+        }
     }
     
     [ff release];

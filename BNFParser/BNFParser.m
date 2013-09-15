@@ -47,15 +47,20 @@
 }
 
 - (BNFParseResult *)parse:(BNFToken *)token {
+    return [self parse:token operation:nil];
+}
+
+- (BNFParseResult *)parse:(BNFToken *)token operation:(NSBlockOperation *)operation {
     NSMutableArray *sd = [_sequenceMap objectForKey:@"@start"];
     [self addParserStateSequences:sd token:token parserRepetition:BNFParserRepetition_NONE repetition:BNFRepetition_NONE];
     
-    return [self parseSequences:token];
+    return [self parseSequences:token operation:operation];
 }
 
-- (BNFParseResult *)parseSequences:(BNFToken *)startToken {
+- (BNFParseResult *)parseSequences:(BNFToken *)startToken operation:(NSBlockOperation *)operation {
     
     BOOL success = NO;
+    BOOL cancelled = NO;
     
     BNFParseResult *result = [[BNFParseResult alloc] init];
     [result setTop:startToken];
@@ -110,10 +115,19 @@
         } else {
             [self processStack];
         }
+        
+        if ([operation isCancelled]) {
+            cancelled = YES;
+            break;
+        }
+    }
+    
+    if (cancelled) {
+        [result release];
+        return nil;
     }
     
     [result setSuccess:success];
-    
     return [result autorelease];
 }
 

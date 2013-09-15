@@ -391,4 +391,21 @@
     STAssertNil(token, @"expected nil");
 }
 
+/**
+ * testTokens16.
+ */
+- (void)testTokens16 {
+    
+    // given
+    NSString *s = @"adsdasdasdsa";
+    NSBlockOperation *operation = [[[NSBlockOperation alloc] init] autorelease];
+    [operation cancel];
+    
+    // when
+    BNFToken *token = [_factory tokens:s operation:operation];
+    
+    // then
+    STAssertNil(token, @"assume nil");
+}
+
 @end

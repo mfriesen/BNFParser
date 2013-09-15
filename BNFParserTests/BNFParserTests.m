@@ -332,4 +332,22 @@
 
 }
 
+/**
+ * cancelled operation.
+ *
+ */
+- (void)testParse16 {
+    // given
+    NSString *json = @"{\"A\":\"B\",\"C\":}";
+    BNFToken *token = [_tokenizerFactory tokens:json];
+    NSBlockOperation *operation = [[[NSBlockOperation alloc] init] autorelease];
+    [operation cancel];
+    
+    // when
+    BNFParseResult *result = [_parser parse:token operation:operation];
+    
+    // then
+    STAssertNil(result, @"assume nil");
+}
+
 @end

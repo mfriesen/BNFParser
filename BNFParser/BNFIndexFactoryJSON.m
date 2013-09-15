@@ -24,6 +24,12 @@
 @implementation BNFIndexFactoryJSON
 
 - (BNFIndex *)createIndex:(BNFParseResult *)result {
+    return [self createIndex:result operation:nil];
+}
+
+- (BNFIndex *)createIndex:(BNFParseResult *)result operation:(NSBlockOperation *)operation {
+
+    BOOL cancelled = NO;
     
     if (![result success]) {
         return nil;
@@ -72,9 +78,19 @@
         }
         
         token = [self nextToken:token];
+        
+        if ([operation isCancelled]) {
+            cancelled = YES;
+            break;
+        }
     }
     
     [stack release];
+    
+    if (cancelled) {
+        [index release];
+        return nil;
+    }
     
     return [index autorelease];
 }

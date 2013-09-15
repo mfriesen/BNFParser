@@ -42,7 +42,9 @@ typedef enum BNFTokenizerType : NSInteger {
 } BNFTokenizerType;
 
 - (BNFToken *)tokens:(NSString *)text;
-- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params;
+- (BNFToken *)tokens:(NSString *)text operation:(NSBlockOperation *)operation;
 
+- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params;
+- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params operation:(NSBlockOperation *)operation;
 @end
 

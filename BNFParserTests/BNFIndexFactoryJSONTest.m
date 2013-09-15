@@ -335,4 +335,22 @@
     STAssertTrue([resultNode eq:@"["], @"got unexpected string");
 }
 
+//
+// testFindIndex04.
+//
+- (void)testFindIndex04 {
+    
+    // given
+    NSString *s = @"{\"firstName\":\"John\",\"address\" : {\"streetAddress\" : \"21 2nd Street\"},\"phoneNumbers\":[{\"type\" :\"home\",\"number\":\"212 555-1234\"}]}";
+    BNFParseResult *parseResult = [_jsonParser parseString:s];
+    NSBlockOperation *operation = [[[NSBlockOperation alloc] init] autorelease];
+    [operation cancel];
+    
+    // when
+    BNFIndex *result = [_indexFactory createIndex:parseResult operation:operation];
+    
+    // then
+    STAssertNil(result, @"should be nil");
+}
+
 @end

@@ -30,4 +30,6 @@
 
 - (BNFParseResult *)parse:(BNFToken *)token;
 
+- (BNFParseResult *)parse:(BNFToken *)token operation:(NSBlockOperation *)operation;
+
 @end

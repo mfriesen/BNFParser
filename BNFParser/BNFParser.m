@@ -127,8 +127,29 @@
         return nil;
     }
     
-    [result setSuccess:success];
+    [self updateResult:result success:success];
+
     return [result autorelease];
+}
+
+/**
+ * Update BNFParserResult.
+ */
+- (void)updateResult:(BNFParseResult *)result success:(BOOL)success {
+    
+    BOOL succ = success;
+    BNFToken *maxMatchToken = [result maxMatchToken];
+    
+    if (maxMatchToken && [maxMatchToken nextToken]) {
+        
+        if (![result error]) {
+            [result setError:[maxMatchToken nextToken]];
+        }
+        
+        succ = NO;
+    }
+    
+    [result setSuccess:succ];
 }
 
 - (BNFToken *)updateErrorToken:(BNFToken *)token1 token2:(BNFToken *)token2 {

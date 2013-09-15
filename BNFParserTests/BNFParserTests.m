@@ -333,10 +333,30 @@
 }
 
 /**
- * cancelled operation.
+ * test extra characters at the end.
  *
  */
 - (void)testParse16 {
+    
+    // given
+    NSString *json = @"{}a";
+    BNFToken *token = [_tokenizerFactory tokens:json];
+    
+    // when
+    BNFParseResult *result = [_parser parse:token];
+    
+    // then
+    STAssertNotNil([result top], @"assume not nil");
+    STAssertNotNil([result error], @"assume nil");
+    STAssertFalse([result success], @"assume success");
+    STAssertEqualObjects(@"a", [[result error] stringValue], @"assume equals");
+}
+
+/**
+ * cancelled operation.
+ *
+ */
+- (void)testParse100 {
     // given
     NSString *json = @"{\"A\":\"B\",\"C\":}";
     BNFToken *token = [_tokenizerFactory tokens:json];

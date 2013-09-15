@@ -58,6 +58,10 @@
     return nil;
 }
 
+- (NSString *)value {
+    return nil;
+}
+
 - (NSMutableArray *)paths {
     return nil;
 }

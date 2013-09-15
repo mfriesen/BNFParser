@@ -74,6 +74,9 @@
     return _nodes;
 }
 
+- (NSString *)value {
+    return _stringValue;
+}
 
 - (void)dealloc {
     

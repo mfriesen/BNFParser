@@ -30,6 +30,8 @@
 
 - (NSString *)pathName;
 
+- (NSString *)value;
+
 - (NSMutableArray *)paths;
 
 @end

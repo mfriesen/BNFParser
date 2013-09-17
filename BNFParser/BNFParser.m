@@ -38,19 +38,21 @@
 
 - (BNFParseResult *)parseString:(NSString *)s {
     BNFTokenizerFactory *tokenizer = [[BNFTokenizerFactory alloc] init];
-    BNFToken *token = [tokenizer tokens:s];
+    BNFTokens *tokens = [tokenizer tokens:s];
     
-    BNFParseResult *result = [self parse:token];
+    BNFParseResult *result = [self parse:tokens];
     [tokenizer release];
     
     return result;
 }
 
-- (BNFParseResult *)parse:(BNFToken *)token {
-    return [self parse:token operation:nil];
+- (BNFParseResult *)parse:(BNFTokens *)tokens {
+    return [self parse:tokens operation:nil];
 }
 
-- (BNFParseResult *)parse:(BNFToken *)token operation:(NSBlockOperation *)operation {
+- (BNFParseResult *)parse:(BNFTokens *)tokens operation:(NSBlockOperation *)operation {
+    
+    BNFToken *token = [tokens nextToken];
     NSMutableArray *sd = [_sequenceMap objectForKey:@"@start"];
     [self addParserStateSequences:sd token:token parserRepetition:BNFParserRepetition_NONE repetition:BNFRepetition_NONE];
     

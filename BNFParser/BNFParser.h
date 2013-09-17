@@ -18,6 +18,7 @@
 #import "BNFToken.h"
 #import "BNFParseResult.h"
 #import "Stack.h"
+#import "BNFTokens.h"
 
 @interface BNFParser : NSObject
 
@@ -28,8 +29,8 @@
 
 - (BNFParseResult *)parseString:(NSString *)token;
 
-- (BNFParseResult *)parse:(BNFToken *)token;
+- (BNFParseResult *)parse:(BNFTokens *)token;
 
-- (BNFParseResult *)parse:(BNFToken *)token operation:(NSBlockOperation *)operation;
+- (BNFParseResult *)parse:(BNFTokens *)token operation:(NSBlockOperation *)operation;
 
 @end

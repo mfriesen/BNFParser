@@ -17,6 +17,7 @@
 #import "PropertyParser.h"
 #import "BNFTokenizerFactory.h"
 #import "BNFTokenizerParams.h"
+#import "BNFTokens.h"
 
 @implementation PropertyParser
 
@@ -30,7 +31,8 @@
     [params setIncludeWhitespace:YES];
     [params setIncludeWhitespaceNewlines:YES];
     
-    BNFToken *token = [tokenizer tokens:s params:params];
+    BNFTokens *tokens = [tokenizer tokens:s params:params];
+    BNFToken *token = [tokens nextToken];
     
     NSString *start = @"";
     NSMutableString *sb = [[NSMutableString alloc] init];
@@ -54,7 +56,7 @@
             [sb appendString:[token stringValue]];
         }
         
-        token = [token nextToken];
+        token = [tokens nextToken];
     }
     
     [self addValue:dic sb:sb start:start];

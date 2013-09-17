@@ -20,22 +20,22 @@
 
 @implementation BNFTokenizerFactory
 
-- (BNFToken *)tokens:(NSString *)text {
+- (BNFTokens *)tokens:(NSString *)text {
     return [self tokens:text operation:nil];
 }
 
-- (BNFToken *)tokens:(NSString *)text operation:(NSBlockOperation *)operation {
+- (BNFTokens *)tokens:(NSString *)text operation:(NSBlockOperation *)operation {
     BNFTokenizerParams *params = [[BNFTokenizerParams alloc] init];
-    BNFToken *token = [self tokens:text params:params operation:operation];
+    BNFTokens *tokens = [self tokens:text params:params operation:operation];
     [params release];
-    return token;
+    return tokens;
 }
 
-- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params {
+- (BNFTokens *)tokens:(NSString *)text params:(BNFTokenizerParams *)params {
     return [self tokens:text params:params operation:nil];
 }
 
-- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params operation:(NSBlockOperation *)operation {
+- (BNFTokens *)tokens:(NSString *)text params:(BNFTokenizerParams *)params operation:(NSBlockOperation *)operation {
     
     BOOL cancelled = NO;
     Stack *stack = [[Stack alloc] init];
@@ -91,21 +91,33 @@
         }
     }
     
-    BNFToken *token = nil;
-    
-    if (!cancelled) {
-        if (![stack isEmpty]) {
-            token = [[[stack firstElement] retain] autorelease];
-        } else {
-            token = [[[BNFToken alloc] init] autorelease];
-            [token setValueWithString:@""];
-        }
-    }
+    BNFTokens *tokens = [self createTokens:stack cancelled:cancelled];
     
     [ff release];
     [stack release];
     
-    return token;
+    return tokens;
+}
+
+- (BNFTokens *)createTokens:(Stack *)stack cancelled:(BOOL)cancelled {
+    
+    BNFTokens *tokens = [[BNFTokens alloc] init];
+    
+    if (!cancelled) {
+        
+        if (![stack isEmpty]) {
+            
+            [tokens setTokens:[stack objects]];
+            
+        } else {
+            
+            BNFToken *token = [[BNFToken alloc] initWithValue:@""];
+            [tokens addToken:token];
+            [token release];
+        }
+    }
+    
+    return [tokens autorelease];
 }
 
 - (BOOL)includeText:(BNFTokenizerType) type params:(BNFTokenizerParams *)params {

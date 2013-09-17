@@ -39,9 +39,10 @@
     NSString *s = @"";
  
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
  
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"", [token stringValue], @"got %@", [token stringValue]);
     STAssertFalse([token isWord], @"not expected");
     STAssertFalse([token isNumber], @"not expected");
@@ -58,9 +59,10 @@
     NSString *s = @"{ \n}";
  
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
  
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue(1 == [token identifier], @"got %d", [token identifier]);
     STAssertTrue([token isSymbol], @"expected symbol");
@@ -81,9 +83,10 @@
     NSString *s = @"{ }//bleh\nasd";
  
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
  
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isSymbol], @"expected symbol");
     token = [token nextToken];
@@ -103,9 +106,10 @@
     NSString *s = @"{ }/*bleh\n\nffsdf\n*/asd";
 
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
 
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isSymbol], @"expected symbol");
     token = [token nextToken];
@@ -125,9 +129,10 @@
     NSString *s = @"hi \"asd\"";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"hi", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     STAssertEqualObjects(@"\"asd\"", [token stringValue], @"got %@", [token stringValue]);
@@ -143,9 +148,10 @@
     NSString *s = @"\"asd\"";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"\"asd\"", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
@@ -159,9 +165,10 @@
     NSString *s = @"\"asd's\"";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"\"asd's\"", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
@@ -175,9 +182,10 @@
     NSString *s = @"\"asd's";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"\"asd's", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
 }
@@ -191,9 +199,10 @@
     NSString *s = @"{ \"asd\":\"123\"}";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
@@ -221,9 +230,10 @@
     NSString *s = @"'asd':'123'}";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"'asd'", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
     token = [token nextToken];
@@ -248,9 +258,10 @@
     NSString *s = @"'asd':123}";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"'asd'", [token stringValue], @"got %@", [token stringValue]);
     STAssertTrue([token isQuotedString], @"expected QuotedString");
     token = [token nextToken];
@@ -275,9 +286,10 @@
     NSString *s = @"{\"notes\":\"Different browsers have support for different video formats, see sub-features for details. \\r\\n\\r\\nThe Android browser (before 2.3) requires <a href=\\\"http://www.broken-links.com/2010/07/08/making-html5-video-work-on-android-phones/\\\">specific handling</a> to run the video element.\"}";
 
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
@@ -307,9 +319,10 @@
     NSString *s = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"@", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     STAssertEqualObjects(@"start", [token stringValue], @"got %@", [token stringValue]);
@@ -352,9 +365,10 @@
     NSString *s = @"{\"text\":\"Й\"}";
     
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"{", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
     
@@ -382,9 +396,10 @@
     NSString *s = @"\u042d\u0442\u043e\u0440\u0443\u0441\u0441\u043a\u0438\u0439\u0442\u0435\u043a\u0441\u0442";
         
     // when
-    BNFToken *token = [_factory tokens:s];
+    BNFTokens *tokens = [_factory tokens:s];
 
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertEqualObjects(@"Эторусскийтекст", [token stringValue], @"got %@", [token stringValue]);
     token = [token nextToken];
 
@@ -402,9 +417,10 @@
     [operation cancel];
     
     // when
-    BNFToken *token = [_factory tokens:s operation:operation];
+    BNFTokens *tokens = [_factory tokens:s operation:operation];
     
     // then
+    BNFToken *token = [tokens nextToken];
     STAssertNil(token, @"assume nil");
 }
 

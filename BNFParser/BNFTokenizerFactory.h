@@ -15,8 +15,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BNFToken.h"
 #import "BNFTokenizerParams.h"
+#import "BNFTokens.h"
 
 @interface BNFTokenizerFactory : NSObject
 
@@ -41,10 +41,10 @@ typedef enum BNFTokenizerType : NSInteger {
     BNFTokenizerType_WHITESPACE_NEWLINE
 } BNFTokenizerType;
 
-- (BNFToken *)tokens:(NSString *)text;
-- (BNFToken *)tokens:(NSString *)text operation:(NSBlockOperation *)operation;
+- (BNFTokens *)tokens:(NSString *)text;
+- (BNFTokens *)tokens:(NSString *)text operation:(NSBlockOperation *)operation;
 
-- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params;
-- (BNFToken *)tokens:(NSString *)text params:(BNFTokenizerParams *)params operation:(NSBlockOperation *)operation;
+- (BNFTokens *)tokens:(NSString *)text params:(BNFTokenizerParams *)params;
+- (BNFTokens *)tokens:(NSString *)text params:(BNFTokenizerParams *)params operation:(NSBlockOperation *)operation;
 @end
 

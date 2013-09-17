@@ -49,10 +49,10 @@
     
     // given
     NSString *json = @"{}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertNotNil([result top], @"assume not nil");
@@ -68,10 +68,10 @@
     
     // given
     NSString *json = @"[]";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -87,10 +87,10 @@
     
     // given
     NSString *json = @"";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -106,10 +106,10 @@
     
     // given
     NSString *json = @"{ \"asd\":\"123\"}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -125,10 +125,10 @@
     
     // given
     NSString *json = @"{ \"asd\":123}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -144,10 +144,10 @@
     
     // given
     NSString *json = @"{\"id\": \"118019484951173_228591\",\"message\": \"test test\"}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -163,10 +163,10 @@
     
     // given
     NSString *json = @"{\"id\": \"118019484951173_228591\",\"message\": \"test test\",\"created_time\": \"2011-06-19T09:14:16+0000\"}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -182,10 +182,10 @@
     
     // given
     NSString *json = @"{\"card\":\"2\",\"numbers\":{\"Conway\":[1,11,21,1211,111221,312211],\"Fibonacci\":[0,1,1,2,3,5,8,13,21,34]}}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -201,10 +201,10 @@
     
     // given
     NSString *json = @"[1,11,21,1211,111221,312211]";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -220,10 +220,10 @@
     
     // given
     NSString *json = @"asdasd";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertFalse([result success], @"assume fail");
@@ -240,10 +240,10 @@
     
     // given
     NSString *json = @"{ asdasd";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertFalse([result success], @"assume fail");
@@ -261,10 +261,10 @@
     
     // given
     NSString *json = @"{\"id\": \"118019484951173_228591\",\"message\": \"test test\",\"created_time\"! \"2011-06-19T09:14:16+0000\"}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertFalse([result success], @"assume fail");
@@ -281,10 +281,10 @@
     
     // given
     NSString *json = @"[";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertNotNil([result top], @"assume not nil");
@@ -301,10 +301,10 @@
     
     // given
     NSString *json = @"{\"A\":null}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertTrue([result success], @"assume success");
@@ -319,10 +319,10 @@
 - (void)testParse15 {
     // given
     NSString *json = @"{\"A\":\"B\",\"C\":}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then    
     STAssertNotNil([result top], @"assume not nil");
@@ -340,10 +340,10 @@
     
     // given
     NSString *json = @"{}a";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     
     // when
-    BNFParseResult *result = [_parser parse:token];
+    BNFParseResult *result = [_parser parse:tokens];
     
     // then
     STAssertNotNil([result top], @"assume not nil");
@@ -359,12 +359,12 @@
 - (void)testParse100 {
     // given
     NSString *json = @"{\"A\":\"B\",\"C\":}";
-    BNFToken *token = [_tokenizerFactory tokens:json];
+    BNFTokens *tokens = [_tokenizerFactory tokens:json];
     NSBlockOperation *operation = [[[NSBlockOperation alloc] init] autorelease];
     [operation cancel];
     
     // when
-    BNFParseResult *result = [_parser parse:token operation:operation];
+    BNFParseResult *result = [_parser parse:tokens operation:operation];
     
     // then
     STAssertNil(result, @"assume nil");

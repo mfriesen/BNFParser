@@ -70,7 +70,6 @@
 
 - (void)dealloc {
     [_stringValue release];
-    [_nextToken release];
     [super dealloc];
 }
 @end
